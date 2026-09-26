@@ -43,7 +43,7 @@ export function TermModal({
           onClick={() =>
             navigate({
               to: "/practice",
-              search: { scenario: term.scenarioId },
+              search: { ...(term.scenarioId ? { scenario: term.scenarioId } : {}) },
             })
           }
         >
