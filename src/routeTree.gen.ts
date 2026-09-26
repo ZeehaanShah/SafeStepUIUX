@@ -12,9 +12,12 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AppRouteImport } from './routes/_app'
 import { Route as LoginRouteImport } from './routes/login'
+import { Route as AppAccountRouteImport } from './routes/_app.account'
+import { Route as AppAssistantRouteImport } from './routes/_app.assistant'
 import { Route as AppCheckRouteImport } from './routes/_app.check'
 import { Route as AppHomeRouteImport } from './routes/_app.home'
 import { Route as AppPracticeRouteImport } from './routes/_app.practice'
+import { Route as AppRecapRouteImport } from './routes/_app.recap'
 import { Route as AppWordsRouteImport } from './routes/_app.words'
 
 const IndexRoute = IndexRouteImport.update({
@@ -31,6 +34,16 @@ const LoginRoute = LoginRouteImport.update({
   path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AppAccountRoute = AppAccountRouteImport.update({
+  id: '/account',
+  path: '/account',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppAssistantRoute = AppAssistantRouteImport.update({
+  id: '/assistant',
+  path: '/assistant',
+  getParentRoute: () => AppRoute,
+} as any)
 const AppCheckRoute = AppCheckRouteImport.update({
   id: '/check',
   path: '/check',
@@ -46,6 +59,11 @@ const AppPracticeRoute = AppPracticeRouteImport.update({
   path: '/practice',
   getParentRoute: () => AppRoute,
 } as any)
+const AppRecapRoute = AppRecapRouteImport.update({
+  id: '/recap',
+  path: '/recap',
+  getParentRoute: () => AppRoute,
+} as any)
 const AppWordsRoute = AppWordsRouteImport.update({
   id: '/words',
   path: '/words',
@@ -55,17 +73,23 @@ const AppWordsRoute = AppWordsRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/login': typeof LoginRoute
+  '/account': typeof AppAccountRoute
+  '/assistant': typeof AppAssistantRoute
   '/check': typeof AppCheckRoute
   '/home': typeof AppHomeRoute
   '/practice': typeof AppPracticeRoute
+  '/recap': typeof AppRecapRoute
   '/words': typeof AppWordsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/login': typeof LoginRoute
+  '/account': typeof AppAccountRoute
+  '/assistant': typeof AppAssistantRoute
   '/check': typeof AppCheckRoute
   '/home': typeof AppHomeRoute
   '/practice': typeof AppPracticeRoute
+  '/recap': typeof AppRecapRoute
   '/words': typeof AppWordsRoute
 }
 export interface FileRoutesById {
@@ -73,24 +97,48 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/_app': typeof AppRouteWithChildren
   '/login': typeof LoginRoute
+  '/_app/account': typeof AppAccountRoute
+  '/_app/assistant': typeof AppAssistantRoute
   '/_app/check': typeof AppCheckRoute
   '/_app/home': typeof AppHomeRoute
   '/_app/practice': typeof AppPracticeRoute
+  '/_app/recap': typeof AppRecapRoute
   '/_app/words': typeof AppWordsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/login' | '/check' | '/home' | '/practice' | '/words'
+  fullPaths:
+    | '/'
+    | '/login'
+    | '/account'
+    | '/assistant'
+    | '/check'
+    | '/home'
+    | '/practice'
+    | '/recap'
+    | '/words'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/login' | '/check' | '/home' | '/practice' | '/words'
+  to:
+    | '/'
+    | '/login'
+    | '/account'
+    | '/assistant'
+    | '/check'
+    | '/home'
+    | '/practice'
+    | '/recap'
+    | '/words'
   id:
     | '__root__'
     | '/'
     | '/_app'
     | '/login'
+    | '/_app/account'
+    | '/_app/assistant'
     | '/_app/check'
     | '/_app/home'
     | '/_app/practice'
+    | '/_app/recap'
     | '/_app/words'
   fileRoutesById: FileRoutesById
 }
@@ -123,6 +171,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_app/account': {
+      id: '/_app/account'
+      path: '/account'
+      fullPath: '/account'
+      preLoaderRoute: typeof AppAccountRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/assistant': {
+      id: '/_app/assistant'
+      path: '/assistant'
+      fullPath: '/assistant'
+      preLoaderRoute: typeof AppAssistantRouteImport
+      parentRoute: typeof AppRoute
+    }
     '/_app/check': {
       id: '/_app/check'
       path: '/check'
@@ -144,6 +206,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppPracticeRouteImport
       parentRoute: typeof AppRoute
     }
+    '/_app/recap': {
+      id: '/_app/recap'
+      path: '/recap'
+      fullPath: '/recap'
+      preLoaderRoute: typeof AppRecapRouteImport
+      parentRoute: typeof AppRoute
+    }
     '/_app/words': {
       id: '/_app/words'
       path: '/words'
@@ -155,16 +224,22 @@ declare module '@tanstack/react-router' {
 }
 
 interface AppRouteChildren {
+  AppAccountRoute: typeof AppAccountRoute
+  AppAssistantRoute: typeof AppAssistantRoute
   AppCheckRoute: typeof AppCheckRoute
   AppHomeRoute: typeof AppHomeRoute
   AppPracticeRoute: typeof AppPracticeRoute
+  AppRecapRoute: typeof AppRecapRoute
   AppWordsRoute: typeof AppWordsRoute
 }
 
 const AppRouteChildren: AppRouteChildren = {
+  AppAccountRoute: AppAccountRoute,
+  AppAssistantRoute: AppAssistantRoute,
   AppCheckRoute: AppCheckRoute,
   AppHomeRoute: AppHomeRoute,
   AppPracticeRoute: AppPracticeRoute,
+  AppRecapRoute: AppRecapRoute,
   AppWordsRoute: AppWordsRoute,
 }
 
