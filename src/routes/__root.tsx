@@ -131,8 +131,16 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <div className="hidden min-h-screen items-center justify-center px-8 text-center max-[1279px]:flex">
+        <p className="max-w-md text-xl font-semibold leading-relaxed">
+          For the best experience, please use a laptop or desktop screen.
+        </p>
+      </div>
+      <div className="max-[1279px]:hidden">
+        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+        <Outlet />
+      </div>
     </QueryClientProvider>
   );
 }
+
