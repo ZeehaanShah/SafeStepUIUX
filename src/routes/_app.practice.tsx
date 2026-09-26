@@ -12,9 +12,10 @@ import { TermGlyph } from "@/components/safestep/icons";
 import { scenarios } from "@/lib/safestep-data";
 
 export const Route = createFileRoute("/_app/practice")({
-  validateSearch: (search: Record<string, unknown>) => ({
-    scenario: typeof search.scenario === "string" ? search.scenario : undefined,
-  }),
+  validateSearch: (search: Record<string, unknown>): { scenario?: string } => {
+    const value = search["scenario"];
+    return typeof value === "string" ? { scenario: value } : {};
+  },
   head: () => ({
     meta: [
       { title: "Practice a Scenario — SafeStep" },

@@ -16,6 +16,7 @@ export function TermModal({
   const navigate = useNavigate();
   if (index === null) return null;
   const term = terms[index];
+  if (!term) return null;
 
   return (
     <Modal open onClose={onClose} labelledBy="term-title">
@@ -42,7 +43,7 @@ export function TermModal({
           onClick={() =>
             navigate({
               to: "/practice",
-              search: term.scenarioId ? { scenario: term.scenarioId } : {},
+              search: { scenario: term.scenarioId },
             })
           }
         >

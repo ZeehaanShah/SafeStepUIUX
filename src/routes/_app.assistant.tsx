@@ -5,9 +5,10 @@ import { PageHeader, RiskMeter } from "@/components/safestep/ui";
 import { AlertTriangle } from "lucide-react";
 
 export const Route = createFileRoute("/_app/assistant")({
-  validateSearch: (search: Record<string, unknown>) => ({
-    message: typeof search.message === "string" ? search.message : undefined,
-  }),
+  validateSearch: (search: Record<string, unknown>): { message?: string } => {
+    const value = search["message"];
+    return typeof value === "string" ? { message: value } : {};
+  },
   head: () => ({
     meta: [
       { title: "SafeStep Assistant — SafeStep" },

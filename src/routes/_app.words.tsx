@@ -7,9 +7,10 @@ import { TermModal } from "@/components/safestep/term-modal";
 import { termCategories, terms } from "@/lib/safestep-data";
 
 export const Route = createFileRoute("/_app/words")({
-  validateSearch: (search: Record<string, unknown>) => ({
-    term: typeof search.term === "string" ? search.term : undefined,
-  }),
+  validateSearch: (search: Record<string, unknown>): { term?: string } => {
+    const value = search["term"];
+    return typeof value === "string" ? { term: value } : {};
+  },
   head: () => ({
     meta: [
       { title: "Learn a Word — SafeStep" },
