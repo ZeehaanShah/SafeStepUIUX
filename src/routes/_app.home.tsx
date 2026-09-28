@@ -2,7 +2,9 @@ import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { ArrowRight, MailSearch, MessageSquareCheck, ShieldCheck } from "lucide-react";
 import { Button, Card, ClickableCard, DotTracker } from "@/components/safestep/ui";
 import { TermGlyph } from "@/components/safestep/icons";
-import { mockUser, terms, weekDots } from "@/lib/safestep-data";
+import { mockUser, mockWeek, terms } from "@/lib/safestep-data";
+import { useLang } from "@/lib/i18n";
+const weekDots = mockWeek.map((d) => d.check || d.practice);
 
 export const Route = createFileRoute("/_app/home")({
   head: () => ({
@@ -25,6 +27,7 @@ export const Route = createFileRoute("/_app/home")({
 
 function HomePage() {
   const navigate = useNavigate();
+  const { tx } = useLang();
   const today = new Date().toLocaleDateString("en-IN", {
     weekday: "long",
     day: "numeric",
@@ -34,7 +37,7 @@ function HomePage() {
   return (
     <div>
       <header className="mb-10">
-        <h1 className="text-[28px] font-bold">Good morning, {mockUser.name}</h1>
+        <h1 className="text-[28px] font-bold">Good morning, {tx(mockUser.name)}</h1>
         <p className="mt-2 text-base text-muted-foreground">{today}</p>
       </header>
 
@@ -86,7 +89,7 @@ function HomePage() {
               onClick={() => navigate({ to: "/words", search: { term: term.id } })}
             >
               <TermGlyph name={term.icon} className="size-8" />
-              <span className="text-base font-semibold leading-snug">{term.name}</span>
+              <span className="text-base font-semibold leading-snug">{tx(term.name)}</span>
             </ClickableCard>
           ))}
         </div>

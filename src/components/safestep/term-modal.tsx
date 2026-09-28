@@ -2,6 +2,7 @@ import { useNavigate } from "@tanstack/react-router";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { terms } from "@/lib/safestep-data";
 import { TermGlyph } from "./icons";
+import { useLang } from "@/lib/i18n";
 import { Button, Modal, Pill } from "./ui";
 
 export function TermModal({
@@ -14,6 +15,7 @@ export function TermModal({
   onChangeIndex: (i: number) => void;
 }) {
   const navigate = useNavigate();
+  const { tx } = useLang();
   if (index === null) return null;
   const term = terms[index];
   if (!term) return null;
@@ -24,7 +26,7 @@ export function TermModal({
         <TermGlyph name={term.icon} className="size-14" />
         <div>
           <h2 id="term-title" className="text-[28px] font-bold">
-            {term.name}
+            {tx(term.name)}
           </h2>
           <div className="mt-2">
             <Pill tone="teal">{term.category}</Pill>
@@ -33,9 +35,9 @@ export function TermModal({
       </div>
 
       <div className="mt-8 space-y-7">
-        <Section title="What it means:" body={term.meaning} />
-        <Section title="A real example:" body={term.example} />
-        <Section title="How to stay safe:" body={term.safety} />
+        <Section title="What it means:" body={tx(term.meaning)} />
+        <Section title="A real example:" body={tx(term.example)} />
+        <Section title="How to stay safe:" body={term.remember.map(tx).join(" • ")} />
       </div>
 
       <div className="mt-9">

@@ -3,7 +3,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ChevronDown, Link2, MailSearch, MessageSquareCheck } from "lucide-react";
 import { Button, Card, DotTracker, PageHeader } from "@/components/safestep/ui";
 import { TermGlyph } from "@/components/safestep/icons";
-import { terms, weekDayLabels, weekDots } from "@/lib/safestep-data";
+import { mockWeek, terms, weekDayLabels } from "@/lib/safestep-data";
+import { useLang } from "@/lib/i18n";
+const weekDots = mockWeek.map((d) => d.check || d.practice);
 
 export const Route = createFileRoute("/_app/recap")({
   head: () => ({
@@ -26,6 +28,7 @@ const learned = terms.slice(0, 3);
 function RecapPage() {
   const [openTerm, setOpenTerm] = useState<string | null>(null);
   const [share, setShare] = useState(false);
+  const { tx } = useLang();
 
   return (
     <div>
@@ -49,7 +52,7 @@ function RecapPage() {
       <Card className="mt-8">
         <h2 className="text-xl font-bold">Your week, day by day</h2>
         <div className="mt-6">
-          <DotTracker days={weekDots} labels={weekDayLabels} />
+          <DotTracker days={weekDots} labels={weekDayLabels.map(tx)} />
         </div>
       </Card>
 
@@ -61,7 +64,7 @@ function RecapPage() {
               <div className="flex items-center justify-between gap-6">
                 <div className="flex items-center gap-4">
                   <TermGlyph name={term.icon} className="size-8" />
-                  <span className="text-lg font-bold">{term.name}</span>
+                  <span className="text-lg font-bold">{tx(term.name)}</span>
                 </div>
                 <button
                   type="button"
@@ -78,7 +81,7 @@ function RecapPage() {
                 </button>
               </div>
               {openTerm === term.id ? (
-                <p className="mt-5 text-base leading-relaxed">{term.meaning}</p>
+                <p className="mt-5 text-base leading-relaxed">{tx(term.meaning)}</p>
               ) : null}
             </Card>
           ))}
