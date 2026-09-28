@@ -11,6 +11,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { LanguageProvider } from "../lib/i18n";
 
 function NotFoundComponent() {
   return (
@@ -131,6 +132,7 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <LanguageProvider>
       <div className="hidden min-h-screen items-center justify-center px-8 text-center max-[1279px]:flex">
         <p className="max-w-md text-xl font-semibold leading-relaxed">
           For the best experience, please use a laptop or desktop screen.
@@ -140,6 +142,7 @@ function RootComponent() {
         {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
         <Outlet />
       </div>
+      </LanguageProvider>
     </QueryClientProvider>
   );
 }

@@ -5,6 +5,7 @@ import { ClickableCard, PageHeader, Pill } from "@/components/safestep/ui";
 import { TermGlyph } from "@/components/safestep/icons";
 import { TermModal } from "@/components/safestep/term-modal";
 import { termCategories, terms } from "@/lib/safestep-data";
+import { useLang } from "@/lib/i18n";
 
 export const Route = createFileRoute("/_app/words")({
   validateSearch: (search: Record<string, unknown>): { term?: string } => {
@@ -32,6 +33,7 @@ export const Route = createFileRoute("/_app/words")({
 function WordsPage() {
   const { term: termParam } = Route.useSearch();
   const [query, setQuery] = useState("");
+  const { tx } = useLang();
   const [category, setCategory] = useState<(typeof termCategories)[number]>("All");
   const [openIndex, setOpenIndex] = useState<number | null>(() => {
     const i = terms.findIndex((t) => t.id === termParam);
@@ -41,7 +43,7 @@ function WordsPage() {
   const visible = terms.filter(
     (t) =>
       (category === "All" || t.category === category) &&
-      t.name.toLowerCase().includes(query.trim().toLowerCase()),
+      tx(t.name).toLowerCase().includes(query.trim().toLowerCase()),
   );
 
   return (
@@ -78,12 +80,12 @@ function WordsPage() {
         {visible.map((term) => (
           <ClickableCard
             key={term.id}
-            ariaLabel={`Open ${term.name}`}
+            ariaLabel={`Open ${tx(term.name)}`}
             onClick={() => setOpenIndex(terms.findIndex((t) => t.id === term.id))}
             className="flex flex-col gap-4"
           >
             <TermGlyph name={term.icon} className="size-10" />
-            <span className="text-xl font-bold leading-snug">{term.name}</span>
+            <span className="text-xl font-bold leading-snug">{tx(term.name)}</span>
             <span>
               <Pill tone="teal">{term.category}</Pill>
             </span>

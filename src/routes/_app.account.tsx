@@ -61,7 +61,7 @@ function AccountPage() {
         <dl className="mt-6 space-y-5 text-lg">
           <div className="flex justify-between gap-8">
             <dt className="text-muted-foreground">Name</dt>
-            <dd className="font-semibold">{mockUser.name}</dd>
+            <dd className="font-semibold">{mockUser.name.en}</dd>
           </div>
           <div className="flex justify-between gap-8">
             <dt className="text-muted-foreground">Phone number</dt>

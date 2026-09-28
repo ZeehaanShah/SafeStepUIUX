@@ -10,6 +10,7 @@ import {
 } from "@/components/safestep/ui";
 import { TermGlyph } from "@/components/safestep/icons";
 import { scenarios } from "@/lib/safestep-data";
+import { useLang } from "@/lib/i18n";
 
 export const Route = createFileRoute("/_app/practice")({
   validateSearch: (search: Record<string, unknown>): { scenario?: string } => {
@@ -39,6 +40,7 @@ function PracticePage() {
   const [activeId, setActiveId] = useState<string | null>(scenarioParam ?? null);
   const [choice, setChoice] = useState<number | null>(null);
   const [celebrate, setCelebrate] = useState(false);
+  const { tx } = useLang();
 
   const active = scenarios.find((s) => s.id === activeId) ?? null;
 
@@ -60,8 +62,8 @@ function PracticePage() {
               className="flex flex-col gap-4"
             >
               <TermGlyph name={s.icon} className="size-10" />
-              <span className="text-xl font-bold leading-snug">{s.title}</span>
-              <span className="text-base text-muted-foreground">{s.blurb}</span>
+              <span className="text-xl font-bold leading-snug">{tx(s.title)}</span>
+              <span className="text-base text-muted-foreground">{tx(s.blurb)}</span>
             </ClickableCard>
           ))}
         </div>
@@ -82,16 +84,16 @@ function PracticePage() {
         All scenarios
       </button>
 
-      <PageHeader title={active.title} />
+      <PageHeader title={tx(active.title)} />
 
       <div className="card-surface relative rounded-2xl bg-primary-soft p-8">
-        <p className="text-xl leading-relaxed">{active.situation}</p>
+        <p className="text-xl leading-relaxed">{tx(active.situation)}</p>
       </div>
 
       <div className="mt-8 flex flex-col gap-4">
         {active.options.map((opt, i) => (
           <button
-            key={opt.label}
+            key={i}
             type="button"
             onClick={() => {
               setChoice(i);
@@ -104,7 +106,7 @@ function PracticePage() {
             }
           >
             <span className="mr-3 font-bold text-primary">{i === 0 ? "A" : "B"}</span>
-            {opt.label}
+            {tx(opt.label)}
           </button>
         ))}
       </div>
@@ -114,7 +116,7 @@ function PracticePage() {
           <Card
             className={`border-l-8 ${selected.safe ? "border-l-safe" : "border-l-accent"}`}
           >
-            <p className="text-lg leading-relaxed">{selected.feedback}</p>
+            <p className="text-lg leading-relaxed">{tx(selected.safe ? active.correctFeedback : active.incorrectFeedback)}</p>
             {!celebrate ? (
               <div className="mt-6">
                 <Button onClick={() => setCelebrate(true)}>Continue</Button>
