@@ -1,0 +1,2032 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SafeStep Mini Games</title>
+<style>
+  :root {
+    --teal: #0F5E4E; --tealDark: #0B4A3D; --mint: #DCF0EA; --amber: #E39A2D;
+    --amberBg: #FDECD2; --red: #B4432F; --green: #2C7A55; --cream: #F8F5EF;
+    --ink: #16302B; --muted: #56645F; --line: #E3DDD0; --card: #fff;
+    --accent: #0F5E4E; --pageBg: var(--cream); --pageInk: var(--ink); --panel: var(--card);
+    --overlay: #F8F5EF;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --cream: #101816; --ink: #E8F2EE; --muted: #A9BDB6; --line: #2A3B37; --mint: #17302A; --amberBg: #3A2C16; --card: #1B2926; --accent: #5FC3A8; --overlay: #101816; }
+  }
+  :root[data-theme="dark"] { --cream: #101816; --ink: #E8F2EE; --muted: #A9BDB6; --line: #2A3B37; --mint: #17302A; --amberBg: #3A2C16; --card: #1B2926; --accent: #5FC3A8; --overlay: #101816; }
+
+  /* Each game gets its own background theme. The picker keeps the base app theme. */
+  body.theme-tower {
+    --pageBg: radial-gradient(ellipse 120px 40px at 18% 14%, #ffffffcc, transparent 70%),
+              radial-gradient(ellipse 160px 52px at 82% 28%, #ffffffb3, transparent 70%),
+              radial-gradient(ellipse 90px 30px at 60% 6%, #ffffffaa, transparent 70%),
+              linear-gradient(180deg, #5bbde9 0%, #b9e6fb 55%, #eaf8ff 100%);
+    --pageInk: #0b3b4f; --panel: #ffffff; --ink: #0b3b4f; --muted: #46687a; --accent: #1b6a8a;
+    --line: #bfdde8; --mint: #d6efff; --cream: #eef9ff; --card: #ffffff; --amberBg: #ffe9b8; --overlay: #ffffff;
+  }
+  body.theme-phone {
+    --pageBg: radial-gradient(#ffffff26 1.2px, transparent 1.4px) 0 0 / 22px 22px,
+              radial-gradient(circle at 85% 8%, #8f96ff55, transparent 40%),
+              linear-gradient(160deg, #1d1b57 0%, #33379a 55%, #5a5fd0 100%);
+    --pageInk: #ffffff; --panel: #f2f3ff; --ink: #1c2050; --muted: #545d8c; --accent: #3a3e9e;
+    --line: #d4d8f2; --mint: #dfe3ff; --cream: #ebedff; --card: #ffffff; --amberBg: #ffe7bf; --overlay: #f2f3ff;
+  }
+  body.theme-candy {
+    --pageBg: radial-gradient(circle at 15% 20%, #ffffff66 0 7px, transparent 8px) 0 0 / 40px 40px,
+              radial-gradient(circle at 70% 75%, #ffffff55 0 5px, transparent 6px) 0 0 / 56px 56px,
+              linear-gradient(135deg, #ff8fc7 0%, #ffc66b 50%, #7fe3c8 100%);
+    --pageInk: #4a0f3a; --panel: #fff7fb; --ink: #3b0d2c; --muted: #7a3f66; --accent: #c2307a;
+    --line: #f3c7e2; --mint: #ffe0f0; --cream: #fff0f8; --card: #ffffff; --amberBg: #fff0c2; --overlay: #fff7fb;
+  }
+
+  /* Dark versions of each game's background. Used when the dark theme is on (set by the toggle or the device). */
+  html[data-theme="dark"] { color-scheme: dark; }
+  html[data-theme="dark"] body.theme-tower {
+    --pageBg: radial-gradient(1.2px 1.2px at 20% 18%, #ffffffaa, transparent 2px),
+              radial-gradient(1px 1px at 70% 9%, #ffffff88, transparent 2px),
+              radial-gradient(1.4px 1.4px at 88% 40%, #ffffff99, transparent 2px),
+              linear-gradient(180deg, #071a26 0%, #0f3345 60%, #15465c 100%);
+    --pageInk: #d9f2ff; --panel: #132a36; --ink: #e2f4ff; --muted: #9cc3d4; --accent: #5ec8f0;
+    --line: #24485a; --mint: #1c3f52; --cream: #0c2030; --card: #163444; --amberBg: #3d3216; --overlay: #0f2430;
+  }
+  html[data-theme="dark"] body.theme-phone {
+    --pageBg: radial-gradient(#ffffff1f 1.2px, transparent 1.4px) 0 0 / 22px 22px,
+              radial-gradient(circle at 85% 8%, #6f76ff44, transparent 40%),
+              linear-gradient(160deg, #0a0a24 0%, #1a1c52 55%, #2a2e7a 100%);
+    --pageInk: #f0f1ff; --panel: #1d1f57; --ink: #eef0ff; --muted: #b3b8e6; --accent: #9aa0ff;
+    --line: #3a3e8c; --mint: #2a2e74; --cream: #14164a; --card: #25286b; --amberBg: #4a3a18; --overlay: #181a52;
+  }
+  html[data-theme="dark"] body.theme-candy {
+    --pageBg: radial-gradient(circle at 15% 20%, #ffffff22 0 7px, transparent 8px) 0 0 / 40px 40px,
+              radial-gradient(circle at 70% 75%, #ffffff1a 0 5px, transparent 6px) 0 0 / 56px 56px,
+              linear-gradient(135deg, #3d0c30 0%, #5c1f3a 50%, #14403e 100%);
+    --pageInk: #ffe6f4; --panel: #2c0f27; --ink: #ffe6f4; --muted: #e8a9cd; --accent: #ff6fb0;
+    --line: #5a2445; --mint: #4a1a3b; --cream: #300d26; --card: #3a1537; --amberBg: #4d3a12; --overlay: #2c0f27;
+  }
+  #themeBtn .ico { width: 18px; height: 18px; display: inline-block; vertical-align: -4px; margin-right: 4px; }
+
+  * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
+  body {
+    margin: 0; min-height: 100vh; background: var(--pageBg); background-attachment: fixed; color: var(--pageInk);
+    font-family: Inter, "Noto Sans Devanagari", system-ui, sans-serif; font-size: 18px;
+    display: flex; justify-content: center; padding: 16px; transition: background .5s ease;
+  }
+  .wrap { width: 100%; max-width: 420px; }
+  h1 { font-size: 24px; margin: 4px 0 8px; color: var(--pageInk); }
+  h2 { font-size: 20px; margin: 0 0 6px; color: var(--accent); }
+  .lead { color: var(--muted); margin: 0 0 12px; font-size: 16px; line-height: 1.45; }
+  .game {
+    margin-bottom: 22px; padding: 18px 16px; border-radius: 22px; background: var(--panel); color: var(--ink);
+    box-shadow: 0 10px 28px rgba(0,0,0,.14);
+  }
+  .game.enter { animation: fadeUp .35s ease-out; }
+  .row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-bottom: 10px; }
+  button {
+    font: inherit; font-size: 16px; min-height: 44px; padding: 8px 14px; border-radius: 12px;
+    border: 1px solid var(--line); background: var(--card); color: var(--ink); cursor: pointer;
+    transition: transform .12s ease, box-shadow .2s ease, background .2s ease;
+  }
+  button:hover:not(:disabled) { box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+  button:active:not(:disabled) { transform: scale(.97); }
+  button:disabled { opacity: .5; cursor: default; }
+  button.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+  button.on { background: var(--mint); border-color: var(--accent); font-weight: 600; }
+  button:focus-visible { outline: 3px solid var(--amber); outline-offset: 2px; }
+  .lang-row button { background: var(--card); color: var(--ink); }
+  .backBtn { margin-bottom: 10px; }
+
+  /* Keyframes */
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes dropIn { from { opacity: 0; transform: translateY(-6px) scale(.94); } to { opacity: 1; transform: none; } }
+  @keyframes shake { 0%,100% { transform: translateX(0); } 20% { transform: translateX(-7px); } 40% { transform: translateX(6px); } 60% { transform: translateX(-4px); } 80% { transform: translateX(3px); } }
+  @keyframes stamp { 0% { transform: scale(2.2); opacity: 0; } 60% { transform: scale(.9); opacity: 1; } 100% { transform: scale(1); } }
+  @keyframes flashRed { 0% { background: var(--red); } 100% { background: var(--amberBg); } }
+  @keyframes glowGreen { 0% { box-shadow: 0 0 0 0 rgba(44,122,85,.6); } 100% { box-shadow: 0 0 0 16px rgba(44,122,85,0); } }
+  @keyframes floatUp { 0% { opacity: 0; transform: translate(-50%, 10px) scale(.8); } 20% { opacity: 1; transform: translate(-50%, 0) scale(1.05); } 100% { opacity: 0; transform: translate(-50%, -26px) scale(1); } }
+
+  /* Game chooser */
+  .picks { display: grid; gap: 12px; }
+  .pick {
+    display: flex; flex-direction: column; align-items: flex-start; gap: 6px;
+    min-height: 120px; padding: 16px; text-align: left; white-space: normal; line-height: 1.35;
+    background: var(--card);
+  }
+  .pick:hover:not(:disabled) { border-color: var(--accent); transform: translateY(-2px); }
+  .pickIcon { font-size: 30px; }
+  .pickName { font-size: 18px; font-weight: 700; color: var(--accent); }
+  .pickDesc { font-size: 15px; color: var(--muted); }
+
+  /* Shared overlay */
+  .overlay {
+    position: absolute; inset: 0; display: none; align-items: center; justify-content: center;
+    text-align: center; padding: 24px; background: color-mix(in srgb, var(--overlay) 95%, transparent);
+    z-index: 5; border-radius: inherit;
+  }
+  .overlay.show { display: flex; animation: fadeIn .3s ease-out; }
+  .overlay h2 { margin: 0 0 8px; }
+  .overlay p { margin: 0 0 14px; line-height: 1.5; }
+  .factHead { font-weight: 700; color: var(--amber); margin: 0 0 4px !important; }
+  .fact { background: var(--amberBg); border-radius: 12px; padding: 10px 12px; margin: 0 0 14px !important; font-size: 16px; color: var(--ink); }
+
+  .stats { display: flex; justify-content: space-between; font-weight: 600; margin-bottom: 8px; font-size: 16px; }
+  .hearts { letter-spacing: 3px; display: inline-block; }
+  .feedback, .info {
+    min-height: 62px; margin-top: 10px; padding: 10px 12px; border-radius: 12px;
+    background: var(--card); border: 1px solid var(--line); font-size: 16px; line-height: 1.45; color: var(--ink);
+  }
+  .feedback.good, .info.good { border-color: var(--green); }
+  .feedback.bad, .info.bad { border-color: var(--red); }
+  .info { min-height: 74px; margin: 10px 0; }
+
+  /* Game 1: Message Drop Tower */
+  .tower {
+    position: relative; height: 470px; border-radius: 22px; overflow: hidden;
+    background: linear-gradient(180deg, var(--mint), var(--card) 85%);
+    border: 1px solid var(--line);
+  }
+  .lane-bottom {
+    position: absolute; left: 0; right: 0; bottom: 0; height: 58px;
+    background: var(--amberBg); border-top: 2px dashed var(--amber);
+    display: flex; align-items: center; justify-content: center; text-align: center;
+    padding: 0 10px; font-size: 14px; font-weight: 600; color: var(--ink);
+  }
+  .lane-bottom.flash { animation: flashRed .6s ease-out; }
+  .msg {
+    position: absolute; left: 10px; right: 10px; top: -120px; padding: 12px 14px;
+    border-radius: 14px; background: var(--card); border: 1px solid var(--line);
+    box-shadow: 0 3px 8px rgba(0,0,0,.08); cursor: pointer; font-size: 16px; line-height: 1.4; color: var(--ink);
+    user-select: none; transition: transform .15s;
+  }
+  .msg.enter { animation: dropIn .35s ease-out; }
+  .msg:hover { transform: scale(1.02); }
+  .msg.pop { transform: scale(.6); opacity: 0; transition: transform .25s, opacity .25s; }
+  .msg.shake { animation: shake .4s; border-color: var(--red); }
+  .msg .tag { font-size: 12px; color: var(--muted); display: block; margin-bottom: 4px; }
+
+  /* Game 2: Build Your Safe Phone */
+  .phoneBox { position: relative; }
+  .phone {
+    background: var(--card); border: 8px solid #1d2b28; border-radius: 30px;
+    padding: 14px 12px 16px; max-width: 360px; margin: 0 auto 12px;
+  }
+  .phone.breach { animation: shake .45s; }
+  .phone.blocked { animation: glowGreen .7s ease-out; }
+  .phoneTop { display: flex; justify-content: space-between; font-weight: 600; font-size: 15px; margin-bottom: 8px; }
+  .meter { display: grid; grid-template-columns: 92px 1fr 40px; gap: 8px; align-items: center; font-size: 14px; margin: 5px 0; }
+  .bar { height: 10px; background: var(--line); border-radius: 6px; overflow: hidden; }
+  .bar > span { display: block; height: 100%; width: 0; background: var(--green); transition: width .5s ease; }
+  .threat {
+    margin: 10px 0; padding: 10px 12px; border-radius: 12px; background: var(--amberBg);
+    border: 1px solid var(--amber); font-size: 15px; line-height: 1.45; color: var(--ink);
+  }
+  .threat .head { font-weight: 700; display: block; margin-bottom: 4px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .tile {
+    position: relative; display: flex; flex-direction: column; align-items: flex-start; gap: 3px;
+    min-height: 96px; padding: 10px; text-align: left; font-size: 14px; line-height: 1.25;
+    white-space: normal; background: var(--cream); color: var(--ink);
+  }
+  .tile.done { background: var(--mint); border-color: var(--green); }
+  .tile.locked { opacity: .65; }
+  .tile.sel { border-color: var(--accent); box-shadow: 0 0 0 2px var(--amber) inset; }
+  .ticon { font-size: 22px; }
+  .ttitle { font-weight: 600; }
+  .tstat { font-size: 13px; color: var(--muted); }
+  .tick {
+    position: absolute; top: 6px; right: 8px; color: #fff; background: var(--green);
+    border-radius: 50%; width: 22px; height: 22px; text-align: center; line-height: 22px; font-size: 13px;
+  }
+  .tick.stamp { animation: stamp .4s ease-out; }
+  .log { margin: 0; padding-left: 18px; font-size: 14px; line-height: 1.45; color: var(--muted); }
+  .log li { margin-bottom: 4px; }
+  .log li.new { animation: fadeUp .4s ease-out; }
+
+  /* Game 3: Safe Match (20 levels, objectives and special tiles) */
+  .levelMap { display: grid; grid-template-columns: repeat(10, 1fr); gap: 4px; margin: 4px 0 10px; }
+  .lvl { min-height: 34px; padding: 0; font-size: 13px; border-radius: 8px; }
+  .lvl.done { background: var(--mint); border-color: var(--green); }
+  .lvl.cur { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .boardBox { position: relative; }
+  .board {
+    padding: 8px; background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+    overflow: hidden; touch-action: manipulation;
+  }
+  .inner { position: relative; width: 100%; aspect-ratio: 1; }
+  .tl {
+    position: absolute; top: 0; left: 0; display: flex; align-items: center; justify-content: center;
+    border-radius: 12px; color: #fff; line-height: 1; cursor: pointer;
+    box-shadow: inset 0 -3px 0 rgba(0,0,0,.18), 0 2px 4px rgba(0,0,0,.12);
+    transition: transform .3s cubic-bezier(.3,1.3,.6,1);
+    will-change: transform;
+  }
+  .tl:active { filter: brightness(1.08); }
+  .tl.sel { outline: 3px solid var(--amber); outline-offset: 1px; }
+  .tl.pop { animation: pop .3s ease-in forwards; pointer-events: none; }
+  @keyframes pop { 0% { scale: 1; opacity: 1; } 50% { scale: 1.2; } 100% { scale: .1; opacity: 0; } }
+  .t0 { background: #0F5E4E; } .t1 { background: #C7811C; } .t2 { background: #3B6E9E; }
+  .t3 { background: #2C7A55; } .t4 { background: #B4432F; } .t5 { background: #7A4E9E; }
+  .tl.sp {
+    background: radial-gradient(circle at 35% 30%, #fff, #ffd166 60%, #f4a261);
+    color: #3b1d00; box-shadow: inset 0 0 0 2px #fff, 0 3px 8px rgba(0,0,0,.25);
+    animation: spPulse 1.4s ease-in-out infinite;
+  }
+  @keyframes spPulse { 0%,100% { scale: 1; } 50% { scale: 1.09; } }
+  .tl.blk {
+    background: repeating-linear-gradient(45deg, #8b8fa3 0 6px, #a4a8bb 6px 12px);
+    box-shadow: inset 0 0 0 2px #5d6172; cursor: not-allowed; color: #fff;
+  }
+  /* Icons: SVG with gradients, shading and small looping animations */
+  .ico { width: 100%; height: 100%; overflow: visible; display: block; flex: none;
+         filter: drop-shadow(0 2px 2px rgba(0,0,0,.28)); }
+  .ico .shk { transform-box: fill-box; transform-origin: 50% 100%; animation: shackle 2.6s ease-in-out infinite; }
+  @keyframes shackle { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-2.5px); } }
+  .ico .keyspin { transform-box: fill-box; transform-origin: 30% 50%; animation: keyWobble 2.4s ease-in-out infinite; }
+  @keyframes keyWobble { 0%,100% { transform: rotate(-9deg); } 50% { transform: rotate(9deg); } }
+  .ico .linkpulse { transform-box: fill-box; transform-origin: center; animation: linkPulse 2s ease-in-out infinite; }
+  @keyframes linkPulse { 0%,100% { transform: scale(1); } 50% { transform: scale(.9); } }
+  .ico .tickdraw { stroke-dasharray: 30; stroke-dashoffset: 0; animation: tickDraw 2.4s ease-out infinite; }
+  @keyframes tickDraw { 0% { stroke-dashoffset: 30; } 40%,100% { stroke-dashoffset: 0; } }
+  .ico .ring { transform-box: fill-box; transform-origin: 50% 50%; animation: ringWobble 1.8s ease-in-out infinite; }
+  @keyframes ringWobble { 0%,60%,100% { transform: rotate(0); } 68% { transform: rotate(-14deg); } 76% { transform: rotate(14deg); } 84% { transform: rotate(-8deg); } 92% { transform: rotate(6deg); } }
+  .ico .spin { transform-box: view-box; transform-origin: 24px 24px; animation: spinIco 3.2s linear infinite; }
+  @keyframes spinIco { to { transform: rotate(360deg); } }
+  .ico .bob { transform-box: fill-box; transform-origin: center; animation: bobIco 2.2s ease-in-out infinite; }
+  @keyframes bobIco { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-2.5px); } }
+  .ico .flicker { transform-box: fill-box; transform-origin: center; animation: flickerIco .9s steps(2, end) infinite; }
+  @keyframes flickerIco { 0% { opacity: 1; transform: scale(1); } 50% { opacity: .35; transform: scale(.75); } }
+  .ico .slide { animation: slideIco 1s ease-in-out infinite; }
+  @keyframes slideIco { 0%,100% { transform: translateX(0); } 50% { transform: translateX(3px); } }
+  .ico .shimmer { animation: shimmerIco 2s ease-in-out infinite; }
+  @keyframes shimmerIco { 0%,100% { opacity: .55; } 50% { opacity: 1; } }
+  .ico .beat { transform-box: fill-box; transform-origin: center; animation: beatIco 1.2s ease-in-out infinite; }
+  @keyframes beatIco { 0%,100% { transform: scale(1); } 15% { transform: scale(1.14); } 30% { transform: scale(1); } }
+  .ico .twinkle { transform-box: fill-box; transform-origin: center; animation: twinkleIco 2.2s ease-in-out infinite; }
+  @keyframes twinkleIco { 0%,100% { transform: scale(1); opacity: 1; } 50% { transform: scale(.88); opacity: .75; } }
+  .ico .pulse { transform-box: fill-box; transform-origin: center; animation: pulseIco 1.8s ease-out infinite; }
+  @keyframes pulseIco { 0% { transform: scale(.92); } 60% { transform: scale(1.06); } 100% { transform: scale(.92); } }
+  .ico .float { animation: bobIco 2.6s ease-in-out infinite; }
+
+  .pickIcon { display: block; width: 46px; height: 46px; }
+  .hearts .ico { width: 19px; height: 19px; display: inline-block; vertical-align: -4px; margin-right: 1px; }
+  .hearts .ico.lost { filter: grayscale(1) opacity(.35); animation: none; }
+  .ticon { width: 36px; height: 36px; }
+  .gi { width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; }
+  .gi .ico { width: 26px; height: 26px; }
+  .tl .ico { width: 70%; height: 70%; }
+  .tag .ico { width: 16px; height: 16px; display: inline-block; vertical-align: -3px; margin-right: 4px; }
+  .specials .ico { width: 18px; height: 18px; display: inline-block; vertical-align: -4px; }
+
+  /* Special tile blasts */
+  .tl.spawnPop { animation: spawnPop .45s ease-out, spPulse 1.4s ease-in-out .45s infinite; }
+  @keyframes spawnPop { 0% { scale: .2; opacity: .2; } 60% { scale: 1.25; opacity: 1; } 100% { scale: 1; } }
+  .blast { position: absolute; inset: 0; pointer-events: none; z-index: 4; }
+  .bRing {
+    position: absolute; border-radius: 50%; border: 6px solid #ffd166;
+    box-shadow: 0 0 18px #ff9f1c, inset 0 0 14px #ff9f1c;
+    animation: bombRing .6s ease-out forwards;
+  }
+  @keyframes bombRing { 0% { transform: scale(.2); opacity: 1; } 100% { transform: scale(1); opacity: 0; } }
+  .bCore {
+    position: absolute; border-radius: 50%;
+    background: radial-gradient(circle, #fff 0%, #ffd166 40%, rgba(255,159,28,0) 70%);
+    animation: bombCore .45s ease-out forwards;
+  }
+  @keyframes bombCore { 0% { transform: scale(.3); opacity: 1; } 100% { transform: scale(1.7); opacity: 0; } }
+  .bBeam {
+    position: absolute; border-radius: 999px;
+    background: linear-gradient(90deg, rgba(255,255,255,0), #fff 18%, #ffd166 50%, #fff 82%, rgba(255,255,255,0));
+    box-shadow: 0 0 16px #ffd166;
+  }
+  .bBeam.h { animation: beamH .55s ease-out forwards; transform-origin: left center; }
+  .bBeam.v { animation: beamV .55s ease-out forwards; transform-origin: center top; }
+  @keyframes beamH { 0% { transform: scaleX(0); opacity: 1; } 55% { transform: scaleX(1); opacity: 1; } 100% { transform: scaleX(1); opacity: 0; } }
+  @keyframes beamV { 0% { transform: scaleY(0); opacity: 1; } 55% { transform: scaleY(1); opacity: 1; } 100% { transform: scaleY(1); opacity: 0; } }
+  .bRain {
+    position: absolute; border-radius: 50%;
+    background: conic-gradient(#ff5d5d, #ffd166, #7bdc8a, #5ec8ff, #b98cff, #ff5d5d);
+    -webkit-mask: radial-gradient(circle, transparent 55%, #000 62%, #000 74%, transparent 78%);
+            mask: radial-gradient(circle, transparent 55%, #000 62%, #000 74%, transparent 78%);
+    animation: rainWave .7s ease-out forwards;
+  }
+  @keyframes rainWave { 0% { transform: scale(.15); opacity: 1; } 100% { transform: scale(1.05); opacity: 0; } }
+  .combo {
+    position: absolute; left: 50%; top: 40%; z-index: 4; pointer-events: none;
+    font-weight: 800; font-size: 22px; color: var(--amber); text-shadow: 0 2px 0 rgba(0,0,0,.25);
+    animation: floatUp 1s ease-out forwards;
+  }
+  .objective { display: grid; grid-template-columns: 28px 1fr 64px; align-items: center; gap: 8px; font-size: 14px; margin: 6px 0; }
+  .objective .gi { font-size: 18px; text-align: center; }
+  .objective.done .lbl { color: var(--green); font-weight: 700; }
+  .specials { margin-top: 10px; font-size: 14px; color: var(--muted); }
+  .specials summary { cursor: pointer; font-weight: 600; color: var(--accent); }
+  .specials ul { margin: 6px 0 0; padding-left: 18px; line-height: 1.5; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body class="theme-picker">
+<div class="wrap">
+  <h1 id="title">SafeStep Mini Games</h1>
+  <div class="row lang-row">
+    <button id="lang-en" data-lang="en">English</button>
+    <button id="lang-hi" data-lang="hi">हिंदी</button>
+    <button id="lang-mr" data-lang="mr">मराठी</button>
+    <button id="themeBtn" type="button"></button>
+  </div>
+
+  <!-- ============ GAME CHOOSER ============ -->
+  <section class="game" id="picker" aria-labelledby="pkTitle">
+    <h2 id="pkTitle"></h2>
+    <div class="picks">
+      <button class="pick" id="pickTowerBtn">
+        <span class="pickIcon" aria-hidden="true">🎯</span>
+        <span class="pickName" id="pkTowerName"></span>
+        <span class="pickDesc" id="pkTowerDesc"></span>
+      </button>
+      <button class="pick" id="pickPhoneBtn">
+        <span class="pickIcon" aria-hidden="true">📱</span>
+        <span class="pickName" id="pkPhoneName"></span>
+        <span class="pickDesc" id="pkPhoneDesc"></span>
+      </button>
+      <button class="pick" id="pickCandyBtn">
+        <span class="pickIcon" aria-hidden="true">🍬</span>
+        <span class="pickName" id="pkCandyName"></span>
+        <span class="pickDesc" id="pkCandyDesc"></span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ============ GAME 1: MESSAGE DROP TOWER ============ -->
+  <section class="game" id="towerGame" aria-labelledby="towerTitle" hidden>
+    <button class="backBtn" id="backFromTower"></button>
+    <h2 id="towerTitle"></h2>
+    <p class="lead" id="intro"></p>
+    <div class="row">
+      <span id="speedLabel" style="font-size:16px;"></span>
+      <button id="speed-calm" data-speed="calm"></button>
+      <button id="speed-steady" data-speed="steady"></button>
+      <button id="speed-fast" data-speed="fast"></button>
+    </div>
+    <div class="stats">
+      <span id="scoreLbl"></span>
+      <span class="hearts" id="hearts" aria-live="polite"></span>
+    </div>
+    <div class="tower" id="tower" role="region" aria-label="Message tower">
+      <div class="lane-bottom" id="laneBottom"></div>
+      <div class="overlay show" id="overlay">
+        <div>
+          <h2 id="ovTitle"></h2>
+          <p id="ovText"></p>
+          <button class="primary" id="startBtn"></button>
+        </div>
+      </div>
+    </div>
+    <div class="row" style="margin-top:10px;">
+      <button id="pauseBtn"></button>
+    </div>
+    <div class="feedback" id="feedback" aria-live="polite"></div>
+  </section>
+
+  <!-- ============ GAME 2: BUILD YOUR SAFE PHONE ============ -->
+  <section class="game" id="phoneGame" aria-labelledby="phoneTitle" hidden>
+    <button class="backBtn" id="backFromPhone"></button>
+    <h2 id="phoneTitle"></h2>
+    <p class="lead" id="phoneIntro"></p>
+    <div class="phoneBox">
+      <div class="phone" id="phoneBody">
+        <div class="phoneTop">
+          <span id="dayLine"></span>
+          <span id="pointsLine"></span>
+        </div>
+        <div id="meters"></div>
+        <div class="threat" id="threatBox" aria-live="polite">
+          <span class="head" id="threatHead"></span>
+          <span id="threatText"></span>
+        </div>
+        <div class="grid" id="grid"></div>
+      </div>
+      <div class="overlay" id="phoneOv">
+        <div>
+          <h2 id="sumTitle"></h2>
+          <p id="sumText"></p>
+          <button class="primary" id="sumReset"></button>
+        </div>
+      </div>
+    </div>
+    <div class="info" id="info" aria-live="polite"></div>
+    <div class="row">
+      <button class="primary" id="setupBtn"></button>
+      <button id="faceBtn"></button>
+      <button id="resetBtn"></button>
+    </div>
+    <div id="logHead" style="font-weight:600;margin-top:6px;"></div>
+    <ul class="log" id="logList"></ul>
+  </section>
+
+  <!-- ============ GAME 3: SAFE MATCH (20 levels) ============ -->
+  <section class="game" id="candyGame" aria-labelledby="candyTitle" hidden>
+    <button class="backBtn" id="backFromCandy"></button>
+    <h2 id="candyTitle"></h2>
+    <p class="lead" id="candyIntro"></p>
+    <div class="row" style="justify-content:space-between;">
+      <strong id="cgLevel"></strong>
+      <strong id="cgMoves"></strong>
+    </div>
+    <div class="levelMap" id="cgMap"></div>
+    <div class="boardBox">
+      <div class="board" id="cgBoard"><div class="inner" id="cgInner"></div></div>
+      <div class="overlay" id="cgOv">
+        <div>
+          <h2 id="cgOvTitle"></h2>
+          <p class="factHead" id="cgFactHead"></p>
+          <p class="fact" id="cgFact"></p>
+          <p id="cgOvText"></p>
+          <button class="primary" id="cgOvBtn"></button>
+        </div>
+      </div>
+    </div>
+    <div id="cgGoals" style="margin-top:12px;"></div>
+    <div class="info" id="cgInfo" aria-live="polite"></div>
+    <div class="row">
+      <button id="cgRestart"></button>
+    </div>
+    <details class="specials" id="cgSpecials">
+      <summary id="cgSpecTitle"></summary>
+      <ul>
+        <li id="cgSpec1"></li>
+        <li id="cgSpec2"></li>
+        <li id="cgSpec3"></li>
+        <li id="cgSpec4"></li>
+      </ul>
+    </details>
+  </section>
+</div>
+
+<script>
+/* ---------- Icon set (SVG, with gradients and small animations) ---------- */
+const SVG_DEFS = `<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <linearGradient id="gGold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe27a"/><stop offset="1" stop-color="#d89b12"/></linearGradient>
+  <linearGradient id="gBlue" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8cc8ff"/><stop offset="1" stop-color="#2468c9"/></linearGradient>
+  <linearGradient id="gGreen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6fe0a6"/><stop offset="1" stop-color="#1c8a58"/></linearGradient>
+  <linearGradient id="gRed" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff8a7a"/><stop offset="1" stop-color="#c8402c"/></linearGradient>
+  <linearGradient id="gAmber" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd98a"/><stop offset="1" stop-color="#ea8a1c"/></linearGradient>
+  <linearGradient id="gDark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5a6679"/><stop offset="1" stop-color="#1a2230"/></linearGradient>
+  <linearGradient id="gSteel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e6ebf2"/><stop offset="1" stop-color="#8a97a8"/></linearGradient>
+  <linearGradient id="gMint" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f2fff9"/><stop offset="1" stop-color="#b3e9d2"/></linearGradient>
+  <linearGradient id="gPink" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffb3dc"/><stop offset="1" stop-color="#e0338a"/></linearGradient>
+</defs></svg>`;
+
+const SVG_PARTS = {
+  lock: `<path class="shk" d="M15 21v-6.5a9 9 0 0 1 18 0V21" fill="none" stroke="#7d8898" stroke-width="4.5" stroke-linecap="round"/>
+    <rect x="9" y="20" width="30" height="23" rx="6" fill="url(#gGold)" stroke="#9a6a00" stroke-opacity=".45"/>
+    <rect x="12" y="23" width="24" height="4" rx="2" fill="#fff" opacity=".35"/>
+    <circle cx="24" cy="31" r="3.4" fill="#5b3a00"/><rect x="22.6" y="32.5" width="2.8" height="6" rx="1.4" fill="#5b3a00"/>`,
+  padlock: `<path class="shk" d="M15 21v-6.5a9 9 0 0 1 18 0V21" fill="none" stroke="#5d6676" stroke-width="4.5" stroke-linecap="round"/>
+    <rect x="9" y="20" width="30" height="23" rx="6" fill="url(#gSteel)" stroke="#3d4656" stroke-opacity=".5"/>
+    <rect x="12" y="23" width="24" height="4" rx="2" fill="#fff" opacity=".4"/>
+    <circle cx="24" cy="31" r="3.4" fill="#2a3240"/><rect x="22.6" y="32.5" width="2.8" height="6" rx="1.4" fill="#2a3240"/>`,
+  key: `<g class="keyspin"><circle cx="16" cy="24" r="9" fill="url(#gGold)" stroke="#9a6a00" stroke-opacity=".4"/>
+    <circle cx="16" cy="24" r="3.6" fill="#fff" opacity=".9"/></g>
+    <rect x="23" y="21.5" width="19" height="5" rx="2.5" fill="url(#gGold)"/>
+    <rect x="34" y="26" width="4" height="7" rx="1.5" fill="url(#gGold)"/><rect x="39" y="26" width="3.5" height="5" rx="1.5" fill="url(#gGold)"/>`,
+  link: `<g class="linkpulse"><rect x="5" y="15" width="22" height="13" rx="6.5" fill="none" stroke="url(#gBlue)" stroke-width="5" transform="rotate(-35 16 21.5)"/>
+    <rect x="21" y="20" width="22" height="13" rx="6.5" fill="none" stroke="url(#gBlue)" stroke-width="5" transform="rotate(-35 32 26.5)"/></g>`,
+  check: `<path d="M24 4l16 6v12c0 10-7 17-16 22C15 39 8 32 8 22V10z" fill="url(#gGreen)" stroke="#17633f" stroke-opacity=".35"/>
+    <path class="tickdraw" pathLength="30" d="M16 24.5l6 6 11-12" fill="none" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>`,
+  phone: `<path class="ring" d="M13 5c-3 0-6 3-6 6 0 16 13 29 29 29 3 0 6-3 6-6v-4l-8-3-4 4c-5-2-9-6-11-11l4-4-3-8z" fill="url(#gBlue)" stroke="#1d4f99" stroke-opacity=".35"/>`,
+  phonecall: `<path class="ring" d="M13 5c-3 0-6 3-6 6 0 16 13 29 29 29 3 0 6-3 6-6v-4l-8-3-4 4c-5-2-9-6-11-11l4-4-3-8z" fill="url(#gRed)" stroke="#8c2c1c" stroke-opacity=".35"/>`,
+  refresh: `<g class="spin"><path d="M37 17a15 15 0 0 0-25-2" fill="none" stroke="url(#gBlue)" stroke-width="5" stroke-linecap="round"/>
+    <path d="M11 31a15 15 0 0 0 25 2" fill="none" stroke="url(#gBlue)" stroke-width="5" stroke-linecap="round"/>
+    <polygon points="42,7 42,19 30,19" fill="url(#gBlue)"/><polygon points="6,41 6,29 18,29" fill="url(#gBlue)"/></g>`,
+  store: `<path d="M18 18v-4a6 6 0 0 1 12 0v4" fill="none" stroke="#5a6679" stroke-width="3.5"/>
+    <path class="bob" d="M10 18h28l2 24H8z" fill="url(#gBlue)" stroke="#1d4f99" stroke-opacity=".35"/>
+    <path d="M18 27v3a6 6 0 0 0 12 0v-3" fill="none" stroke="#ffffff" stroke-opacity=".7" stroke-width="2.5"/>`,
+  bomb: `<circle class="bob" cx="22" cy="28" r="14" fill="url(#gDark)"/>
+    <circle cx="17" cy="23" r="3.5" fill="#fff" opacity=".35"/>
+    <path d="M31 16C34 12 36 10 40 8" fill="none" stroke="#c98a3a" stroke-width="3" stroke-linecap="round"/>
+    <circle class="flicker" cx="40" cy="7" r="4" fill="#ffd166"/>`,
+  lineH: `<g class="slide"><rect x="4" y="19" width="32" height="10" rx="5" fill="url(#gAmber)"/><polygon points="34,11 46,24 34,37" fill="url(#gAmber)"/></g>`,
+  lineV: `<g transform="rotate(90 24 24)"><g class="slide"><rect x="4" y="19" width="32" height="10" rx="5" fill="url(#gAmber)"/><polygon points="34,11 46,24 34,37" fill="url(#gAmber)"/></g></g>`,
+  rain: `<path class="shimmer" d="M5 34a19 19 0 0 1 38 0" fill="none" stroke="#ff5d5d" stroke-width="5"/>
+    <path class="shimmer" d="M11 34a13 13 0 0 1 26 0" fill="none" stroke="#ffd166" stroke-width="5"/>
+    <path class="shimmer" d="M17 34a7 7 0 0 1 14 0" fill="none" stroke="#5ec8ff" stroke-width="5"/>`,
+  heart: `<path class="beat" d="M24 41C10 31 5 23 8 16c3-7 12-7 16 0 4-7 13-7 16 0 3 7-2 15-16 25z" fill="url(#gRed)"/>
+    <path d="M13 17c1-2 3-3 5-3" fill="none" stroke="#fff" stroke-opacity=".6" stroke-width="2.5" stroke-linecap="round"/>`,
+  star: `<polygon class="twinkle" points="24,4 30,17 44,18 33,27 37,41 24,33 11,41 15,27 4,18 18,17" fill="url(#gGold)"/>`,
+  target: `<circle class="pulse" cx="24" cy="24" r="20" fill="url(#gRed)"/><circle cx="24" cy="24" r="13" fill="#fff"/><circle cx="24" cy="24" r="7" fill="url(#gRed)"/>`,
+  device: `<rect class="float" x="13" y="4" width="22" height="40" rx="5" fill="url(#gDark)"/>
+    <rect x="16" y="9" width="16" height="28" rx="2" fill="url(#gMint)"/><circle cx="24" cy="41" r="1.8" fill="#8a97a8"/>`,
+  candy: `<circle class="spin" cx="24" cy="24" r="19" fill="url(#gPink)"/><path class="spin" d="M24 5a19 19 0 0 1 0 38" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="5"/>`,
+  sun: `<g class="spin"><path d="M24 3v7M24 38v7M3 24h7M38 24h7M8.2 8.2l5 5M34.8 34.8l5 5M8.2 39.8l5-5M34.8 13.2l5-5" stroke="#ffc83d" stroke-width="4" stroke-linecap="round"/></g>
+    <circle cx="24" cy="24" r="10" fill="url(#gGold)"/>`,
+  moon: `<path class="bob" d="M31 6a18 18 0 1 0 11 31A15 15 0 0 1 31 6z" fill="url(#gSteel)"/>`,
+  envelope: `<rect x="5" y="11" width="38" height="26" rx="4" fill="url(#gBlue)"/><path d="M6 13l18 14 18-14" fill="none" stroke="#fff" stroke-width="3" stroke-linejoin="round"/>`,
+};
+
+// Renders one icon as inline SVG markup.
+function svgIcon(name, cls = "") {
+  return `<svg class="ico ic-${name} ${cls}" viewBox="0 0 48 48" aria-hidden="true" focusable="false">${SVG_PARTS[name] || ""}</svg>`;
+}
+
+// Replaces the emoji used in text strings with the matching SVG icon.
+function iconize(str) {
+  const map = { "💥": "bomb", "➡️": "lineH", "⬇️": "lineV", "🌈": "rain", "🔐": "padlock" };
+  let out = str;
+  Object.entries(map).forEach(([emoji, name]) => { out = out.split(emoji).join(svgIcon(name)); });
+  return out;
+}
+
+/* ---------- Dark / light theme: saved per browser, starts from the device setting ---------- */
+const THEME_KEY = "safestep-theme-v1";
+const THEME_NAME = {
+  en: { dark: "Dark", light: "Light" },
+  hi: { dark: "डार्क", light: "लाइट" },
+  mr: { dark: "डार्क", light: "लाइट" },
+};
+function savedTheme() { try { return localStorage.getItem(THEME_KEY); } catch (e) { return null; } }
+function saveTheme(t) { try { localStorage.setItem(THEME_KEY, t); } catch (e) { /* private window: keep going */ } }
+function isDark() { return document.documentElement.dataset.theme === "dark"; }
+function setTheme(t) {
+  document.documentElement.dataset.theme = t;
+  document.documentElement.style.colorScheme = t;
+  updateThemeBtn();
+}
+// The button offers the other mode: sun in dark mode (switch to light), moon in light mode.
+function updateThemeBtn() {
+  const btn = document.getElementById("themeBtn");
+  if (!btn) return;
+  const dark = isDark();
+  btn.innerHTML = svgIcon(dark ? "sun" : "moon") + " " + THEME_NAME[lang][dark ? "light" : "dark"];
+}
+function initTheme() {
+  const sysDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+  setTheme(savedTheme() || (sysDark ? "dark" : "light"));
+  document.getElementById("themeBtn").addEventListener("click", () => {
+    const next = isDark() ? "light" : "dark";
+    saveTheme(next);
+    setTheme(next);
+  });
+}
+
+const UI = {
+  en: {
+    title: "SafeStep Mini Games",
+    towerTitle: "Game 1 · Message Drop Tower",
+    phoneTitle: "Game 2 · Build Your Safe Phone",
+    candyTitle: "Game 3 · Safe Match",
+    intro: "Messages drop down the tower. Tap the scam ones before they reach the bottom. Leave safe messages alone.",
+    phoneIntro: "Each day a new scam threat hits your phone. Spend your points on defences before it arrives. Some defences need others first. You have 10 days.",
+    candyIntro: "Swap neighbouring tiles to line up three or more. Complete every objective on a level to unlock the next one. There are 20 levels.",
+    speed: "Speed:", calm: "Calm", steady: "Steady", fast: "Fast",
+    score: "Score", lane: "Scams that reach here get through",
+    startTitle: "Ready?", startText: "Tap a scam message to drop it. You have 3 lives. Tapping a safe message costs a life.",
+    startBtn: "Start", againBtn: "Play again", pause: "Pause", resume: "Resume",
+    overTitle: "Game over", winTitle: "Well done",
+    result: (c, t) => `You stopped ${c} of ${t} scam messages.`,
+    tip: "Remember: real banks, police and offices never ask for your OTP or PIN.",
+    caught: "Good catch. ", missedPre: "Got through. ", safeTap: "That was a normal message. Leave it alone.",
+    safeTag: "Message",
+    dayLine: (d) => `Day ${d} of 10`, points: "Points", overall: "Phone safety",
+    cat: { device: "Phone", accounts: "Accounts", messages: "Messages", people: "Family" },
+    threatHead: "Today's threat", seasonOver: "Season over",
+    face: "Face today's threat", buy: "Set up", cost: "Cost", needs: "Needs", owned: "Set up ✓",
+    noPoints: "Not enough points for this one.", locked: "Set up the required defence first.",
+    pickHint: "Tap a defence to see what it protects against.",
+    setupMsg: "Set up. Your phone is safer.",
+    logHead: "What happened",
+    blockedMsg: (t) => `Day result: blocked by “${t}”.`,
+    passMsg: (t) => `Day result: got through. “${t}” would have stopped it.`,
+    sumTitle: "Season over", sumText: (b, t) => `You blocked ${b} of ${t} threats.`,
+    sumTip: "Keep your defences up. Scammers try new tricks every week.",
+    reset: "Start over",
+    back: "← Back to games",
+    pkTitle: "Choose a game", pkTower: "Message Drop Tower",
+    pkTowerDesc: "Tap scam messages before they reach the bottom. Fast and quick to play.",
+    pkPhone: "Build Your Safe Phone",
+    pkPhoneDesc: "Set up safety defences over 10 days. Plan ahead for each day's threat.",
+    pkCandy: "Safe Match", pkCandyDesc: "Match safety tiles, finish objectives across 20 levels and learn a fact after each one.",
+    movesLbl: "Moves", newGame: "New game",
+    candyLevel: (n) => `Level ${n} of 20`,
+    candyHint: "Tap a tile, then a tile next to it to swap them.",
+    noMatch: "No match there. Try another swap.",
+    lockedTile: "That tile is locked. Clear a tile next to it first.",
+    unlockMsg: "Locked tile cleared!",
+    specialMsg: "Special tile activated!",
+    combo: "Combo! ",
+    objCollect: (n, name) => `Clear ${n} “${name}” tiles`,
+    objBlockers: (n) => `Clear ${n} locked tiles`,
+    objScore: (n) => `Score ${n} points`,
+    lockNote: "Next level is locked until every objective is complete.",
+    specTitle: "Special tiles",
+    spec1: "💥 Bomb: match an L or T shape. Swap it with a neighbour to clear the 3×3 area around it.",
+    spec2: "➡️ ⬇️ Line blaster: match four in a row. Swap it to clear its whole row or column.",
+    spec3: "🌈 Rainbow: match five in a row. Swap it with a tile to clear every tile of that kind.",
+    spec4: "🔐 Locked tiles can't be moved. Clear a tile next to one to unlock it.",
+    factHead: "Did you know?", nextLevel: "Next level", playAgain: "Play level 1 again",
+    levelDone: (n) => `Level ${n} cleared!`,
+    loseTitle: "Out of moves", loseText: "Try this level again and plan your swaps before you move.",
+    restartLevel: "Restart level",
+    finalTitle: "All 20 levels cleared!",
+    finalText: "Your phone is protected from these tricks. Share what you learned with your family.",
+    habits: [
+      { t: "Screen lock", why: "Use a PIN, pattern or face lock so strangers cannot open your phone." },
+      { t: "Guard your OTP", why: "Banks and officials never ask for your OTP, PIN or CVV. Do not share them with anyone." },
+      { t: "Check links first", why: "Press and hold a link to see where it leads before you tap it." },
+      { t: "Two-step login", why: "Turn on two-step verification in your bank and payment apps." },
+      { t: "Official app stores only", why: "Install apps only from the Play Store or App Store. Skip app files sent in messages." },
+      { t: "Keep it updated", why: "Install system and app updates. They fix security holes." },
+      { t: "Save 1930", why: "Save the cyber fraud helpline 1930 in your contacts so you can call it fast." },
+      { t: "Hang up and call back", why: "If a caller rushes you, hang up. Call the official number yourself." },
+    ],
+  },
+  hi: {
+    title: "SafeStep मिनी गेम्स",
+    towerTitle: "खेल 1 · संदेश ड्रॉप टावर",
+    phoneTitle: "खेल 2 · अपना सुरक्षित फ़ोन बनाएं",
+    candyTitle: "खेल 3 · सेफ़ मैच",
+    intro: "संदेश टावर से नीचे गिरते हैं। धोखाधड़ी वाले संदेशों को नीचे पहुंचने से पहले टैप करें। सामान्य संदेशों को छोड़ दें।",
+    phoneIntro: "हर दिन आपके फ़ोन पर धोखाधड़ी का नया खतरा आता है। खतरा आने से पहले बचाव पर अंक खर्च करें। कुछ बचाव के लिए पहले दूसरे बचाव चाहिए। आपके पास 10 दिन हैं।",
+    candyIntro: "पास की टाइलें बदलकर तीन या ज़्यादा एक जैसी लाइन बनाएं। अगला स्तर खोलने के लिए हर स्तर का लक्ष्य पूरा करें। कुल 20 स्तर हैं।",
+    speed: "गति:", calm: "धीमी", steady: "सामान्य", fast: "तेज़",
+    score: "स्कोर", lane: "जो धोखाधड़ी यहां पहुंची, वह निकल गई",
+    startTitle: "तैयार हैं?", startText: "धोखाधड़ी वाले संदेश पर टैप करें। आपके पास 3 जीवन हैं। सामान्य संदेश पर टैप करने से एक जीवन जाता है।",
+    startBtn: "शुरू करें", againBtn: "फिर से खेलें", pause: "रोकें", resume: "जारी रखें",
+    overTitle: "खेल खत्म", winTitle: "बढ़िया",
+    result: (c, t) => `आपने ${t} में से ${c} धोखाधड़ी वाले संदेश रोक दिए।`,
+    tip: "याद रखें: असली बैंक, पुलिस या दफ्तर कभी OTP या PIN नहीं मांगते।",
+    caught: "सही पकड़ा। ", missedPre: "निकल गया। ", safeTap: "यह सामान्य संदेश था। इसे छोड़ दें।",
+    safeTag: "संदेश",
+    dayLine: (d) => `दिन ${d} / 10`, points: "अंक", overall: "फ़ोन सुरक्षा",
+    cat: { device: "फ़ोन", accounts: "खाते", messages: "संदेश", people: "परिवार" },
+    threatHead: "आज का खतरा", seasonOver: "सीज़न खत्म",
+    face: "आज के खतरे का सामना करें", buy: "सेट करें", cost: "लागत", needs: "पहले चाहिए", owned: "सेट है ✓",
+    noPoints: "इसके लिए अंक कम हैं।", locked: "पहले ज़रूरी बचाव सेट करें।",
+    pickHint: "किसी बचाव पर टैप करके देखें कि वह किससे बचाता है।",
+    setupMsg: "सेट हो गया। आपका फ़ोन और सुरक्षित है।",
+    logHead: "क्या हुआ",
+    blockedMsg: (t) => `दिन का नतीजा: “${t}” ने रोक दिया।`,
+    passMsg: (t) => `दिन का नतीजा: खतरा निकल गया। “${t}” सेट होता तो यह रुक जाता।`,
+    sumTitle: "सीज़न खत्म", sumText: (b, t) => `आपने ${t} में से ${b} खतरे रोके।`,
+    sumTip: "बचाव बनाए रखें। धोखेबाज़ हर हफ़्ते नए तरीके आज़माते हैं।",
+    reset: "फिर से शुरू करें",
+    back: "← खेलों पर वापस",
+    pkTitle: "खेल चुनें", pkTower: "संदेश ड्रॉप टावर",
+    pkTowerDesc: "धोखाधड़ी वाले संदेशों को नीचे पहुंचने से पहले टैप करें। तेज़ और रोमांचक।",
+    pkPhone: "अपना सुरक्षित फ़ोन बनाएं",
+    pkPhoneDesc: "10 दिनों में सुरक्षा बचाव सेट करें। हर दिन के खतरे की योजना बनाएं।",
+    pkCandy: "सेफ़ मैच", pkCandyDesc: "20 स्तरों में सुरक्षा टाइलें मिलाएं, लक्ष्य पूरे करें और हर स्तर के बाद एक तथ्य जानें।",
+    movesLbl: "मूव", newGame: "नया खेल",
+    candyLevel: (n) => `स्तर ${n} / 20`,
+    candyHint: "एक टाइल टैप करें, फिर उसके पास वाली टाइल टैप करके बदलें।",
+    noMatch: "यहां मिलान नहीं हुआ। कोई और बदलाव आज़माएं।",
+    lockedTile: "यह टाइल लॉक है। पहले इसके पास की कोई टाइल साफ़ करें।",
+    unlockMsg: "लॉक टाइल साफ़ हुई!",
+    specialMsg: "स्पेशल टाइल चालू हुई!",
+    combo: "कॉम्बो! ",
+    objCollect: (n, name) => `“${name}” वाली ${n} टाइलें साफ़ करें`,
+    objBlockers: (n) => `${n} लॉक टाइलें साफ़ करें`,
+    objScore: (n) => `${n} अंक बनाएं`,
+    lockNote: "हर लक्ष्य पूरा होने तक अगला स्तर लॉक रहेगा।",
+    specTitle: "स्पेशल टाइलें",
+    spec1: "💥 बम: L या T आकार मिलाएं। इसे पास की टाइल से बदलें, तो आसपास का 3×3 क्षेत्र साफ़ होगा।",
+    spec2: "➡️ ⬇️ लाइन ब्लास्टर: चार एक जैसी टाइलें लाइन में मिलाएं। इसे बदलने पर पूरी पंक्ति या कॉलम साफ़ होगा।",
+    spec3: "🌈 इंद्रधनुष: पांच एक जैसी टाइलें लाइन में मिलाएं। इसे किसी टाइल से बदलें, तो उस प्रकार की सारी टाइलें साफ़ होंगी।",
+    spec4: "🔐 लॉक टाइलें हिल नहीं सकतीं। उनके पास की कोई टाइल साफ़ करके उन्हें खोलें।",
+    factHead: "क्या आप जानते हैं?", nextLevel: "अगला स्तर", playAgain: "स्तर 1 फिर से खेलें",
+    levelDone: (n) => `स्तर ${n} पूरा हुआ!`,
+    loseTitle: "मूव खत्म हो गए", loseText: "यह स्तर फिर से खेलें और मूव से पहले सोच-समझकर बदलाव करें।",
+    restartLevel: "स्तर फिर से शुरू करें",
+    finalTitle: "सभी 20 स्तर पूरे!",
+    finalText: "आपका फ़ोन इन चालों से सुरक्षित है। जो सीखा, परिवार के साथ बांटें।",
+    habits: [
+      { t: "स्क्रीन लॉक", why: "PIN, पैटर्न या चेहरे का लॉक लगाएं, ताकि अजनबी आपका फ़ोन न खोल सकें।" },
+      { t: "OTP सुरक्षित रखें", why: "बैंक या अधिकारी कभी OTP, PIN या CVV नहीं मांगते। ये किसी से साझा न करें।" },
+      { t: "लिंक पहले जांचें", why: "किसी लिंक पर टैप करने से पहले उसे दबाकर रखें और देखें कि वह कहां जाता है।" },
+      { t: "दो-चरण लॉगिन", why: "अपने बैंक और भुगतान ऐप में दो-चरण सत्यापन चालू करें।" },
+      { t: "केवल आधिकारिक ऐप स्टोर", why: "ऐप केवल Play Store या App Store से लें। संदेशों में आई ऐप फ़ाइलें न खोलें।" },
+      { t: "अपडेट रखें", why: "सिस्टम और ऐप के अपडेट इंस्टॉल करें। इनसे सुरक्षा की कमियां ठीक होती हैं।" },
+      { t: "1930 सेव करें", why: "साइबर धोखाधड़ी हेल्पलाइन 1930 को संपर्क में सेव करें, ताकि जल्दी कॉल कर सकें।" },
+      { t: "फ़ोन काटें और खुद कॉल करें", why: "अगर कोई जल्दी करने को कहे, तो फ़ोन काटें। आधिकारिक नंबर पर खुद कॉल करें।" },
+    ],
+  },
+  mr: {
+    title: "SafeStep मिनी गेम्स",
+    towerTitle: "खेळ 1 · संदेश ड्रॉप टॉवर",
+    phoneTitle: "खेळ 2 · तुमचा सुरक्षित फोन बनवा",
+    candyTitle: "खेळ 3 · सेफ मॅच",
+    intro: "संदेश टॉवरवरून खाली पडतात. फसवे संदेश तळाला पोहोचण्यापूर्वी टॅप करा. नेहमीचे संदेश सोडून द्या.",
+    phoneIntro: "रोज तुमच्या फोनवर फसवणुकीचा नवा धोका येतो. तो येण्यापूर्वी संरक्षणावर गुण खर्च करा. काही संरक्षणांसाठी आधी इतर संरक्षणे लागतात. तुमच्याकडे 10 दिवस आहेत.",
+    candyIntro: "शेजारील टाइल्स बदलून तीन किंवा अधिक सारख्या रांगा लावा. पुढील पातळी उघडण्यासाठी प्रत्येक पातळीची सर्व उद्दिष्टे पूर्ण करा. एकूण 20 पातळ्या आहेत.",
+    speed: "वेग:", calm: "हळू", steady: "मध्यम", fast: "जलद",
+    score: "गुण", lane: "येथे पोहोचलेला फसवा संदेश निसटला",
+    startTitle: "तयार आहात?", startText: "फसवा संदेश टॅप करून खाली पाडा. तुमचे 3 जीव आहेत. नेहमीच्या संदेशावर टॅप केल्यास एक जीव जातो.",
+    startBtn: "सुरू करा", againBtn: "पुन्हा खेळा", pause: "थांबवा", resume: "पुढे चालू ठेवा",
+    overTitle: "खेळ संपला", winTitle: "शाब्बास",
+    result: (c, t) => `तुम्ही ${t} पैकी ${c} फसवे संदेश थांबवले.`,
+    tip: "लक्षात ठेवा: खरी बँक, पोलीस किंवा कार्यालये कधीही OTP किंवा PIN मागत नाहीत.",
+    caught: "बरोबर ओळखले. ", missedPre: "निसटला. ", safeTap: "हा नेहमीचा संदेश होता. तो सोडून द्या.",
+    safeTag: "संदेश",
+    dayLine: (d) => `दिवस ${d} / 10`, points: "गुण", overall: "फोन सुरक्षा",
+    cat: { device: "फोन", accounts: "खाती", messages: "संदेश", people: "कुटुंब" },
+    threatHead: "आजचा धोका", seasonOver: "हंगाम संपला",
+    face: "आजच्या धोक्याला सामोरे जा", buy: "सेट करा", cost: "किंमत", needs: "आधी लागते", owned: "सेट आहे ✓",
+    noPoints: "यासाठी पुरेसे गुण नाहीत.", locked: "आधी आवश्यक संरक्षण सेट करा.",
+    pickHint: "कोणत्याही संरक्षणावर टॅप करून ते कशापासून वाचवते ते पहा.",
+    setupMsg: "सेट झाले. तुमचा फोन अधिक सुरक्षित आहे.",
+    logHead: "काय घडले",
+    blockedMsg: (t) => `दिवसाचा निकाल: “${t}” ने थांबवले.`,
+    passMsg: (t) => `दिवसाचा निकाल: धोका निसटला. “${t}” सेट असते तर तो थांबला असता.`,
+    sumTitle: "हंगाम संपला", sumText: (b, t) => `तुम्ही ${t} पैकी ${b} धोके थांबवले.`,
+    sumTip: "संरक्षण कायम ठेवा. फसवणूक करणारे दर आठवड्याला नवे डावपेच वापरतात.",
+    reset: "पुन्हा सुरू करा",
+    back: "← खेळांकडे परत",
+    pkTitle: "खेळ निवडा", pkTower: "संदेश ड्रॉप टॉवर",
+    pkTowerDesc: "फसवे संदेश तळाला पोहोचण्यापूर्वी टॅप करा. वेगवान आणि मजेदार.",
+    pkPhone: "तुमचा सुरक्षित फोन बनवा",
+    pkPhoneDesc: "10 दिवसांत सुरक्षा संरक्षणे सेट करा. रोजच्या धोक्याचे नियोजन करा.",
+    pkCandy: "सेफ मॅच", pkCandyDesc: "20 पातळ्यांमध्ये सुरक्षा टाइल्स जुळवा, उद्दिष्टे पूर्ण करा आणि प्रत्येक पातळीनंतर एक तथ्य जाणून घ्या.",
+    movesLbl: "चाली", newGame: "नवा खेळ",
+    candyLevel: (n) => `पातळी ${n} / 20`,
+    candyHint: "एक टाइल टॅप करा, नंतर तिच्या शेजारील टाइल टॅप करून बदला.",
+    noMatch: "इथे जुळले नाही. दुसरा बदल करून पहा.",
+    lockedTile: "ही टाइल लॉक आहे. आधी तिच्या शेजारील एक टाइल साफ करा.",
+    unlockMsg: "लॉक टाइल साफ झाली!",
+    specialMsg: "स्पेशल टाइल सक्रिय झाली!",
+    combo: "कॉम्बो! ",
+    objCollect: (n, name) => `“${name}” च्या ${n} टाइल्स साफ करा`,
+    objBlockers: (n) => `${n} लॉक टाइल्स साफ करा`,
+    objScore: (n) => `${n} गुण मिळवा`,
+    lockNote: "सर्व उद्दिष्टे पूर्ण होईपर्यंत पुढील पातळी लॉक राहील.",
+    specTitle: "स्पेशल टाइल्स",
+    spec1: "💥 बॉम्ब: L किंवा T आकार जुळवा. तो शेजारच्या टाइलसोबत बदला, तर भोवतीचा 3×3 भाग साफ होईल.",
+    spec2: "➡️ ⬇️ लाइन ब्लास्टर: चार सारख्या टाइल्स सलग जुळवा. तो बदलल्यास संपूर्ण ओळ किंवा स्तंभ साफ होईल.",
+    spec3: "🌈 इंद्रधनू: पाच सारख्या टाइल्स सलग जुळवा. तो एका टाइलसोबत बदला, तर त्या प्रकारच्या सर्व टाइल्स साफ होतील.",
+    spec4: "🔐 लॉक टाइल्स हलवता येत नाहीत. त्याच्या शेजारील एक टाइल साफ करून ती उघडा.",
+    factHead: "तुम्हाला माहीत आहे का?", nextLevel: "पुढील पातळी", playAgain: "पातळी 1 पुन्हा खेळा",
+    levelDone: (n) => `पातळी ${n} पूर्ण!`,
+    loseTitle: "चाली संपल्या", loseText: "ही पातळी पुन्हा खेळा आणि चालीपूर्वी बदल नीट आखा.",
+    restartLevel: "पातळी पुन्हा सुरू करा",
+    finalTitle: "सर्व 20 पातळ्या पूर्ण!",
+    finalText: "तुमचा फोन या फसवणुकींपासून सुरक्षित आहे. जे शिकलात ते कुटुंबासोबत शेअर करा.",
+    habits: [
+      { t: "स्क्रीन लॉक", why: "PIN, पॅटर्न किंवा चेहऱ्याचा लॉक लावा, म्हणजे अनोळखी लोक फोन उघडू शकणार नाहीत." },
+      { t: "OTP सुरक्षित ठेवा", why: "बँक किंवा अधिकारी कधीही OTP, PIN किंवा CVV मागत नाहीत. ते कोणालाही सांगू नका." },
+      { t: "लिंक आधी तपासा", why: "लिंकवर टॅप करण्यापूर्वी ते दाबून धरा आणि ते कुठे जाते ते पहा." },
+      { t: "दोन-टप्पा लॉगिन", why: "तुमच्या बँक आणि पेमेंट ॲपमध्ये दोन-टप्पा पडताळणी सुरू करा." },
+      { t: "फक्त अधिकृत ॲप स्टोअर", why: "ॲप्स फक्त Play Store किंवा App Store वरूनच घ्या. संदेशांमधील ॲप फाइल्स उघडू नका." },
+      { t: "अपडेटेड ठेवा", why: "सिस्टम आणि ॲप्सचे अपडेट करा. त्यामुळे सुरक्षेतील त्रुटी दूर होतात." },
+      { t: "1930 सेव्ह करा", why: "सायबर फसवणूक हेल्पलाइन 1930 संपर्कात सेव्ह करा, म्हणजे लगेच कॉल करता येईल." },
+      { t: "फोन ठेवा आणि स्वतः कॉल करा", why: "कोणी घाई करत असेल तर फोन ठेवा. अधिकृत नंबरवर स्वतः कॉल करा." },
+    ],
+  }
+};
+
+// Game 3 facts: one shown after each of the 20 levels.
+const FACTS = {
+  en: [
+    "'Phishing' is a play on 'fishing': the message is the bait, and your password or OTP is the hook.",
+    "'Vishing' means voice phishing. These scams happen by phone call, and the caller often sounds calm and official.",
+    "Banks and the RBI never ask customers for an OTP, PIN or CVV by phone, SMS or email.",
+    "Short links like bit.ly can hide where they really go. Press and hold a link to preview its address.",
+    "Two-step verification means a stolen password alone is not enough to get into your account.",
+    "Fake urgency such as 'act within 2 hours' is an old trick. It stops you from pausing to think.",
+    "If money has been taken, call 1930 straight away. Fast reports give the best chance to stop a payment.",
+    "Software updates often fix security holes that criminals already know about. Install them when they arrive.",
+    "A screen lock is the first barrier between a stranger and your photos, messages and bank apps.",
+    "Official app stores check apps before listing them. Files sent through chats skip that check.",
+    "Match-three puzzles like Bejeweled began in 2001. Candy Crush followed in 2012 and made the style hugely popular.",
+    "A lottery you never entered is always a scam. Real prizes never need a fee before you can claim them.",
+    "Caller ID can be faked, so the number on your screen may not be real. Call back on the number printed on your bill.",
+    "Remote-control apps can let a stranger see and control your phone. Never install one for someone who called you.",
+    "Scammers may copy a relative's voice or send a 'you're in trouble' story. Call that person on the number you already have.",
+    "Reusing one password lets a leak from one site open your other accounts. Give your bank its own password.",
+    "Scammers often ask for small amounts like ₹49 because people pay without questioning them.",
+    "Real KYC updates happen at the bank branch or in the official app, not through a link in a text.",
+    "The word 'spam' for unwanted messages is linked to a Monty Python sketch about a menu that keeps repeating Spam.",
+    "When in doubt, type the company's name into a search engine yourself rather than trusting the link in the message.",
+  ],
+  hi: [
+    "‘Phishing’ शब्द ‘fishing’ से बना है: संदेश चारा है और आपका पासवर्ड या OTP कांटा।",
+    "Vishing यानी फ़ोन पर होने वाली धोखाधड़ी। ऐसे कॉल करने वाले अक्सर शांत और आधिकारिक लगते हैं।",
+    "बैंक और RBI कभी भी फ़ोन, SMS या ईमेल पर OTP, PIN या CVV नहीं मांगते।",
+    "bit.ly जैसे छोटे लिंक असली पता छिपा सकते हैं। लिंक को दबाकर रखें और पता देखें।",
+    "दो-चरण सत्यापन का मतलब है कि चुराया गया पासवर्ड अकेले खाते में घुसने के लिए काफ़ी नहीं है।",
+    "‘2 घंटे में कार्रवाई करें’ जैसी जल्दबाज़ी पुरानी चाल है। इससे आप सोचने का समय नहीं ले पाते।",
+    "पैसे निकल जाएं तो तुरंत 1930 पर कॉल करें। जल्दी रिपोर्ट करने से भुगतान रोकने का सबसे अच्छा मौका मिलता है।",
+    "सॉफ़्टवेयर अपडेट अक्सर वे सुरक्षा कमियां ठीक करते हैं जिन्हें अपराधी पहले से जानते हैं।",
+    "स्क्रीन लॉक अजनबी और आपकी तस्वीरों, संदेशों और बैंक ऐप के बीच पहली दीवार है।",
+    "आधिकारिक ऐप स्टोर ऐप को सूची में डालने से पहले जांचते हैं। चैट में आई फ़ाइलें यह जांच छोड़ देती हैं।",
+    "Bejeweled जैसे मैच-3 खेल 2001 में शुरू हुए। Candy Crush 2012 में आया और इस शैली को बहुत लोकप्रिय बना दिया।",
+    "जो लॉटरी आपने कभी नहीं खरीदी, वह हमेशा धोखाधड़ी होती है। असली इनाम के लिए पहले शुल्क नहीं मांगा जाता।",
+    "कॉलर आईडी नकली हो सकती है। बिल पर छपे नंबर पर खुद वापस कॉल करें।",
+    "रिमोट-कंट्रोल ऐप से कोई अजनबी आपका फ़ोन देख और चला सकता है। जिसने आपको कॉल किया, उसके कहने पर ऐसा ऐप कभी इंस्टॉल न करें।",
+    "धोखेबाज़ रिश्तेदार की आवाज़ की नकल कर सकते हैं। उस व्यक्ति को उसी नंबर पर कॉल करके पुष्टि करें जो आपके पास पहले से है।",
+    "एक ही पासवर्ड कई जगह इस्तेमाल करने से एक लीक बाकी खातों तक पहुंच जाती है। बैंक के लिए अलग पासवर्ड रखें।",
+    "धोखेबाज़ ₹49 जैसी छोटी रकम मांगते हैं, क्योंकि लोग छोटी रकम पर सवाल नहीं करते।",
+    "असली KYC अपडेट बैंक शाखा या आधिकारिक ऐप से होते हैं, संदेश में दिए लिंक से नहीं।",
+    "अनचाहे संदेशों के लिए ‘spam’ शब्द Monty Python के एक स्केच से जुड़ा है, जिसमें मेन्यू में बार-बार ‘Spam’ आता है।",
+    "शक हो तो संदेश का लिंक खोलने के बजाय खुद सर्च इंजन में कंपनी का नाम लिखकर जांचें।",
+  ],
+  mr: [
+    "‘Phishing’ हा शब्द ‘fishing’ वरून आला आहे: संदेश हे आमिष आहे आणि तुमचा पासवर्ड किंवा OTP हा गळ आहे.",
+    "Vishing म्हणजे फोनद्वारे होणारी फसवणूक. असे कॉल करणारे अनेकदा शांत आणि अधिकृत वाटतात.",
+    "बँक आणि RBI कधीही फोन, SMS किंवा ईमेलवर OTP, PIN किंवा CVV मागत नाहीत.",
+    "bit.ly सारखे छोटे लिंक खरा पत्ता लपवू शकतात. लिंक दाबून धरा आणि पत्ता पहा.",
+    "दोन-टप्पा पडताळणी म्हणजे चोरलेला पासवर्ड एकटा खात्यात शिरण्यासाठी पुरेसा नाही.",
+    "‘2 तासांत कारवाई करा’ अशी घाई हा जुना डाव आहे. त्यामुळे विचार करायला वेळ मिळत नाही.",
+    "पैसे गेले असतील तर लगेच 1930 वर कॉल करा. लवकर तक्रार केल्यास पेमेंट थांबवण्याची सर्वात चांगली संधी मिळते.",
+    "सॉफ्टवेअर अपडेटमध्ये अनेकदा गुन्हेगारांना आधीच माहीत असलेल्या सुरक्षा त्रुटी दुरुस्त होतात.",
+    "स्क्रीन लॉक हा अनोळखी व्यक्ती आणि तुमचे फोटो, संदेश व बँक ॲप यांच्यातील पहिला अडथळा आहे.",
+    "अधिकृत ॲप स्टोअर ॲप यादीत टाकण्यापूर्वी तपासतात. चॅटमधून आलेल्या फाइल्सची ही तपासणी होत नाही.",
+    "Bejeweled सारखे मॅच-3 खेळ 2001 मध्ये सुरू झाले. Candy Crush 2012 मध्ये आला आणि ही शैली खूप लोकप्रिय झाली.",
+    "ज्या लॉटरीत तुम्ही भाग घेतला नाही, ती नेहमी फसवणूक असते. खऱ्या बक्षिसासाठी आधी शुल्क मागितले जात नाही.",
+    "कॉलर आयडी बनावट असू शकतो. बिलावर छापलेल्या नंबरवर स्वतः परत कॉल करा.",
+    "रिमोट-कंट्रोल ॲपमुळे अनोळखी व्यक्ती तुमचा फोन पाहू आणि चालवू शकते. ज्याने कॉल केला त्याच्या सांगण्यावरून असे ॲप कधीही इन्स्टॉल करू नका.",
+    "फसवणूक करणारे नातेवाईकाचा आवाज नक्कल करू शकतात. त्या व्यक्तीला आधीपासून असलेल्या नंबरवर कॉल करून खात्री करा.",
+    "एकच पासवर्ड अनेक ठिकाणी वापरल्यास एक गळती इतर खात्यांपर्यंत पोहोचते. बँकेसाठी वेगळा पासवर्ड ठेवा.",
+    "फसवणूक करणारे ₹49 सारखी छोटी रक्कम मागतात, कारण लोक छोट्या रकमेवर प्रश्न विचारत नाहीत.",
+    "खरे KYC अपडेट बँक शाखेत किंवा अधिकृत ॲपमध्ये होतात, संदेशातील लिंकवरून नाही.",
+    "नको असलेल्या संदेशांसाठी वापरला जाणारा ‘spam’ शब्द Monty Python च्या एका विनोदी स्केचवरून आला आहे, ज्यात मेन्यूत सतत ‘Spam’ येतो.",
+    "शंका असल्यास संदेशातील लिंकवर विश्वास ठेवण्याऐवजी स्वतः सर्च इंजिनमध्ये कंपनीचे नाव टाइप करून तपासा.",
+  ],
+};
+
+// Each message is shown in all three languages. scam: true means it should be tapped.
+const DECK = [
+  { scam: true,
+    t: { en: "Your bank account is blocked. Share the OTP now to unblock it.",
+         hi: "आपका बैंक खाता ब्लॉक हो गया है। खाता खोलने के लिए अभी OTP भेजें।",
+         mr: "तुमचे बँक खाते ब्लॉक झाले आहे. ते सुरू करण्यासाठी आत्ताच OTP पाठवा." },
+    why: { en: "Banks never ask for your OTP by text or call.",
+           hi: "बैंक कभी SMS या कॉल पर OTP नहीं मांगता।",
+           mr: "बँक SMS किंवा कॉलवर कधीही OTP मागत नाही." } },
+  { scam: true,
+    t: { en: "Congratulations! You won ₹25,00,000. Click bit.ly/win-now to claim.",
+         hi: "बधाई हो! आपने ₹25,00,000 जीते हैं। दावा करने के लिए bit.ly/win-now पर क्लिक करें।",
+         mr: "अभिनंदन! तुम्ही ₹25,00,000 जिंकलात. दावा करण्यासाठी bit.ly/win-now वर क्लिक करा." },
+    why: { en: "You did not enter any lottery. Short links hide where they lead.",
+           hi: "आपने कोई लॉटरी नहीं खरीदी। छोटे लिंक असली पता छिपाते हैं।",
+           mr: "तुम्ही कोणतीही लॉटरी घेतली नाही. छोटे लिंक खरा पत्ता लपवतात." } },
+  { scam: true,
+    t: { en: "Electricity will be cut tonight. Call 98xxxx1234 immediately.",
+         hi: "आज रात बिजली कट जाएगी। तुरंत 98xxxx1234 पर कॉल करें।",
+         mr: "आज रात वीज कापली जाईल. लगेच 98xxxx1234 वर कॉल करा." },
+    why: { en: "Utilities do not threaten cut-offs by text. Call the number printed on your bill.",
+           hi: "बिजली विभाग SMS से धमकी नहीं देता। बिल पर छपे नंबर पर कॉल करें।",
+           mr: "वीज विभाग SMS द्वारे धमकी देत नाही. बिलावर छापलेल्या नंबरवर कॉल करा." } },
+  { scam: true,
+    t: { en: "Your parcel is held. Pay ₹49 fee at tiny-link.in/pay",
+         hi: "आपका पार्सल रुका है। ₹49 शुल्क tiny-link.in/pay पर भरें।",
+         mr: "तुमचे पार्सल थांबले आहे. ₹49 शुल्क tiny-link.in/pay वर भरा." },
+    why: { en: "Fake delivery fees with odd links are a common trick.",
+           hi: "अजीब लिंक वाले नकली डिलीवरी शुल्क आम चाल है।",
+           mr: "विचित्र लिंक असलेले बनावट डिलिव्हरी शुल्क ही सामान्य फसवणूक आहे." } },
+  { scam: true,
+    t: { en: "Your KYC has expired. Update now or your account will be frozen. Reply with your PAN.",
+         hi: "आपका KYC समाप्त हो गया है। अभी अपडेट करें वरना खाता फ्रीज हो जाएगा। अपना PAN भेजें।",
+         mr: "तुमचे KYC संपले आहे. आत्ताच अपडेट करा नाहीतर खाते गोठवले जाईल. तुमचा PAN पाठवा." },
+    why: { en: "Never send your PAN or card details to someone who contacted you first.",
+           hi: "जो आपसे पहले संपर्क करे, उसे PAN या कार्ड की जानकारी न दें।",
+           mr: "ज्याने आधी संपर्क केला त्याला PAN किंवा कार्डची माहिती देऊ नका." } },
+  { scam: true,
+    t: { en: "Dear customer, your SIM will be blocked in 2 hours. Call this number to verify.",
+         hi: "प्रिय ग्राहक, 2 घंटे में आपका SIM ब्लॉक होगा। सत्यापन के लिए यह नंबर कॉल करें।",
+         mr: "प्रिय ग्राहक, 2 तासांत तुमचे SIM ब्लॉक होईल. पडताळणीसाठी हा नंबर कॉल करा." },
+    why: { en: "A deadline plus a 'call now' is the pressure trick. Hang up and contact the operator yourself.",
+           hi: "समय सीमा और 'अभी कॉल करें' दबाव बनाने की चाल है। फोन काटें और खुद कंपनी से बात करें।",
+           mr: "मुदत आणि 'आत्ताच कॉल करा' हा दबाव आणण्याचा डाव आहे. फोन ठेवा आणि स्वतः कंपनीशी बोला." } },
+  { scam: false,
+    t: { en: "Your electricity bill of ₹640 is paid. Thank you.",
+         hi: "आपका बिजली बिल ₹640 भुगतान हो गया है। धन्यवाद।",
+         mr: "तुमचे वीज बिल ₹640 भरले आहे. धन्यवाद." },
+    why: { en: "This is a normal message. Let it pass.", hi: "यह सामान्य संदेश है। इसे जाने दें।", mr: "हा नेहमीचा संदेश आहे. तो जाऊ द्या." } },
+  { scam: false,
+    t: { en: "Mum: Reached the station safely. Will call you tonight.",
+         hi: "मम्मी: स्टेशन पर सुरक्षित पहुंच गया। आज रात कॉल करूंगा।",
+         mr: "आई: स्टेशनवर सुखरूप पोहोचलो. आज रात कॉल करेन." },
+    why: { en: "This is a normal message. Let it pass.", hi: "यह सामान्य संदेश है। इसे जाने दें।", mr: "हा नेहमीचा संदेश आहे. तो जाऊ द्या." } },
+  { scam: false,
+    t: { en: "Your monthly statement is ready. Open the official app to view it.",
+         hi: "आपका मासिक विवरण तैयार है। देखने के लिए आधिकारिक ऐप खोलें।",
+         mr: "तुमचे मासिक विवरण तयार आहे. पाहण्यासाठी अधिकृत ॲप उघडा." },
+    why: { en: "This is a normal message. Let it pass.", hi: "यह सामान्य संदेश है। इसे जाने दें।", mr: "हा नेहमीचा संदेश आहे. तो जाऊ द्या." } },
+  { scam: false,
+    t: { en: "Ramesh uncle: Happy Diwali to you and family!",
+         hi: "रमेश चाचा: आप और परिवार को दिवाली की शुभकामनाएं!",
+         mr: "रमेश काका: तुम्हाला आणि कुटुंबाला दिवाळीच्या शुभेच्छा!" },
+    why: { en: "This is a normal message. Let it pass.", hi: "यह सामान्य संदेश है। इसे जाने दें।", mr: "हा नेहमीचा संदेश आहे. तो जाऊ द्या." } },
+  { scam: true,
+    t: { en: "Income tax refund of ₹8,900 pending. Confirm your bank OTP at taxrefund-claim.co",
+         hi: "आयकर रिफंड ₹8,900 लंबित है। taxrefund-claim.co पर बैंक OTP से पुष्टि करें।",
+         mr: "आयकर परतावा ₹8,900 प्रलंबित आहे. taxrefund-claim.co वर बँक OTP ने पुष्टी करा." },
+    why: { en: "Tax refunds never need an OTP. The site is fake.",
+           hi: "आयकर रिफंड में कभी OTP नहीं चाहिए। साइट नकली है।",
+           mr: "परताव्यासाठी कधीही OTP लागत नाही. साइट बनावट आहे." } },
+  { scam: false,
+    t: { en: "Your doctor's appointment is confirmed for Monday at 10 AM.",
+         hi: "आपकी डॉक्टर की अपॉइंटमेंट सोमवार सुबह 10 बजे के लिए पक्की है।",
+         mr: "तुमची डॉक्टरांची भेट सोमवारी सकाळी 10 वाजता निश्चित आहे." },
+    why: { en: "This is a normal message. Let it pass.", hi: "यह सामान्य संदेश है। इसे जाने दें।", mr: "हा नेहमीचा संदेश आहे. तो जाऊ द्या." } },
+];
+
+const TOTAL = 12;            // messages per tower game
+const SPAWN_MS = 2800;       // gap between tower messages
+const SPEEDS = { calm: 22, steady: 40, fast: 64 }; // pixels per second
+
+const $ = id => document.getElementById(id);
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+// The SafeStep app passes its language in window.SAFESTEP_LANG when it embeds this page.
+let lang = ["en", "hi", "mr"].includes(window.SAFESTEP_LANG) ? window.SAFESTEP_LANG : "en", speed = "calm";
+
+/* ---------- Game 1: Message Drop Tower ---------- */
+let state = "ready", items = [], lastSpawn = 0, rafId = 0, lastTs = null;
+let score = 0, lives = 3, spawned = 0, caught = 0, scamsTotal = 0;
+let pickQueue = [];
+
+function shuffledDeck() {
+  const arr = DECK.slice();
+  for (let i = arr.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [arr[i], arr[j]] = [arr[j], arr[i]]; }
+  return arr.slice(0, TOTAL);
+}
+
+function feedback(text, kind) {
+  const f = $("feedback");
+  f.textContent = text;
+  f.className = "feedback " + (kind || "");
+  f.animate([{ opacity: 0.2, transform: "translateY(4px)" }, { opacity: 1, transform: "none" }], { duration: 260, easing: "ease-out" });
+}
+
+function updateStats(bump) {
+  $("scoreLbl").textContent = `${UI[lang].score}: ${score}`;
+  $("hearts").innerHTML = [0, 1, 2].map(i => svgIcon("heart", i < lives ? "" : "lost")).join("");
+  if (bump) $("scoreLbl").animate([{ transform: "scale(1.25)" }, { transform: "scale(1)" }], { duration: 300 });
+}
+
+function spawn() {
+  if (!pickQueue.length) return;
+  const m = pickQueue.shift();
+  const el = document.createElement("div");
+  el.className = "msg enter";
+  el.setAttribute("role", "button");
+  el.tabIndex = 0;
+  const tag = document.createElement("span");
+  tag.className = "tag";
+  tag.innerHTML = svgIcon("envelope") + " " + UI[lang].safeTag;
+  const body = document.createElement("span");
+  body.textContent = m.t[lang];
+  el.append(tag, body);
+  $("tower").appendChild(el);
+  const item = { el, m, y: -120, dead: false };
+  el.addEventListener("pointerdown", e => { e.preventDefault(); tapItem(item); });
+  el.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); tapItem(item); } });
+  items.push(item);
+  spawned++;
+}
+
+function removeItem(item, pop) {
+  item.dead = true;
+  if (pop) {
+    item.el.classList.add("pop");
+    setTimeout(() => item.el.remove(), 260);
+  } else {
+    item.el.remove();
+  }
+  items = items.filter(i => i !== item);
+}
+
+function tapItem(item) {
+  if (item.dead || state !== "playing") return;
+  const u = UI[lang];
+  if (item.m.scam) {
+    caught++;
+    score += 10;
+    removeItem(item, true);
+    feedback(u.caught + item.m.why[lang], "good");
+    updateStats(true);
+  } else {
+    score = Math.max(0, score - 5);
+    lives--;
+    item.el.classList.add("shake");
+    feedback(u.safeTap, "bad");
+    updateStats(false);
+    setTimeout(() => removeItem(item, false), 400);
+  }
+  checkEnd();
+}
+
+function checkEnd() {
+  if (lives <= 0) return finish("over");
+  if (spawned >= TOTAL && items.length === 0) return finish("won");
+}
+
+function finish(kind) {
+  state = kind;
+  cancelAnimationFrame(rafId);
+  const u = UI[lang];
+  const ov = $("overlay");
+  ov.querySelector("h2").textContent = kind === "won" ? u.winTitle : u.overTitle;
+  $("ovText").textContent = u.result(caught, scamsTotal) + " " + u.tip;
+  $("startBtn").textContent = u.againBtn;
+  ov.classList.add("show");
+  $("pauseBtn").disabled = true;
+}
+
+function loop(ts) {
+  if (state !== "playing") return;
+  if (lastTs == null) lastTs = ts;
+  const dt = Math.min(0.05, (ts - lastTs) / 1000);
+  lastTs = ts;
+
+  if (spawned < TOTAL && ts - lastSpawn >= SPAWN_MS) {
+    spawn();
+    lastSpawn = ts;
+  }
+  const v = SPEEDS[speed];
+  const floor = $("tower").clientHeight - 58; // top of the bottom lane
+  for (const item of items.slice()) {
+    if (item.dead) continue;
+    item.y += v * dt;
+    item.el.style.top = item.y + "px";
+    if (item.y + item.el.offsetHeight >= floor) {
+      item.dead = true;
+      if (item.m.scam) {
+        lives--;
+        feedback(UI[lang].missedPre + item.m.why[lang], "bad");
+        const lane = $("laneBottom");
+        lane.classList.remove("flash"); void lane.offsetWidth; lane.classList.add("flash");
+        updateStats(false);
+        item.el.style.transition = "opacity .3s";
+        item.el.style.opacity = "0";
+        setTimeout(() => item.el.remove(), 320);
+      } else {
+        item.el.remove();
+      }
+      items = items.filter(i => i !== item);
+      checkEnd();
+      if (state !== "playing") return;
+    }
+  }
+  rafId = requestAnimationFrame(loop);
+}
+
+function startGame() {
+  cancelAnimationFrame(rafId);
+  $("tower").querySelectorAll(".msg").forEach(n => n.remove());
+  items = []; score = 0; lives = 3; spawned = 0; caught = 0;
+  pickQueue = shuffledDeck();
+  scamsTotal = pickQueue.filter(m => m.scam).length;
+  state = "playing";
+  lastTs = null;
+  lastSpawn = performance.now() - SPAWN_MS; // first drop right away
+  $("overlay").classList.remove("show");
+  $("pauseBtn").disabled = false;
+  $("pauseBtn").textContent = UI[lang].pause;
+  feedback("", "");
+  updateStats(false);
+  rafId = requestAnimationFrame(loop);
+}
+
+function togglePause() {
+  if (state === "playing") {
+    state = "paused";
+    cancelAnimationFrame(rafId);
+    $("pauseBtn").textContent = UI[lang].resume;
+  } else if (state === "paused") {
+    state = "playing";
+    lastTs = null;
+    lastSpawn = performance.now() - (SPAWN_MS / 2);
+    $("pauseBtn").textContent = UI[lang].pause;
+    rafId = requestAnimationFrame(loop);
+  }
+}
+
+function showStart() {
+  const u = UI[lang];
+  state = "ready";
+  $("overlay").querySelector("h2").textContent = u.startTitle;
+  $("ovText").textContent = u.startText;
+  $("startBtn").textContent = u.startBtn;
+  $("overlay").classList.add("show");
+}
+
+/* ---------- Game 2: Build Your Safe Phone ---------- */
+// Each defence: cost in points, category, and the defence it needs first (or null).
+const HABIT_META = [
+  { cost: 1, cat: "device",   req: null, icon: "lock" },     // 0 screen lock
+  { cost: 1, cat: "accounts", req: null, icon: "key" },      // 1 guard OTP
+  { cost: 2, cat: "messages", req: null, icon: "link" },     // 2 check links
+  { cost: 2, cat: "accounts", req: 0,    icon: "check" },    // 3 two-step login
+  { cost: 1, cat: "device",   req: 0,    icon: "store" },    // 4 official stores
+  { cost: 1, cat: "device",   req: null, icon: "refresh" },  // 5 updates
+  { cost: 1, cat: "people",   req: null, icon: "phone" },    // 6 save 1930
+  { cost: 2, cat: "people",   req: 1,    icon: "phonecall" },// 7 hang up and call back
+];
+const CATS = ["device", "accounts", "messages", "people"];
+const DAYS = 10;
+
+// Ten threats, one per day in a random order. "by" is the defence that stops it.
+const THREATS = [
+  { by: 1, t: { en: "A text from 'your bank' asks you to share the OTP to stop a payment.",
+                 hi: "‘आपके बैंक’ का SMS OTP मांगकर भुगतान रोकने को कहता है।",
+                 mr: "‘तुमच्या बँकेचा’ SMS OTP मागून पेमेंट थांबवण्यास सांगतो." } },
+  { by: 0, t: { en: "Someone picks up your unlocked phone and tries to guess your PIN.",
+                 hi: "कोई आपका खुला फ़ोन उठाकर PIN अंदाज़े से खोलने की कोशिश करता है।",
+                 mr: "कोणीतरी तुमचा उघडा फोन घेऊन PIN अंदाजाने उघडण्याचा प्रयत्न करतो." } },
+  { by: 2, t: { en: "An ad leads to a shop link that looks real but is a copy.",
+                 hi: "एक विज्ञापन की लिंक एक नकली दुकान पर ले जाती है।",
+                 mr: "एक जाहिरात लिंक खऱ्या दुकानासारखी पण बनावट दुकानावर नेते." } },
+  { by: 7, t: { en: "A caller says your SIM will be blocked and asks you to stay on the line.",
+                 hi: "कॉल करने वाला कहता है कि आपका SIM ब्लॉक होगा और लाइन पर बने रहने को कहता है।",
+                 mr: "कॉल करणारा म्हणतो तुमचे SIM ब्लॉक होईल आणि लाईनवर राहायला सांगतो." } },
+  { by: 4, t: { en: "A chat sends a 'free games' app file that is not from a store.",
+                 hi: "एक चैट 'मुफ़्त गेम' ऐप फ़ाइल भेजती है, जो स्टोर से नहीं है।",
+                 mr: "एक चॅट 'फ्री गेम्स' ॲप फाइल पाठवते, जी स्टोअरमधून नाही." } },
+  { by: 5, t: { en: "A known bug in your phone's software is used to sneak in.",
+                 hi: "आपके फ़ोन सॉफ़्टवेयर की एक ज्ञात कमी का फ़ायदा उठाया जाता है।",
+                 mr: "तुमच्या फोन सॉफ्टवेअरमधील ज्ञात त्रुटीचा फायदा घेतला जातो." } },
+  { by: 3, t: { en: "A password from an old leak is used to log in to your account.",
+                 hi: "किसी पुराने लीक से मिला पासवर्ड आपके खाते में लॉगिन करने के लिए इस्तेमाल होता है।",
+                 mr: "जुन्या गळतीतील पासवर्ड वापरून तुमच्या खात्यात लॉगिन केले जाते." } },
+  { by: 2, t: { en: "A message says you won a lottery and must click to claim.",
+                 hi: "एक संदेश कहता है कि आप लॉटरी जीते हैं, दावा करने के लिए क्लिक करें।",
+                 mr: "एक संदेश सांगतो तुम्ही लॉटरी जिंकलात, दावा करण्यासाठी क्लिक करा." } },
+  { by: 6, t: { en: "A relative is said to be a fraud victim and the money must be reported within minutes.",
+                 hi: "किसी रिश्तेदार के साथ धोखाधड़ी हुई बताई गई है और मिनटों में रिपोर्ट करनी होगी।",
+                 mr: "एका नातेवाईकासोबत फसवणूक झाल्याचे सांगितले जाते आणि काही मिनिटांत तक्रार करायची आहे." } },
+  { by: 4, t: { en: "Someone says they are tech support and asks you to install a remote-control app.",
+                 hi: "कोई खुद को टेक सपोर्ट बताकर रिमोट-कंट्रोल ऐप इंस्टॉल करने को कहता है।",
+                 mr: "कोणीतरी टेक सपोर्ट असल्याचे सांगून रिमोट-कंट्रोल ॲप इन्स्टॉल करायला सांगतो." } },
+];
+
+const PHONE_KEY = "safestep-phone-v2";
+let P = loadPhone();
+let selected = null;
+let justDone = null;   // defence just set up (for the stamp animation)
+let justLog = false;   // a new day just resolved (for log/threat animation)
+
+function freshPhone() {
+  const order = THREATS.map((_, i) => i);
+  for (let i = order.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [order[i], order[j]] = [order[j], order[i]]; }
+  return { order, day: 1, points: 3, done: [], log: [], ended: false };
+}
+
+function loadPhone() {
+  try {
+    const v = JSON.parse(localStorage.getItem(PHONE_KEY));
+    const ok = v && Array.isArray(v.order) && v.order.length === THREATS.length
+      && Number.isInteger(v.day) && v.day >= 1 && v.day <= DAYS + 1
+      && Number.isInteger(v.points) && v.points >= 0
+      && Array.isArray(v.done) && v.done.every(n => Number.isInteger(n) && n >= 0 && n < HABIT_META.length)
+      && Array.isArray(v.log) && typeof v.ended === "boolean";
+    if (ok) return v;
+  } catch (e) { /* unreadable saved data: start fresh */ }
+  return freshPhone();
+}
+
+function savePhone() {
+  try { localStorage.setItem(PHONE_KEY, JSON.stringify(P)); } catch (e) { /* storage blocked: game still works */ }
+}
+
+function reqMet(i) {
+  const r = HABIT_META[i].req;
+  return r === null || P.done.includes(r);
+}
+
+function setInfo(text, kind) {
+  const info = $("info");
+  info.textContent = text;
+  info.className = "info " + (kind || "");
+}
+
+function showHabit() {
+  const u = UI[lang];
+  if (selected === null) { setInfo(u.pickHint); return; }
+  const h = u.habits[selected];
+  const meta = HABIT_META[selected];
+  const info = $("info");
+  info.className = "info";
+  info.textContent = "";
+  const strong = document.createElement("strong");
+  strong.textContent = h.t;
+  const p = document.createElement("span");
+  p.textContent = " " + h.why;
+  const line = document.createElement("div");
+  line.style.marginTop = "6px";
+  line.style.fontSize = "14px";
+  line.style.color = "var(--muted)";
+  line.textContent = u.cat[meta.cat] + " · " + u.cost + ": " + meta.cost
+    + (meta.req !== null && !reqMet(selected) ? " · " + u.locked : "");
+  info.append(strong, document.createElement("br"), p, line);
+}
+
+function resultText(entry) {
+  const th = THREATS[entry.threat];
+  const u = UI[lang];
+  const name = u.habits[th.by].t;
+  return entry.blocked ? u.blockedMsg(name) : u.passMsg(name);
+}
+
+function renderPhone() {
+  const u = UI[lang];
+  const total = HABIT_META.length;
+
+  $("dayLine").textContent = P.ended ? u.seasonOver : u.dayLine(P.day);
+  $("pointsLine").textContent = `${u.points}: ${P.ended ? 0 : P.points}`;
+
+  // Overall + category meters
+  const meters = $("meters");
+  meters.innerHTML = "";
+  const overall = document.createElement("div");
+  overall.className = "meter";
+  const oLbl = document.createElement("span"); oLbl.textContent = u.overall; oLbl.style.fontWeight = "600";
+  const oBar = document.createElement("div"); oBar.className = "bar";
+  const oFill = document.createElement("span"); oFill.style.width = (P.done.length / total * 100) + "%"; oBar.append(oFill);
+  const oNum = document.createElement("span"); oNum.textContent = Math.round(P.done.length / total * 100) + "%";
+  overall.append(oLbl, oBar, oNum);
+  meters.append(overall);
+  CATS.forEach(cat => {
+    const idxs = HABIT_META.map((m, i) => i).filter(i => HABIT_META[i].cat === cat);
+    const owned = idxs.filter(i => P.done.includes(i)).length;
+    const row = document.createElement("div");
+    row.className = "meter";
+    const lbl = document.createElement("span"); lbl.textContent = u.cat[cat];
+    const bar = document.createElement("div"); bar.className = "bar";
+    const fill = document.createElement("span"); fill.style.width = (owned / idxs.length * 100) + "%"; bar.append(fill);
+    const num = document.createElement("span"); num.textContent = `${owned}/${idxs.length}`;
+    row.append(lbl, bar, num);
+    meters.append(row);
+  });
+
+  // Threat box
+  $("threatHead").textContent = u.threatHead;
+  const last = P.log[0];
+  let text = P.ended ? u.sumText(P.log.filter(e => e.blocked).length, DAYS) : THREATS[P.order[P.day - 1]].t[lang];
+  if (last && !P.ended) text = resultText(last) + "\n\n" + text;
+  $("threatText").textContent = text;
+
+  // Defence tiles
+  const grid = $("grid");
+  grid.innerHTML = "";
+  u.habits.forEach((h, i) => {
+    const isDone = P.done.includes(i);
+    const locked = !isDone && !reqMet(i);
+    const b = document.createElement("button");
+    b.className = "tile" + (isDone ? " done" : "") + (locked ? " locked" : "") + (selected === i ? " sel" : "");
+    b.setAttribute("aria-pressed", selected === i ? "true" : "false");
+    const ic = document.createElement("span"); ic.className = "ticon"; ic.innerHTML = svgIcon(HABIT_META[i].icon);
+    const tt = document.createElement("span"); tt.className = "ttitle"; tt.textContent = h.t;
+    const st = document.createElement("span"); st.className = "tstat";
+    st.textContent = isDone ? u.owned : locked ? `${u.needs}: ${u.habits[HABIT_META[i].req].t}` : `${u.cost}: ${HABIT_META[i].cost}`;
+    b.append(ic, tt, st);
+    if (isDone) {
+      const tick = document.createElement("span");
+      tick.className = "tick" + (justDone === i ? " stamp" : "");
+      tick.textContent = "✓";
+      b.append(tick);
+    }
+    b.addEventListener("click", () => { selected = i; renderPhone(); showHabit(); });
+    grid.appendChild(b);
+  });
+  justDone = null;
+
+  // Buttons
+  const sel = selected !== null;
+  const canBuy = sel && !P.ended && !P.done.includes(selected) && reqMet(selected);
+  $("setupBtn").textContent = sel ? `${u.buy} (${HABIT_META[selected].cost})` : u.buy;
+  $("setupBtn").disabled = !canBuy;
+  $("faceBtn").textContent = u.face;
+  $("faceBtn").disabled = P.ended;
+  $("resetBtn").textContent = u.reset;
+
+  // Log
+  $("logHead").textContent = u.logHead;
+  const list = $("logList");
+  list.innerHTML = "";
+  P.log.slice(0, 5).forEach((e, idx) => {
+    const li = document.createElement("li");
+    if (justLog && idx === 0) li.className = "new";
+    li.textContent = `${u.dayLine(e.day).split(" ")[0]} ${e.day}: ${resultText(e)}`;
+    list.append(li);
+  });
+  justLog = false;
+}
+
+function buyHabit() {
+  if (selected === null || P.ended) return;
+  const u = UI[lang];
+  const i = selected;
+  if (P.done.includes(i)) return;
+  if (!reqMet(i)) { setInfo(u.locked, "bad"); return; }
+  if (P.points < HABIT_META[i].cost) { setInfo(u.noPoints, "bad"); return; }
+  P.points -= HABIT_META[i].cost;
+  P.done.push(i);
+  savePhone();
+  justDone = i;
+  renderPhone();
+  showHabit();
+  setInfo(u.setupMsg, "good");
+}
+
+function faceThreat() {
+  if (P.ended) return;
+  const idx = P.order[P.day - 1];
+  const blocked = P.done.includes(THREATS[idx].by);
+  P.log.unshift({ day: P.day, threat: idx, blocked });
+  P.day++;
+  if (P.day > DAYS) {
+    P.ended = true;
+    P.points = 0;
+  } else {
+    P.points += 3 + (blocked ? 1 : 0);
+  }
+  savePhone();
+  justLog = true;
+  renderPhone();
+  setInfo("");
+  $("info").className = "info";
+
+  // Feedback animations: a blocked threat glows, a breach shakes the phone.
+  const phone = $("phoneBody");
+  phone.classList.remove("breach", "blocked");
+  void phone.offsetWidth;
+  phone.classList.add(blocked ? "blocked" : "breach");
+  $("threatBox").animate([{ opacity: 0, transform: "translateY(8px)" }, { opacity: 1, transform: "none" }], { duration: 380, easing: "ease-out" });
+
+  if (P.ended) setTimeout(showSummary, 500);
+}
+
+function showSummary() {
+  const u = UI[lang];
+  $("sumTitle").textContent = u.sumTitle;
+  $("sumText").textContent = u.sumText(P.log.filter(e => e.blocked).length, DAYS) + " " + u.sumTip;
+  $("sumReset").textContent = u.reset;
+  $("phoneOv").classList.add("show");
+}
+
+function resetPhone() {
+  P = freshPhone();
+  selected = null;
+  savePhone();
+  $("phoneOv").classList.remove("show");
+  renderPhone();
+  setInfo(UI[lang].pickHint);
+}
+
+/* ---------- Game 3: Safe Match (20 levels, objectives, special tiles) ---------- */
+// Tile types: 0-5 are safety habits (index into CANDY.types), plus special and blocked tiles.
+const CANDY = {
+  size: 7,
+  levels: 20,
+  types: [
+    { icon: "lock", habit: 0 }, { icon: "key", habit: 1 }, { icon: "link", habit: 2 },
+    { icon: "check", habit: 3 }, { icon: "phone", habit: 6 }, { icon: "refresh", habit: 5 },
+  ],
+};
+const BLOCK = -2, EMPTY = -1;
+const SP_BOMB = 10, SP_LINE_H = 11, SP_LINE_V = 12, SP_RAIN = 13;
+const SP_ICON = { 10: "bomb", 11: "lineH", 12: "lineV", 13: "rain" };
+const isNormal = v => v >= 0 && v <= 5;
+const isSpecial = v => v >= 10;
+
+// Levels get harder: more tile types, higher targets, locked tiles and score goals later, fewer moves.
+function levelCfg(L) {
+  const k = L <= 4 ? 4 : L <= 11 ? 5 : 6;
+  const A = (L - 1) % k, B = (A + 2) % k;
+  const ct = 8 + Math.floor((L - 1) / 2);
+  const obj = [
+    { kind: "collect", type: A, target: ct },
+    { kind: "collect", type: B, target: ct },
+  ];
+  let blockers = 0;
+  if ((L >= 5 && L <= 9) || L >= 15) {
+    const bt = 3 + Math.floor(L / 5);
+    obj.push({ kind: "blockers", target: bt });
+    blockers = bt + 2;
+  }
+  if (L >= 10) obj.push({ kind: "score", target: 400 + 40 * (L - 10) });
+  return { k, obj, blockers, moves: Math.max(16, 24 - Math.floor((L - 1) / 2)) };
+}
+
+const CANDY_KEY = "safestep-candy-v1";
+let candyUnlocked = loadUnlocked();
+let CG = null;   // current level state
+let candyOvAction = null;
+
+function loadUnlocked() {
+  try {
+    const v = JSON.parse(localStorage.getItem(CANDY_KEY));
+    if (v && Number.isInteger(v.unlocked) && v.unlocked >= 1 && v.unlocked <= CANDY.levels) return v.unlocked;
+  } catch (e) { /* start at level 1 */ }
+  return 1;
+}
+
+function saveUnlocked() {
+  try { localStorage.setItem(CANDY_KEY, JSON.stringify({ unlocked: candyUnlocked })); } catch (e) { /* storage blocked */ }
+}
+
+const randType = k => Math.floor(Math.random() * k);
+const keyOf = (r, c) => r + "," + c;
+const parseKey = k => k.split(",").map(Number);
+
+// Finds straight runs of 3+ equal normal tiles.
+function findRuns(g) {
+  const N = g.length, runs = [];
+  for (let r = 0; r < N; r++) {
+    let c = 0;
+    while (c < N) {
+      const v = g[r][c];
+      if (!isNormal(v)) { c++; continue; }
+      let e = c + 1;
+      while (e < N && g[r][e] === v) e++;
+      if (e - c >= 3) runs.push({ dir: "h", cells: Array.from({ length: e - c }, (_, i) => [r, c + i]) });
+      c = e;
+    }
+  }
+  for (let c = 0; c < N; c++) {
+    let r = 0;
+    while (r < N) {
+      const v = g[r][c];
+      if (!isNormal(v)) { r++; continue; }
+      let e = r + 1;
+      while (e < N && g[e][c] === v) e++;
+      if (e - r >= 3) runs.push({ dir: "v", cells: Array.from({ length: e - r }, (_, i) => [r + i, c]) });
+      r = e;
+    }
+  }
+  return runs;
+}
+
+// Decides what a set of runs clears, and which special tiles it creates.
+function matchPlan(g) {
+  const runs = findRuns(g);
+  const clear = new Set();
+  const spawns = new Map();
+  runs.forEach(run => run.cells.forEach(([r, c]) => clear.add(keyOf(r, c))));
+  // Bomb: an L or T shape, where a horizontal and a vertical run cross
+  const hCells = new Set(), vCells = new Set();
+  runs.forEach(run => run.cells.forEach(([r, c]) => (run.dir === "h" ? hCells : vCells).add(keyOf(r, c))));
+  hCells.forEach(k => { if (vCells.has(k)) spawns.set(k, SP_BOMB); });
+  runs.forEach(run => {
+    const n = run.cells.length;
+    if (n >= 5) {
+      const [r, c] = run.cells[Math.floor(n / 2)];
+      const k = keyOf(r, c);
+      if (!spawns.has(k)) spawns.set(k, SP_RAIN);
+    } else if (n === 4) {
+      const [r, c] = run.cells[1];
+      const k = keyOf(r, c);
+      if (!spawns.has(k)) spawns.set(k, run.dir === "h" ? SP_LINE_H : SP_LINE_V);
+    }
+  });
+  spawns.forEach((_, k) => clear.delete(k));
+  return { clear, spawns };
+}
+
+function swapIn(g, a, b) {
+  const t = g[a[0]][a[1]]; g[a[0]][a[1]] = g[b[0]][b[1]]; g[b[0]][b[1]] = t;
+}
+
+// A move is possible if a swap makes a run, or involves a special tile.
+function hasMove(g) {
+  const N = g.length;
+  for (let r = 0; r < N; r++) for (let c = 0; c < N; c++) {
+    for (const [dr, dc] of [[0, 1], [1, 0]]) {
+      const nr = r + dr, nc = c + dc;
+      if (nr >= N || nc >= N) continue;
+      const a = g[r][c], b = g[nr][nc];
+      if (a === BLOCK || b === BLOCK) continue;
+      if (isSpecial(a) || isSpecial(b)) return true;
+      swapIn(g, [r, c], [nr, nc]);
+      const ok = findRuns(g).length > 0;
+      swapIn(g, [r, c], [nr, nc]);
+      if (ok) return true;
+    }
+  }
+  return false;
+}
+
+function newBoard(k, nBlockers) {
+  const N = CANDY.size;
+  let t;
+  do {
+    t = Array.from({ length: N }, () => Array.from({ length: N }, () => randType(k)));
+    // Place locked tiles away from the top row so the first moves are possible.
+    let placed = 0, guard = 0;
+    while (placed < nBlockers && guard++ < 500) {
+      const r = 1 + Math.floor(Math.random() * (N - 1)), c = Math.floor(Math.random() * N);
+      if (t[r][c] !== BLOCK) { t[r][c] = BLOCK; placed++; }
+    }
+  } while (findRuns(t).length > 0 || !hasMove(t));
+  return t;
+}
+
+function startLevel(L) {
+  const cfg = levelCfg(L);
+  const N = CANDY.size;
+  const t = newBoard(cfg.k, cfg.blockers);
+  const id = Array.from({ length: N }, (_, r) => Array.from({ length: N }, (_, c) => r * N + c));
+  CG = {
+    level: L, cfg, t, id, nextId: N * N,
+    obj: cfg.obj.map(o => ({ ...o, cur: 0 })),
+    moves: cfg.moves, score: 0,
+    busy: false, sel: null, over: false, els: new Map(),
+  };
+  $("cgInner").innerHTML = "";
+  hideCandyOv();
+  placeTiles();
+  setCandyInfo(UI[lang].candyHint);
+  renderCandyPanel();
+}
+
+function tileClass(v) {
+  if (v === BLOCK) return "tl blk";
+  if (isSpecial(v)) return "tl sp";
+  return "tl t" + v;
+}
+function tileIcon(v) {
+  if (v === BLOCK) return svgIcon("padlock");
+  if (isSpecial(v)) return svgIcon(SP_ICON[v]);
+  return svgIcon(CANDY.types[v].icon);
+}
+
+// Positions every tile. New tiles start above the board so they fall in.
+function placeTiles() {
+  const inner = $("cgInner");
+  const N = CANDY.size;
+  const cell = inner.clientWidth / N;
+  const size = cell - 6;
+  for (let r = 0; r < N; r++) for (let c = 0; c < N; c++) {
+    const idv = CG.id[r][c];
+    if (idv < 0) continue;
+    let el = CG.els.get(idv);
+    if (el && el.classList.contains("pop")) continue;
+    if (!el) {
+      el = document.createElement("div");
+      el.style.transform = `translate(${c * cell + 3}px, ${-cell}px)`;
+      inner.append(el);
+      CG.els.set(idv, el);
+      void el.offsetWidth; // flush so the fall animates from above
+    }
+    const v = CG.t[r][c];
+    const selected = !!CG.sel && CG.sel[0] === r && CG.sel[1] === c;
+    el.className = tileClass(v) + (selected ? " sel" : "");
+    el.innerHTML = tileIcon(v);
+    el.style.width = el.style.height = size + "px";
+    el.style.fontSize = (cell * 0.5) + "px";
+    el.dataset.r = r;
+    el.dataset.c = c;
+    el.style.transform = `translate(${c * cell + 3}px, ${r * cell + 3}px)`;
+  }
+}
+
+function applyGravity() {
+  const N = CANDY.size, k = CG.cfg.k;
+  for (let c = 0; c < N; c++) {
+    let write = N - 1;
+    for (let r = N - 1; r >= 0; r--) {
+      if (CG.t[r][c] !== EMPTY) {
+        CG.t[write][c] = CG.t[r][c];
+        CG.id[write][c] = CG.id[r][c];
+        write--;
+      }
+    }
+    for (let r = write; r >= 0; r--) {
+      CG.t[r][c] = randType(k);
+      CG.id[r][c] = CG.nextId++;
+    }
+  }
+}
+
+function progressOf(o) {
+  return o.kind === "score" ? CG.score : o.cur;
+}
+
+function renderCandyPanel() {
+  const u = UI[lang];
+  $("cgLevel").textContent = u.candyLevel(CG.level);
+  $("cgMoves").textContent = `${u.movesLbl}: ${CG.moves}`;
+  $("cgRestart").textContent = u.restartLevel;
+
+  // Level map: done, current, and locked levels
+  const map = $("cgMap");
+  map.innerHTML = "";
+  for (let L = 1; L <= CANDY.levels; L++) {
+    const b = document.createElement("button");
+    b.className = "lvl" + (L < candyUnlocked && L !== CG.level ? " done" : "") + (L === CG.level ? " cur" : "");
+    b.textContent = L;
+    b.disabled = L > candyUnlocked;
+    b.setAttribute("aria-label", u.candyLevel(L));
+    b.addEventListener("click", () => startLevel(L));
+    map.append(b);
+  }
+
+  // Objectives for this level
+  const box = $("cgGoals");
+  box.innerHTML = "";
+  CG.obj.forEach(o => {
+    const target = o.target;
+    const cur = Math.min(progressOf(o), target);
+    const done = cur >= target;
+    let icon, label;
+    if (o.kind === "collect") {
+      icon = svgIcon(CANDY.types[o.type].icon);
+      label = u.objCollect(target, u.habits[CANDY.types[o.type].habit].t);
+    } else if (o.kind === "blockers") {
+      icon = svgIcon("padlock");
+      label = u.objBlockers(target);
+    } else {
+      icon = svgIcon("star");
+      label = u.objScore(target);
+    }
+    const row = document.createElement("div");
+    row.className = "objective" + (done ? " done" : "");
+    const ic = document.createElement("span"); ic.className = "gi"; ic.innerHTML = icon;
+    const lbl = document.createElement("span"); lbl.className = "lbl"; lbl.textContent = label + (done ? " ✓" : "");
+    const bar = document.createElement("div"); bar.className = "bar";
+    const fill = document.createElement("span"); fill.style.width = (cur / target * 100) + "%";
+    bar.append(fill);
+    const num = document.createElement("span"); num.textContent = `${cur}/${target}`;
+    row.append(ic, lbl, bar, num);
+    box.append(row);
+  });
+  const note = document.createElement("p");
+  note.style.cssText = "font-size:13px;color:var(--muted);margin:6px 0 0;";
+  note.textContent = u.lockNote;
+  box.append(note);
+}
+
+function setCandyInfo(text, kind) {
+  const el = $("cgInfo");
+  el.textContent = text;
+  el.className = "info " + (kind || "");
+}
+
+function showComboPopup(n) {
+  const p = document.createElement("div");
+  p.className = "combo";
+  p.textContent = `${UI[lang].combo}×${n}`;
+  $("cgInner").append(p);
+  setTimeout(() => p.remove(), 1000);
+}
+
+function showCandyOv(title, text, btnText, action, withFact) {
+  $("cgOvTitle").textContent = title;
+  $("cgFactHead").textContent = withFact ? UI[lang].factHead : "";
+  $("cgFactHead").hidden = !withFact;
+  $("cgFact").textContent = withFact ? FACTS[lang][CG.level - 1] : "";
+  $("cgFact").hidden = !withFact;
+  $("cgOvText").textContent = text || "";
+  $("cgOvBtn").textContent = btnText;
+  candyOvAction = action;
+  $("cgOv").classList.add("show");
+}
+
+function hideCandyOv() {
+  $("cgOv").classList.remove("show");
+  candyOvAction = null;
+}
+
+// Plays the visual blast for an activated special tile at (r, c).
+function playBlast(kind, r, c) {
+  const inner = $("cgInner");
+  const N = CANDY.size;
+  const cell = inner.clientWidth / N;
+  const cx = c * cell + cell / 2, cy = r * cell + cell / 2;
+  const layer = document.createElement("div");
+  layer.className = "blast";
+  inner.append(layer);
+
+  const place = (el, x, y, w, h) => {
+    el.style.left = x + "px"; el.style.top = y + "px";
+    el.style.width = w + "px"; el.style.height = h + "px";
+    layer.append(el);
+    return el;
+  };
+
+  if (kind === SP_BOMB) {
+    // Shockwave ring over the 3x3 area, a bright core, and a shake of the board
+    const span = cell * 3;
+    place(document.createElement("div"), cx - span / 2, cy - span / 2, span, span).className = "bRing";
+    place(document.createElement("div"), cx - cell * 0.9, cy - cell * 0.9, cell * 1.8, cell * 1.8).className = "bCore";
+    inner.animate([
+      { transform: "translate(0,0)" }, { transform: "translate(-4px,3px)" },
+      { transform: "translate(4px,-3px)" }, { transform: "translate(0,0)" },
+    ], { duration: 320 });
+  } else if (kind === SP_LINE_H) {
+    // A beam sweeps across the whole row
+    const h = cell * 0.7;
+    place(document.createElement("div"), 0, cy - h / 2, N * cell, h).className = "bBeam h";
+    inner.animate([{ transform: "translateY(0)" }, { transform: "translateY(-3px)" }, { transform: "translateY(0)" }], { duration: 240 });
+  } else if (kind === SP_LINE_V) {
+    // A beam sweeps down the whole column
+    const w = cell * 0.7;
+    place(document.createElement("div"), cx - w / 2, 0, w, N * cell).className = "bBeam v";
+    inner.animate([{ transform: "translateX(0)" }, { transform: "translateX(-3px)" }, { transform: "translateX(0)" }], { duration: 240 });
+  } else if (kind === SP_RAIN) {
+    // A rainbow wave spreads out from the tile
+    const span = cell * 6;
+    place(document.createElement("div"), cx - span / 2, cy - span / 2, span, span).className = "bRain";
+  }
+  setTimeout(() => layer.remove(), 800);
+}
+
+// Clears the given cells: counts objectives and score, pops the tiles, places new specials,
+// then lets the tiles fall and refill. Blasts play for special tiles that were activated.
+async function resolveStep(clearSet, spawns, combo, msgKey, blasts = []) {
+  const u = UI[lang];
+  const clear = new Set(clearSet);
+  // Locked tiles next to a cleared tile are unlocked (cleared) too
+  clearSet.forEach(k => {
+    const [r, c] = parseKey(k);
+    [[r - 1, c], [r + 1, c], [r, c - 1], [r, c + 1]].forEach(([nr, nc]) => {
+      if (nr >= 0 && nc >= 0 && nr < CANDY.size && nc < CANDY.size && CG.t[nr][nc] === BLOCK) clear.add(keyOf(nr, nc));
+    });
+  });
+
+  let gained = 0;
+  let firstHabit = null;
+  clear.forEach(k => {
+    const [r, c] = parseKey(k);
+    const v = CG.t[r][c];
+    if (isNormal(v)) {
+      gained += 10;
+      if (firstHabit === null) firstHabit = v;
+      CG.obj.forEach(o => { if (o.kind === "collect" && o.type === v) o.cur++; });
+    } else if (v === BLOCK) {
+      gained += 20;
+      CG.obj.forEach(o => { if (o.kind === "blockers") o.cur++; });
+    } else if (isSpecial(v)) {
+      gained += 30;
+    }
+  });
+  spawns.forEach((ty, k) => { gained += 30; });
+  CG.score += gained;
+
+  // Create special tiles in place (they keep their id and do not fall)
+  spawns.forEach((ty, k) => {
+    const [r, c] = parseKey(k);
+    CG.t[r][c] = ty;
+    const el = CG.els.get(CG.id[r][c]);
+    if (el) { el.className = tileClass(ty) + " spawnPop"; el.innerHTML = tileIcon(ty); }
+  });
+
+  // Blast effects, then pop the cleared tiles in a ripple that spreads from the blast origin
+  blasts.forEach(b => playBlast(b.kind, b.r, b.c));
+  const origin = blasts.length ? blasts[0] : null;
+  clear.forEach(k => {
+    const [r, c] = parseKey(k);
+    const idv = CG.id[r][c];
+    const el = CG.els.get(idv);
+    if (el) {
+      const dist = origin ? Math.abs(r - origin.r) + Math.abs(c - origin.c) : 0;
+      const delay = dist * 0.04;
+      el.style.animationDelay = delay + "s";
+      el.classList.add("pop");
+      CG.els.delete(idv);
+      setTimeout(() => el.remove(), 320 + delay * 1000);
+    }
+  });
+
+  if (combo > 1) showComboPopup(combo);
+  if (msgKey === "special") setCandyInfo((combo > 1 ? u.combo : "") + u.specialMsg, "good");
+  else if (firstHabit !== null) {
+    const h = u.habits[CANDY.types[firstHabit].habit];
+    setCandyInfo((combo > 1 ? u.combo : "") + `${h.t}: ${h.why}`, "good");
+  } else {
+    setCandyInfo((combo > 1 ? u.combo : "") + u.unlockMsg, "good");
+  }
+  renderCandyPanel();
+  await sleep(300);
+
+  clear.forEach(k => { const [r, c] = parseKey(k); CG.t[r][c] = EMPTY; CG.id[r][c] = -1; });
+  applyGravity();
+  placeTiles();
+  renderCandyPanel();
+  await sleep(380);
+}
+
+// Runs cascades until the board settles.
+async function cascade() {
+  let combo = 1;
+  while (true) {
+    const plan = matchPlan(CG.t);
+    if (!plan.clear.size && !plan.spawns.size) break;
+    if (combo > 1) await sleep(120);
+    await resolveStep(plan.clear, plan.spawns, combo, "match");
+    combo++;
+  }
+}
+
+// Special tile activation: returns the cells it clears.
+function activationCells(pos, sp, other) {
+  const N = CANDY.size;
+  const [r, c] = pos;
+  const out = new Set([keyOf(r, c)]);
+  if (sp === SP_BOMB) {
+    for (let dr = -1; dr <= 1; dr++) for (let dc = -1; dc <= 1; dc++) {
+      const nr = r + dr, nc = c + dc;
+      if (nr >= 0 && nc >= 0 && nr < N && nc < N) out.add(keyOf(nr, nc));
+    }
+  } else if (sp === SP_LINE_H) {
+    for (let cc = 0; cc < N; cc++) out.add(keyOf(r, cc));
+  } else if (sp === SP_LINE_V) {
+    for (let rr = 0; rr < N; rr++) out.add(keyOf(rr, c));
+  } else if (sp === SP_RAIN) {
+    if (isNormal(other)) {
+      for (let rr = 0; rr < N; rr++) for (let cc = 0; cc < N; cc++) if (CG.t[rr][cc] === other) out.add(keyOf(rr, cc));
+    }
+  }
+  // Locked tiles are only cleared by neighbours, never directly
+  [...out].forEach(k => { const [rr, cc] = parseKey(k); if (CG.t[rr][cc] === BLOCK) out.delete(k); });
+  return out;
+}
+
+async function attemptSwap(a, b) {
+  const u = UI[lang];
+  const va = CG.t[a[0]][a[1]], vb = CG.t[b[0]][b[1]];
+  if (va === BLOCK || vb === BLOCK) {
+    setCandyInfo(u.lockedTile, "bad");
+    return;
+  }
+  CG.busy = true;
+  swapIn(CG.t, a, b);
+  swapIn(CG.id, a, b);
+  placeTiles();
+
+  const spA = isSpecial(va), spB = isSpecial(vb);
+  if (spA || spB) {
+    // The special tile moved to the other cell. Activate it there.
+    const spPos = spA ? b : a;
+    const sp = spA ? va : vb;
+    const other = spA ? vb : va;
+    CG.moves--;
+    renderCandyPanel();
+    await sleep(200);
+    const clear = activationCells(spPos, sp, other);
+    await resolveStep(clear, new Map(), 1, "special", [{ kind: sp, r: spPos[0], c: spPos[1] }]);
+    await cascade();
+  } else {
+    const plan = matchPlan(CG.t);
+    if (!plan.clear.size && !plan.spawns.size) {
+      await sleep(320);
+      swapIn(CG.t, a, b);
+      swapIn(CG.id, a, b);
+      placeTiles();
+      const inner = $("cgInner");
+      inner.animate([{ transform: "translateX(0)" }, { transform: "translateX(-5px)" }, { transform: "translateX(5px)" }, { transform: "translateX(0)" }], { duration: 300 });
+      setCandyInfo(u.noMatch, "bad");
+      CG.busy = false;
+      return;
+    }
+    CG.moves--;
+    renderCandyPanel();
+    await sleep(200);
+    await resolveStep(plan.clear, plan.spawns, 1, "match");
+    await cascade();
+  }
+  CG.busy = false;
+  checkLevelEnd();
+  renderCandyPanel();
+}
+
+function checkLevelEnd() {
+  const u = UI[lang];
+  const won = CG.obj.every(o => progressOf(o) >= o.target);
+  if (won) {
+    CG.over = true;
+    const L = CG.level;
+    if (L + 1 > candyUnlocked) { candyUnlocked = Math.min(CANDY.levels, L + 1); saveUnlocked(); }
+    if (L < CANDY.levels) {
+      showCandyOv(u.levelDone(L), "", u.nextLevel, () => startLevel(L + 1), true);
+    } else {
+      showCandyOv(u.finalTitle, u.finalText, u.playAgain, () => startLevel(1), true);
+    }
+  } else if (CG.moves <= 0) {
+    CG.over = true;
+    showCandyOv(u.loseTitle, u.loseText, u.restartLevel, () => startLevel(CG.level), false);
+  }
+}
+
+function onCandyTap(r, c) {
+  if (!CG || CG.busy || CG.over) return;
+  if (!CG.sel) { CG.sel = [r, c]; placeTiles(); return; }
+  const [sr, sc] = CG.sel;
+  if (sr === r && sc === c) { CG.sel = null; placeTiles(); return; }
+  if (Math.abs(sr - r) + Math.abs(sc - c) !== 1) { CG.sel = [r, c]; placeTiles(); return; }
+  CG.sel = null;
+  attemptSwap([sr, sc], [r, c]);
+}
+
+$("cgBoard").addEventListener("click", e => {
+  const el = e.target.closest(".tl");
+  if (!el || !CG) return;
+  onCandyTap(Number(el.dataset.r), Number(el.dataset.c));
+});
+$("cgOvBtn").addEventListener("click", () => { if (candyOvAction) candyOvAction(); });
+$("cgRestart").addEventListener("click", () => { if (CG) startLevel(CG.level); });
+$("pickCandyBtn").addEventListener("click", () => showGame("candy"));
+$("backFromCandy").addEventListener("click", () => showGame("picker"));
+window.addEventListener("resize", () => { if (CG) placeTiles(); });
+
+/* ---------- Game chooser ---------- */
+function showGame(which) {
+  // Leaving the tower mid-game pauses it, so nothing runs in the background.
+  if (which !== "tower" && state === "playing") togglePause();
+  const sections = { picker: "picker", tower: "towerGame", phone: "phoneGame", candy: "candyGame" };
+  Object.entries(sections).forEach(([key, id]) => {
+    const el = $(id);
+    const show = key === which;
+    if (show && el.hidden) {
+      el.hidden = false;
+      el.classList.remove("enter");
+      void el.offsetWidth;
+      el.classList.add("enter");
+    } else {
+      el.hidden = !show;
+    }
+  });
+  document.body.className = "theme-" + which;
+  if (which === "candy" && !CG) startLevel(candyUnlocked);
+  window.scrollTo({ top: 0 });
+}
+$("pickTowerBtn").addEventListener("click", () => showGame("tower"));
+$("pickPhoneBtn").addEventListener("click", () => showGame("phone"));
+$("backFromTower").addEventListener("click", () => showGame("picker"));
+$("backFromPhone").addEventListener("click", () => showGame("picker"));
+
+/* ---------- Shared ---------- */
+function applyLang() {
+  updateThemeBtn();
+  const u = UI[lang];
+  document.documentElement.lang = lang;
+  $("title").textContent = u.title;
+  $("towerTitle").textContent = u.towerTitle;
+  $("phoneTitle").textContent = u.phoneTitle;
+  $("candyTitle").textContent = u.candyTitle;
+  $("intro").textContent = u.intro;
+  $("phoneIntro").textContent = u.phoneIntro;
+  $("candyIntro").textContent = u.candyIntro;
+  $("speedLabel").textContent = u.speed;
+  $("speed-calm").textContent = u.calm;
+  $("speed-steady").textContent = u.steady;
+  $("speed-fast").textContent = u.fast;
+  $("laneBottom").textContent = u.lane;
+  $("pauseBtn").textContent = state === "paused" ? u.resume : u.pause;
+  $("startBtn").textContent = (state === "over" || state === "won") ? u.againBtn : u.startBtn;
+  document.querySelectorAll("[data-lang]").forEach(b => b.classList.toggle("on", b.dataset.lang === lang));
+  document.querySelectorAll("[data-speed]").forEach(b => b.classList.toggle("on", b.dataset.speed === speed));
+  $("pkTitle").textContent = u.pkTitle;
+  $("pkTowerName").textContent = u.pkTower;
+  $("pkTowerDesc").textContent = u.pkTowerDesc;
+  $("pkPhoneName").textContent = u.pkPhone;
+  $("pkPhoneDesc").textContent = u.pkPhoneDesc;
+  $("pkCandyName").textContent = u.pkCandy;
+  $("pkCandyDesc").textContent = u.pkCandyDesc;
+  $("backFromTower").textContent = u.back;
+  $("backFromPhone").textContent = u.back;
+  $("backFromCandy").textContent = u.back;
+  $("cgSpecTitle").textContent = u.specTitle;
+  $("cgSpec1").innerHTML = iconize(u.spec1);
+  $("cgSpec2").innerHTML = iconize(u.spec2);
+  $("cgSpec3").innerHTML = iconize(u.spec3);
+  $("cgSpec4").innerHTML = iconize(u.spec4);
+  updateStats(false);
+  $("sumReset").textContent = u.reset;
+  renderPhone();
+  if (selected !== null) showHabit();
+  else if (!$("info").textContent) setInfo(u.pickHint);
+  if (CG) { placeTiles(); renderCandyPanel(); if (CG.over) hideCandyOv(); }
+}
+
+document.querySelectorAll("[data-lang]").forEach(b => b.addEventListener("click", () => { lang = b.dataset.lang; applyLang(); }));
+document.querySelectorAll("[data-speed]").forEach(b => b.addEventListener("click", () => { speed = b.dataset.speed; applyLang(); }));
+$("startBtn").addEventListener("click", startGame);
+$("pauseBtn").addEventListener("click", togglePause);
+$("setupBtn").addEventListener("click", buyHabit);
+$("faceBtn").addEventListener("click", faceThreat);
+$("resetBtn").addEventListener("click", resetPhone);
+$("sumReset").addEventListener("click", resetPhone);
+document.addEventListener("keydown", e => {
+  if ((e.key === "p" || e.key === "P") && state !== "ready" && !$("towerGame").hidden) togglePause();
+});
+
+// Sprite of gradients used by every icon, then the chooser icons.
+document.body.insertAdjacentHTML("afterbegin", SVG_DEFS);
+document.querySelectorAll(".pickIcon").forEach((el, i) => {
+  el.innerHTML = svgIcon(["target", "device", "candy"][i]);
+});
+
+initTheme();
+applyLang();
+if (P.ended) showSummary();
+showStart();
+showGame("picker");
+</script>
+</body>
+</html>

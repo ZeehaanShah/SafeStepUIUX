@@ -1,0 +1,1541 @@
+{
+ "terms": [
+  {
+   "key": "Phishing",
+   "icon": "msg",
+   "cat": [
+    "Messages",
+    "संदेश",
+    "संदेश"
+   ],
+   "name": [
+    "Phishing",
+    "फ़िशिंग",
+    "फिशिंग"
+   ],
+   "short": [
+    "Fake messages that look real",
+    "असली जैसे दिखने वाले नकली संदेश",
+    "खऱ्यासारखे दिसणारे बनावट संदेश"
+   ],
+   "d": [
+    "A fake message that looks real, trying to trick you into clicking a link or sharing information.",
+    "एक नकली संदेश जो असली जैसा दिखता है, जो आपको किसी लिंक पर क्लिक करने या जानकारी साझा करने के लिए धोखा देने की कोशिश करता है।",
+    "खऱ्यासारखा दिसणारा बनावट संदेश, जो तुम्हाला लिंकवर क्लिक करायला किंवा माहिती द्यायला फसवण्याचा प्रयत्न करतो."
+   ],
+   "ex": [
+    "An SMS or email from your 'bank' saying: 'Your account will be closed, click here to verify.'",
+    "बैंक की तरफ से आया एक SMS या ईमेल जिसमें लिखा हो 'आपका खाता बंद हो जाएगा, यहां क्लिक करके सत्यापित करें।'",
+    "तुमच्या ‘बँकेकडून’ आलेला SMS किंवा ईमेल: ‘तुमचे खाते बंद होईल, पडताळणीसाठी इथे क्लिक करा.’"
+   ],
+   "tip": [
+    "Never click links in unknown messages. Go straight to the official app or website.",
+    "अनजान संदेशों में दिए गए लिंक पर कभी क्लिक न करें। सीधे आधिकारिक ऐप या वेबसाइट पर जाएं।",
+    "अनोळखी संदेशांतील लिंकवर कधीही क्लिक करू नका. थेट अधिकृत ॲप किंवा वेबसाइटवर जा."
+   ],
+   "rem": [
+    "If a message pushes you to click — pause. Open the official app instead.",
+    "अगर कोई संदेश क्लिक करने की जल्दी मचाए — रुकें। इसकी जगह आधिकारिक ऐप खोलें।",
+    "संदेश क्लिक करायची घाई करत असेल — थांबा. त्याऐवजी अधिकृत ॲप उघडा."
+   ],
+   "quiz": [
+    {
+     "q": [
+      "A message says: 'Dear Customer, your KYC update is pending. Visit our secure portal today.' What actually makes this risky?",
+      "एक संदेश कहता है: 'प्रिय ग्राहक, आपका KYC अपडेट बाकी है। आज ही हमारे सुरक्षित पोर्टल पर जाएं।' इसमें असल में खतरा किस बात से है?",
+      "एक संदेश म्हणतो: ‘प्रिय ग्राहक, तुमचे KYC अपडेट बाकी आहे. आजच आमच्या सुरक्षित पोर्टलला भेट द्या.’ यात खरा धोका कशामुळे आहे?"
+     ],
+     "a": [
+      "It uses the word \"secure\"",
+      "इसमें 'सुरक्षित' शब्द है",
+      "त्यात ‘सुरक्षित’ हा शब्द आहे"
+     ],
+     "b": [
+      "It doesn't address you by name and pushes you to click a link",
+      "इसमें आपका नाम नहीं है और यह आपको लिंक पर क्लिक करने के लिए दबाव डालता है",
+      "त्यात तुमचे नाव नाही आणि तो तुम्हाला लिंकवर क्लिक करायला भाग पाडतो"
+     ],
+     "correct": "B",
+     "fb": [
+      "The word 'secure' means nothing on its own — scammers use it too. The real clue is the generic greeting and the link.",
+      "'सुरक्षित' शब्द का अपने आप में कोई मतलब नहीं — ठग भी इसका इस्तेमाल करते हैं। असली संकेत है बिना नाम वाला अभिवादन और लिंक।",
+      "‘सुरक्षित’ या शब्दाला स्वतःहून काही अर्थ नाही — फसवणूक करणारेही तो वापरतात. खरी खूण म्हणजे नाव नसलेले अभिवादन आणि लिंक."
+     ]
+    },
+    {
+     "q": [
+      "You clicked a link before realizing it might be fake, but you didn't enter any details. What should you do now?",
+      "नकली होने का एहसास होने से पहले आपने एक लिंक पर क्लिक कर दिया, लेकिन कोई जानकारी नहीं डाली। अब क्या करना चाहिए?",
+      "बनावट असल्याचे लक्षात येण्याआधी तुम्ही लिंकवर क्लिक केले, पण कोणतीही माहिती टाकली नाही. आता काय करावे?"
+     ],
+     "a": [
+      "Nothing, since you didn't type anything",
+      "कुछ नहीं, क्योंकि आपने कुछ लिखा नहीं",
+      "काही नाही, कारण तुम्ही काहीच टाइप केले नाही"
+     ],
+     "b": [
+      "Close it, don't enter anything if asked, and check your account directly through the official app",
+      "पेज बंद करें, मांगे जाने पर भी कुछ न डालें, और आधिकारिक ऐप से सीधे अपना खाता जांचें",
+      "पान बंद करा, मागितले तरी काही टाकू नका, आणि अधिकृत ॲपमधून थेट तुमचे खाते तपासा"
+     ],
+     "correct": "B",
+     "fb": [
+      "Even just visiting a fake page can sometimes install something harmful. It's safest to check your real account directly afterward, just in case.",
+      "सिर्फ नकली पेज खोलने से भी कभी-कभी कुछ नुकसानदायक इंस्टॉल हो सकता है। एहतियात के तौर पर बाद में अपना असली खाता सीधे जांच लेना सबसे सुरक्षित है।",
+      "फक्त बनावट पान उघडल्यानेही कधी कधी काहीतरी हानिकारक इन्स्टॉल होऊ शकते. खबरदारी म्हणून नंतर तुमचे खरे खाते थेट तपासणे सर्वात सुरक्षित."
+     ]
+    },
+    {
+     "q": [
+      "True or False: If a phishing message has your bank's correct logo and colors, it's probably real.",
+      "सही या गलत: अगर किसी फ़िशिंग संदेश में आपके बैंक का सही लोगो और रंग हैं, तो वह शायद असली है।",
+      "बरोबर की चूक: फिशिंग संदेशात तुमच्या बँकेचा योग्य लोगो आणि रंग असतील, तर तो बहुधा खरा असतो."
+     ],
+     "a": [
+      "True",
+      "सही",
+      "बरोबर"
+     ],
+     "b": [
+      "False",
+      "गलत",
+      "चूक"
+     ],
+     "correct": "B",
+     "fb": [
+      "Logos and colors are easy to copy. Scammers often copy them exactly — they're not proof of anything.",
+      "लोगो और रंग आसानी से कॉपी किए जा सकते हैं। ठग अक्सर इन्हें हूबहू कॉपी करते हैं — ये किसी बात का सबूत नहीं हैं।",
+      "लोगो आणि रंग सहज कॉपी करता येतात. फसवणूक करणारे ते हुबेहूब कॉपी करतात — ते कशाचाही पुरावा नाहीत."
+     ]
+    },
+    {
+     "q": [
+      "What's the difference between phishing and vishing?",
+      "फ़िशिंग और विशिंग में क्या फ़र्क है?",
+      "फिशिंग आणि व्हिशिंग यात काय फरक आहे?"
+     ],
+     "a": [
+      "Phishing happens through messages/email, vishing happens through phone calls",
+      "फ़िशिंग संदेश/ईमेल से होती है, विशिंग फोन कॉल से होती है",
+      "फिशिंग संदेश/ईमेलमधून होते, व्हिशिंग फोन कॉलवरून होते"
+     ],
+     "b": [
+      "They're the same thing with different names",
+      "दोनों एक ही चीज़ के अलग-अलग नाम हैं",
+      "दोन्ही एकाच गोष्टीची वेगवेगळी नावे आहेत"
+     ],
+     "correct": "A",
+     "fb": [
+      "They're related but different — 'phishing' is written (email/SMS), 'vishing' is a voice call. Both try to trick you the same way.",
+      "दोनों जुड़े हुए हैं पर अलग हैं — 'फ़िशिंग' लिखकर होती है (ईमेल/SMS), 'विशिंग' आवाज़ वाली कॉल से। दोनों एक ही तरह से धोखा देने की कोशिश करते हैं।",
+      "दोन्ही संबंधित आहेत पण वेगळे — ‘फिशिंग’ लिखित स्वरूपात (ईमेल/SMS), ‘व्हिशिंग’ आवाजाच्या कॉलवरून. दोन्ही एकाच प्रकारे फसवण्याचा प्रयत्न करतात."
+     ]
+    },
+    {
+     "q": [
+      "You get an email saying you've won a free smartphone, just pay ₹199 delivery fee. What's your best move?",
+      "आपको ईमेल आता है कि आपने मुफ़्त स्मार्टफोन जीता है, बस ₹199 डिलीवरी फ़ीस भरनी है। सबसे अच्छा कदम क्या है?",
+      "तुम्हाला ईमेल येतो की तुम्ही मोफत स्मार्टफोन जिंकलात, फक्त ₹199 डिलिव्हरी शुल्क भरा. सर्वात योग्य पाऊल कोणते?"
+     ],
+     "a": [
+      "Pay the small fee, it's not much money",
+      "छोटी सी फ़ीस भर दें, ज़्यादा पैसे नहीं हैं",
+      "छोटे शुल्क भरा, फार पैसे नाहीत"
+     ],
+     "b": [
+      "Delete it — real prizes never ask you to pay first",
+      "इसे डिलीट करें — असली इनाम पहले पैसे नहीं मांगते",
+      "तो डिलीट करा — खरी बक्षिसे आधी पैसे मागत नाहीत"
+     ],
+     "correct": "B",
+     "fb": [
+      "This is a classic trick — the amount feels small on purpose. No genuine prize ever asks you to pay to receive it.",
+      "यह एक पुरानी चाल है — रकम जानबूझकर छोटी रखी जाती है। कोई भी असली इनाम पाने के लिए पैसे नहीं मांगता।",
+      "ही जुनी युक्ती आहे — रक्कम मुद्दाम छोटी ठेवली जाते. कोणतेही खरे बक्षीस मिळवण्यासाठी पैसे मागितले जात नाहीत."
+     ]
+    }
+   ]
+  },
+  {
+   "key": "Smishing",
+   "icon": "sms",
+   "cat": [
+    "Messages",
+    "संदेश",
+    "संदेश"
+   ],
+   "name": [
+    "Smishing",
+    "स्मिशिंग",
+    "स्मिशिंग"
+   ],
+   "short": [
+    "Phishing through SMS texts",
+    "SMS के ज़रिए फ़िशिंग",
+    "SMS मधून होणारे फिशिंग"
+   ],
+   "d": [
+    "Phishing that happens through SMS text messages instead of email.",
+    "यह फ़िशिंग है जो ईमेल की जगह SMS टेक्स्ट संदेशों के ज़रिए होती है।",
+    "ईमेलऐवजी SMS संदेशांमधून होणारे फिशिंग."
+   ],
+   "ex": [
+    "A text saying you've won a prize or your parcel delivery failed, with a link.",
+    "एक टेक्स्ट जिसमें कहा गया हो कि आपने इनाम जीता है या आपका पार्सल डिलीवरी विफल हो गई, साथ में एक लिंक।",
+    "तुम्ही बक्षीस जिंकलात किंवा तुमच्या पार्सलची डिलिव्हरी अयशस्वी झाली, असे सांगणारा लिंकसह आलेला SMS."
+   ],
+   "tip": [
+    "Delete suspicious texts with links. Real companies rarely ask you to click a link in a text.",
+    "लिंक वाले संदिग्ध टेक्स्ट को डिलीट कर दें। असली कंपनियां शायद ही कभी टेक्स्ट में लिंक पर क्लिक करने के लिए कहती हैं।",
+    "लिंक असलेले संशयास्पद SMS डिलीट करा. खऱ्या कंपन्या क्वचितच SMS मधील लिंकवर क्लिक करायला सांगतात."
+   ],
+   "rem": [
+    "Real couriers and companies don't ask you to pay through a text link.",
+    "असली कूरियर और कंपनियां टेक्स्ट लिंक से भुगतान नहीं मांगतीं।",
+    "खरे कुरिअर आणि कंपन्या SMS लिंकवरून पैसे मागत नाहीत."
+   ],
+   "quiz": [
+    {
+     "q": [
+      "Which detail is the biggest red flag in a text: 'Your parcel is held at customs, pay ₹50 to release: [link]'?",
+      "इस टेक्स्ट में सबसे बड़ा खतरे का संकेत कौन सा है: 'आपका पार्सल कस्टम में रुका है, छुड़ाने के लिए ₹50 भरें: [लिंक]'?",
+      "या SMS मधील सर्वात मोठी धोक्याची खूण कोणती: ‘तुमचे पार्सल कस्टममध्ये अडकले आहे, सोडवण्यासाठी ₹50 भरा: [लिंक]’?"
+     ],
+     "a": [
+      "The delivery mention",
+      "डिलीवरी का ज़िक्र",
+      "डिलिव्हरीचा उल्लेख"
+     ],
+     "b": [
+      "Being asked to pay through a text link instead of the courier's own app",
+      "कूरियर के अपने ऐप की जगह टेक्स्ट लिंक से भुगतान मांगना",
+      "कुरिअरच्या स्वतःच्या ॲपऐवजी SMS लिंकवरून पैसे मागणे"
+     ],
+     "correct": "B",
+     "fb": [
+      "Deliveries are normal — but real couriers never ask for payment through a random text link.",
+      "डिलीवरी आम बात है — लेकिन असली कूरियर कभी किसी अनजान टेक्स्ट लिंक से भुगतान नहीं मांगते।",
+      "डिलिव्हरी ही सामान्य गोष्ट आहे — पण खरे कुरिअर कधीही अनोळखी SMS लिंकवरून पैसे मागत नाहीत."
+     ]
+    },
+    {
+     "q": [
+      "You get a suspicious delivery text. How do you check if it's real?",
+      "आपको डिलीवरी का एक संदिग्ध टेक्स्ट मिला। आप कैसे जांचेंगे कि यह असली है?",
+      "तुम्हाला डिलिव्हरीचा संशयास्पद SMS आला. तो खरा आहे की नाही हे कसे तपासाल?"
+     ],
+     "a": [
+      "Reply to the text asking if it's real",
+      "टेक्स्ट का जवाब देकर पूछें कि क्या यह असली है",
+      "SMS ला उत्तर देऊन तो खरा आहे का ते विचारा"
+     ],
+     "b": [
+      "Open the courier company's official app or website directly and check your order there",
+      "कूरियर कंपनी का आधिकारिक ऐप या वेबसाइट सीधे खोलें और वहां अपना ऑर्डर देखें",
+      "कुरिअर कंपनीचे अधिकृत ॲप किंवा वेबसाइट थेट उघडा आणि तिथे तुमची ऑर्डर पाहा"
+     ],
+     "correct": "B",
+     "fb": [
+      "Replying just confirms your number is active to the scammer. Always check through the official app instead.",
+      "जवाब देने से ठग को पता चल जाता है कि आपका नंबर चालू है। हमेशा आधिकारिक ऐप से ही जांचें।",
+      "उत्तर दिल्याने फसवणूक करणाऱ्याला तुमचा नंबर चालू असल्याचे कळते. नेहमी अधिकृत ॲपमधूनच तपासा."
+     ]
+    },
+    {
+     "q": [
+      "True or False: Smishing only happens to people who give out their phone number a lot.",
+      "सही या गलत: स्मिशिंग सिर्फ उन लोगों के साथ होती है जो अपना फोन नंबर बहुत लोगों को देते हैं।",
+      "बरोबर की चूक: स्मिशिंग फक्त त्याच लोकांसोबत होते जे आपला फोन नंबर खूप जणांना देतात."
+     ],
+     "a": [
+      "True",
+      "सही",
+      "बरोबर"
+     ],
+     "b": [
+      "False",
+      "गलत",
+      "चूक"
+     ],
+     "correct": "B",
+     "fb": [
+      "Scam texts are sent in bulk to random numbers — it has nothing to do with how careful you've been with your number.",
+      "ठगी वाले टेक्स्ट एक साथ हज़ारों अनजान नंबरों पर भेजे जाते हैं — इसका आपकी सावधानी से कोई लेना-देना नहीं।",
+      "फसवे SMS एकाच वेळी हजारो अनोळखी नंबरवर पाठवले जातात — तुमच्या काळजीशी त्याचा काही संबंध नाही."
+     ]
+    },
+    {
+     "q": [
+      "How is smishing different from a normal promotional text from a shop you follow?",
+      "स्मिशिंग, आपकी जानी-पहचानी दुकान के सामान्य प्रचार वाले टेक्स्ट से कैसे अलग है?",
+      "तुमच्या ओळखीच्या दुकानाच्या सामान्य जाहिरात SMS पेक्षा स्मिशिंग वेगळे कसे?"
+     ],
+     "a": [
+      "Smishing creates urgency and asks you to click a link for something unexpected",
+      "स्मिशिंग जल्दबाज़ी पैदा करती है और किसी अनचाही चीज़ के लिए लिंक पर क्लिक करवाती है",
+      "स्मिशिंग घाई निर्माण करते आणि अनपेक्षित गोष्टीसाठी लिंकवर क्लिक करायला लावते"
+     ],
+     "b": [
+      "There's no real difference",
+      "कोई असली फ़र्क नहीं है",
+      "काहीही खरा फरक नाही"
+     ],
+     "correct": "A",
+     "fb": [
+      "A shop you know sending an offer is different from an unexpected text demanding urgent action — context and urgency are the key differences.",
+      "जानी-पहचानी दुकान का ऑफ़र अलग बात है, और अचानक आया टेक्स्ट जो तुरंत कुछ करने का दबाव डाले, अलग — संदर्भ और जल्दबाज़ी ही असली फ़र्क हैं।",
+      "ओळखीच्या दुकानाची ऑफर वेगळी, आणि अचानक आलेला, लगेच काहीतरी करायला भाग पाडणारा SMS वेगळा — संदर्भ आणि घाई हाच खरा फरक आहे."
+     ]
+    },
+    {
+     "q": [
+      "A text says your electricity will be cut tonight unless you pay via the link now. What's the safest response?",
+      "एक टेक्स्ट कहता है कि अगर आपने अभी लिंक से भुगतान नहीं किया तो आज रात आपकी बिजली कट जाएगी। सबसे सुरक्षित जवाब क्या है?",
+      "एक SMS म्हणतो की आत्ता लिंकवरून पैसे भरले नाहीत तर आज रात्री तुमची वीज कापली जाईल. सर्वात सुरक्षित प्रतिसाद कोणता?"
+     ],
+     "a": [
+      "Pay immediately to avoid disconnection",
+      "कनेक्शन कटने से बचने के लिए तुरंत भुगतान करें",
+      "वीज कापली जाऊ नये म्हणून लगेच पैसे भरा"
+     ],
+     "b": [
+      "Ignore the link and check your bill status through your electricity provider's official app or helpline",
+      "लिंक को अनदेखा करें और बिजली कंपनी के आधिकारिक ऐप या हेल्पलाइन से अपना बिल देखें",
+      "लिंककडे दुर्लक्ष करा आणि वीज कंपनीच्या अधिकृत ॲप किंवा हेल्पलाइनवरून तुमचे बिल तपासा"
+     ],
+     "correct": "B",
+     "fb": [
+      "Real utility companies give proper notice and never threaten same-day disconnection over text with a payment link.",
+      "असली बिजली कंपनियां ठीक से नोटिस देती हैं और कभी भी टेक्स्ट लिंक के साथ उसी दिन कनेक्शन काटने की धमकी नहीं देतीं।",
+      "खऱ्या वीज कंपन्या योग्य नोटीस देतात आणि कधीही SMS लिंकसह त्याच दिवशी वीज कापण्याची धमकी देत नाहीत."
+     ]
+    }
+   ]
+  },
+  {
+   "key": "Vishing",
+   "icon": "phone",
+   "cat": [
+    "Calls",
+    "कॉल",
+    "कॉल"
+   ],
+   "name": [
+    "Vishing",
+    "विशिंग",
+    "व्हिशिंग"
+   ],
+   "short": [
+    "Fraud phone calls",
+    "धोखाधड़ी वाली फोन कॉल",
+    "फसवणुकीचे फोन कॉल"
+   ],
+   "d": [
+    "A fraud call where someone pretends to be from your bank, the police or a company to get information or money over the phone.",
+    "एक धोखाधड़ी वाली कॉल जिसमें कोई व्यक्ति आपके बैंक, पुलिस, या किसी कंपनी से होने का दिखावा करता है ताकि फोन पर जानकारी या पैसे ऐंठ सके।",
+    "फसवणुकीचा कॉल, ज्यात कोणीतरी तुमची बँक, पोलीस किंवा एखाद्या कंपनीतून बोलत असल्याचे भासवून फोनवर माहिती किंवा पैसे उकळतो."
+   ],
+   "ex": [
+    "A caller claiming to be from your bank asks for your OTP or card PIN 'to verify your account'.",
+    "एक कॉलर जो आपके बैंक से होने का दावा करता है और 'खाता सत्यापित करने' के लिए आपका OTP या कार्ड पिन मांगता है।",
+    "तुमच्या बँकेतून बोलत असल्याचा दावा करणारा कॉलर ‘खाते पडताळण्यासाठी’ तुमचा OTP किंवा कार्ड पिन मागतो."
+   ],
+   "tip": [
+    "Banks and government offices never ask for your OTP, PIN or password on a call. Hang up and call the official number yourself.",
+    "बैंक और सरकारी दफ्तर कभी भी कॉल पर आपका OTP, पिन, या पासवर्ड नहीं मांगते। फोन काट दें और खुद आधिकारिक नंबर पर कॉल करें।",
+    "बँका आणि सरकारी कार्यालये कधीही कॉलवर तुमचा OTP, पिन किंवा पासवर्ड मागत नाहीत. फोन ठेवा आणि स्वतः अधिकृत नंबरवर कॉल करा."
+   ],
+   "rem": [
+    "They called you? Hang up and call back on a number you trust.",
+    "उन्होंने आपको कॉल किया? फोन काटें और भरोसेमंद नंबर पर खुद कॉल करें।",
+    "त्यांनी तुम्हाला कॉल केला? फोन ठेवा आणि विश्वासाच्या नंबरवर स्वतः कॉल करा."
+   ],
+   "quiz": [
+    {
+     "q": [
+      "A caller says: 'This is a courtesy call from your bank's security team.' What's the actual red flag here?",
+      "एक कॉलर कहता है: 'यह आपके बैंक की सुरक्षा टीम की ओर से एक शिष्टाचार कॉल है।' असली खतरे का संकेत क्या है?",
+      "एक कॉलर म्हणतो: ‘हा तुमच्या बँकेच्या सुरक्षा टीमकडून सौजन्य कॉल आहे.’ इथे खरी धोक्याची खूण कोणती?"
+     ],
+     "a": [
+      "The word \"courtesy\"",
+      "'शिष्टाचार' शब्द",
+      "‘सौजन्य’ हा शब्द"
+     ],
+     "b": [
+      "They called YOU instead of you calling the bank's known number",
+      "उन्होंने आपको कॉल किया, न कि आपने बैंक के जाने-पहचाने नंबर पर",
+      "त्यांनी तुम्हाला कॉल केला, तुम्ही बँकेच्या ओळखीच्या नंबरवर कॉल केला नाही"
+     ],
+     "correct": "B",
+     "fb": [
+      "Polite-sounding language means nothing. The real issue is that legitimate banks don't randomly call asking you to verify sensitive details.",
+      "विनम्र भाषा का कोई मतलब नहीं। असली बात यह है कि असली बैंक अचानक कॉल करके संवेदनशील जानकारी सत्यापित नहीं करवाते।",
+      "नम्र भाषेला काही अर्थ नाही. खरी गोष्ट अशी की खऱ्या बँका अचानक कॉल करून संवेदनशील माहितीची पडताळणी करायला लावत नाहीत."
+     ]
+    },
+    {
+     "q": [
+      "A caller claiming to be your bank asks you to confirm your card number 'for verification.' What should you do?",
+      "बैंक से होने का दावा करने वाला कॉलर 'सत्यापन के लिए' आपका कार्ड नंबर पूछता है। आपको क्या करना चाहिए?",
+      "बँकेतून असल्याचा दावा करणारा कॉलर ‘पडताळणीसाठी’ तुमचा कार्ड नंबर विचारतो. तुम्ही काय करावे?"
+     ],
+     "a": [
+      "Confirm just the first few digits, that seems safe",
+      "सिर्फ पहले कुछ अंक बता दें, वह सुरक्षित लगता है",
+      "फक्त पहिले काही अंक सांगा, ते सुरक्षित वाटते"
+     ],
+     "b": [
+      "Refuse, hang up, and call the number on your card yourself",
+      "मना करें, फोन काटें, और अपने कार्ड पर लिखे नंबर पर खुद कॉल करें",
+      "नकार द्या, फोन ठेवा, आणि कार्डवरील नंबरवर स्वतः कॉल करा"
+     ],
+     "correct": "B",
+     "fb": [
+      "Even partial details can help a scammer piece together your information. Never confirm any part of it — hang up and call back yourself.",
+      "थोड़ी सी जानकारी से भी ठग आपकी पूरी जानकारी जोड़ सकता है। इसका कोई भी हिस्सा न बताएं — फोन काटें और खुद वापस कॉल करें।",
+      "थोड्याशा माहितीवरूनही फसवणूक करणारा तुमची पूर्ण माहिती जुळवू शकतो. त्यातला कोणताही भाग सांगू नका — फोन ठेवा आणि स्वतः परत कॉल करा."
+     ]
+    },
+    {
+     "q": [
+      "True or False: If the caller already knows your name and some account details, it means they're really from the bank.",
+      "सही या गलत: अगर कॉलर को पहले से आपका नाम और खाते की कुछ जानकारी पता है, तो वह सच में बैंक से है।",
+      "बरोबर की चूक: कॉलरला आधीच तुमचे नाव आणि खात्याची काही माहिती माहीत असेल, तर तो खरोखर बँकेतूनच आहे."
+     ],
+     "a": [
+      "True",
+      "सही",
+      "बरोबर"
+     ],
+     "b": [
+      "False",
+      "गलत",
+      "चूक"
+     ],
+     "correct": "B",
+     "fb": [
+      "Scammers often already have some of your details from data leaks or previous scams — knowing your name proves nothing.",
+      "ठगों के पास अक्सर डेटा लीक या पुरानी ठगी से आपकी कुछ जानकारी पहले से होती है — आपका नाम जानना कुछ साबित नहीं करता।",
+      "फसवणूक करणाऱ्यांकडे डेटा लीक किंवा आधीच्या फसवणुकींमधून तुमची काही माहिती आधीच असते — तुमचे नाव माहीत असणे काहीही सिद्ध करत नाही."
+     ]
+    },
+    {
+     "q": [
+      "What's the difference between vishing and a digital arrest scam?",
+      "विशिंग और डिजिटल अरेस्ट स्कैम में क्या फ़र्क है?",
+      "व्हिशिंग आणि डिजिटल अरेस्ट स्कॅम यात काय फरक आहे?"
+     ],
+     "a": [
+      "Vishing is usually about bank/account details over a call; digital arrest scams specifically pretend to be police threatening arrest",
+      "विशिंग आमतौर पर कॉल पर बैंक/खाते की जानकारी के बारे में होती है; डिजिटल अरेस्ट स्कैम में ठग खास तौर पर पुलिस बनकर गिरफ्तारी की धमकी देते हैं",
+      "व्हिशिंग सहसा कॉलवर बँक/खात्याच्या माहितीबद्दल असते; डिजिटल अरेस्ट स्कॅममध्ये खास करून पोलीस असल्याचे भासवून अटकेची धमकी दिली जाते"
+     ],
+     "b": [
+      "They are exactly the same scam",
+      "दोनों बिल्कुल एक ही ठगी हैं",
+      "दोन्ही अगदी एकच फसवणूक आहेत"
+     ],
+     "correct": "A",
+     "fb": [
+      "Both are phone-based, but digital arrest scams specifically use fear of arrest, while vishing is broader — often about bank or account 'verification.'",
+      "दोनों फोन से होते हैं, लेकिन डिजिटल अरेस्ट स्कैम खास तौर पर गिरफ्तारी का डर दिखाता है, जबकि विशिंग का दायरा बड़ा है — अक्सर बैंक या खाते के 'सत्यापन' के बारे में।",
+      "दोन्ही फोनवरून होतात, पण डिजिटल अरेस्ट स्कॅम खास करून अटकेची भीती दाखवतो, तर व्हिशिंगचे क्षेत्र मोठे आहे — अनेकदा बँक किंवा खात्याच्या ‘पडताळणी’बद्दल."
+     ]
+    },
+    {
+     "q": [
+      "A caller says there's 'suspicious activity' on your account and asks you to move your money to a 'safe account' they provide. What do you do?",
+      "एक कॉलर कहता है कि आपके खाते में 'संदिग्ध गतिविधि' है और आपसे पैसे उनके दिए 'सुरक्षित खाते' में भेजने को कहता है। आप क्या करेंगे?",
+      "एक कॉलर म्हणतो की तुमच्या खात्यात ‘संशयास्पद व्यवहार’ आहेत आणि तुमचे पैसे त्यांनी दिलेल्या ‘सुरक्षित खात्यात’ हलवायला सांगतो. तुम्ही काय कराल?"
+     ],
+     "a": [
+      "Move the money as instructed to protect it",
+      "पैसे बचाने के लिए कहे अनुसार भेज दें",
+      "पैसे वाचवण्यासाठी सांगितल्याप्रमाणे हलवा"
+     ],
+     "b": [
+      "Hang up — no real bank ever asks you to transfer money to a different account for 'safety'",
+      "फोन काट दें — कोई भी असली बैंक 'सुरक्षा' के लिए पैसे दूसरे खाते में भेजने को नहीं कहता",
+      "फोन ठेवा — कोणतीही खरी बँक ‘सुरक्षेसाठी’ पैसे दुसऱ्या खात्यात पाठवायला सांगत नाही"
+     ],
+     "correct": "B",
+     "fb": [
+      "This is one of the most damaging scams — the 'safe account' is the scammer's own. Real banks freeze or monitor accounts themselves, they never ask you to move money yourself.",
+      "यह सबसे नुकसानदायक ठगी में से एक है — वह 'सुरक्षित खाता' ठग का ही होता है। असली बैंक खुद खाते को रोकते या उस पर नज़र रखते हैं, आपसे पैसे भेजने को कभी नहीं कहते।",
+      "ही सर्वात नुकसानकारक फसवणुकींपैकी एक आहे — तो ‘सुरक्षित खाते’ फसवणूक करणाऱ्याचेच असते. खऱ्या बँका स्वतः खाते गोठवतात किंवा त्यावर लक्ष ठेवतात; तुम्हाला पैसे हलवायला कधीच सांगत नाहीत."
+     ]
+    }
+   ]
+  },
+  {
+   "key": "Deepfake",
+   "icon": "video",
+   "cat": [
+    "Calls",
+    "कॉल",
+    "कॉल"
+   ],
+   "name": [
+    "Deepfake",
+    "डीपफेक",
+    "डीपफेक"
+   ],
+   "short": [
+    "AI-made fake videos and voices",
+    "AI से बने नकली वीडियो और आवाज़",
+    "AI ने बनवलेले बनावट व्हिडिओ आणि आवाज"
+   ],
+   "d": [
+    "A fake video or voice made using AI that looks and sounds like a real person, but isn't actually them.",
+    "AI का उपयोग करके बनाया गया एक नकली वीडियो या आवाज़ जो किसी असली व्यक्ति जैसा दिखता और सुनाई देता है, लेकिन वह असल में वह व्यक्ति नहीं होता।",
+    "AI वापरून बनवलेला बनावट व्हिडिओ किंवा आवाज, जो खऱ्या व्यक्तीसारखा दिसतो आणि ऐकू येतो, पण ती व्यक्ती प्रत्यक्षात नसते."
+   ],
+   "ex": [
+    "A video call that looks and sounds like your grandson urgently asking for money — but it's actually a scammer using AI.",
+    "एक वीडियो कॉल जो आपके पोते जैसी दिखती और सुनाई देती है, जिसमें तुरंत पैसे मांगे जाते हैं, लेकिन असल में यह AI का उपयोग करने वाला एक धोखेबाज़ होता है।",
+    "तुमच्या नातवासारखा दिसणारा आणि ऐकू येणारा व्हिडिओ कॉल, ज्यात तातडीने पैसे मागितले जातात — पण प्रत्यक्षात तो AI वापरणारा फसवणूक करणारा असतो."
+   ],
+   "tip": [
+    "If a video or voice call feels rushed or asks for money, hang up and call the person back on their known number to confirm.",
+    "अगर कोई वीडियो या आवाज़ कॉल जल्दबाज़ी महसूस कराए या पैसे मांगे, तो फोन काट दें और उस व्यक्ति को उनके जाने-पहचाने नंबर पर वापस कॉल करके पुष्टि करें।",
+    "व्हिडिओ किंवा आवाजाचा कॉल घाई करत असेल किंवा पैसे मागत असेल, तर फोन ठेवा आणि त्या व्यक्तीला तिच्या ओळखीच्या नंबरवर परत कॉल करून खात्री करा."
+   ],
+   "rem": [
+    "A familiar face or voice isn't proof. Call back on their saved number.",
+    "जाना-पहचाना चेहरा या आवाज़ सबूत नहीं है। उनके सेव किए नंबर पर वापस कॉल करें।",
+    "ओळखीचा चेहरा किंवा आवाज हा पुरावा नाही. त्यांच्या सेव्ह केलेल्या नंबरवर परत कॉल करा."
+   ],
+   "quiz": [
+    {
+     "q": [
+      "In a suspicious video call from a 'relative,' what's more reliable evidence that something's wrong than how they look?",
+      "किसी 'रिश्तेदार' की संदिग्ध वीडियो कॉल में, उनके दिखने से ज़्यादा भरोसेमंद संकेत क्या है कि कुछ गड़बड़ है?",
+      "‘नातेवाईकाच्या’ संशयास्पद व्हिडिओ कॉलमध्ये, ते कसे दिसतात यापेक्षा काहीतरी चुकीचे असल्याची अधिक विश्वासार्ह खूण कोणती?"
+     ],
+     "a": [
+      "The video looking slightly blurry",
+      "वीडियो का थोड़ा धुंधला दिखना",
+      "व्हिडिओ थोडा अस्पष्ट दिसणे"
+     ],
+     "b": [
+      "An unusual, urgent request for money combined with an unfamiliar reason",
+      "किसी अनजान वजह के साथ अचानक, जल्दी पैसे मांगना",
+      "एखाद्या अनोळखी कारणासाठी अचानक, तातडीने पैसे मागणे"
+     ],
+     "correct": "B",
+     "fb": [
+      "Video quality can be blamed on 'bad network' — but sudden, urgent money requests are the real behavioral red flag, regardless of video clarity.",
+      "वीडियो की खराब क्वालिटी का दोष 'नेटवर्क' पर डाला जा सकता है — लेकिन अचानक जल्दी पैसे मांगना असली व्यवहार वाला संकेत है, वीडियो साफ़ हो या नहीं।",
+      "व्हिडिओच्या खराब दर्जाचा दोष ‘नेटवर्क’वर टाकता येतो — पण अचानक तातडीने पैसे मागणे हीच खरी वागणुकीतील खूण आहे, व्हिडिओ स्पष्ट असो वा नसो."
+     ]
+    },
+    {
+     "q": [
+      "You get a video call that looks like your son asking for urgent money. What's the safest first step?",
+      "आपको एक वीडियो कॉल आती है जो आपके बेटे जैसी दिखती है और वह जल्दी पैसे मांग रहा है। सबसे सुरक्षित पहला कदम क्या है?",
+      "तुमच्या मुलासारखा दिसणारा व्हिडिओ कॉल येतो आणि तो तातडीने पैसे मागतो. सर्वात सुरक्षित पहिले पाऊल कोणते?"
+     ],
+     "a": [
+      "Send a small amount first while you figure it out",
+      "समझने तक पहले थोड़े पैसे भेज दें",
+      "समजेपर्यंत आधी थोडे पैसे पाठवा"
+     ],
+     "b": [
+      "End the call and phone him back on his usual saved number",
+      "कॉल खत्म करें और उसके सेव किए हुए नंबर पर वापस कॉल करें",
+      "कॉल बंद करा आणि त्याच्या नेहमीच्या सेव्ह केलेल्या नंबरवर परत कॉल करा"
+     ],
+     "correct": "B",
+     "fb": [
+      "Sending even a small amount still loses money if it's fake. Always verify independently first, through a channel you control.",
+      "अगर कॉल नकली है तो थोड़े पैसे भेजना भी नुकसान है। हमेशा पहले अपने भरोसे वाले तरीके से खुद पुष्टि करें।",
+      "कॉल बनावट असेल तर थोडे पैसे पाठवणेही नुकसानच आहे. नेहमी आधी तुमच्या नियंत्रणातील मार्गाने स्वतः खात्री करा."
+     ]
+    },
+    {
+     "q": [
+      "True or False: Deepfake technology is too expensive and rare for scammers to actually use against regular people.",
+      "सही या गलत: डीपफेक तकनीक इतनी महंगी और दुर्लभ है कि ठग इसे आम लोगों के खिलाफ इस्तेमाल नहीं करते।",
+      "बरोबर की चूक: डीपफेक तंत्रज्ञान इतके महाग आणि दुर्मीळ आहे की फसवणूक करणारे ते सामान्य लोकांविरुद्ध वापरत नाहीत."
+     ],
+     "a": [
+      "True",
+      "सही",
+      "बरोबर"
+     ],
+     "b": [
+      "False",
+      "गलत",
+      "चूक"
+     ],
+     "correct": "B",
+     "fb": [
+      "This technology has become cheap and widely available — it's increasingly used in everyday scams, not just against celebrities or high-profile targets.",
+      "यह तकनीक अब सस्ती और आसानी से मिलने लगी है — इसका इस्तेमाल रोज़मर्रा की ठगी में बढ़ रहा है, सिर्फ मशहूर लोगों के खिलाफ नहीं।",
+      "हे तंत्रज्ञान आता स्वस्त आणि सहज उपलब्ध झाले आहे — रोजच्या फसवणुकीत त्याचा वापर वाढतो आहे, फक्त प्रसिद्ध लोकांविरुद्ध नाही."
+     ]
+    },
+    {
+     "q": [
+      "How is a deepfake scam different from a regular vishing call?",
+      "डीपफेक ठगी सामान्य विशिंग कॉल से कैसे अलग है?",
+      "डीपफेक फसवणूक सामान्य व्हिशिंग कॉलपेक्षा वेगळी कशी?"
+     ],
+     "a": [
+      "Deepfakes use fake AI-generated video or voice to impersonate someone you know; vishing is usually a stranger pretending to be an institution",
+      "डीपफेक में AI से बना नकली वीडियो या आवाज़ आपके किसी जानने वाले की नकल करता है; विशिंग में आमतौर पर कोई अजनबी किसी संस्था का होने का दिखावा करता है",
+      "डीपफेकमध्ये AI ने बनवलेला बनावट व्हिडिओ किंवा आवाज तुमच्या ओळखीच्या व्यक्तीची नक्कल करतो; व्हिशिंगमध्ये सहसा एखादा अनोळखी माणूस एखाद्या संस्थेतून असल्याचे भासवतो"
+     ],
+     "b": [
+      "There's no meaningful difference",
+      "कोई खास फ़र्क नहीं है",
+      "काही विशेष फरक नाही"
+     ],
+     "correct": "A",
+     "fb": [
+      "Deepfakes specifically fake the identity of someone you personally know using AI, which is a newer and more convincing kind of impersonation.",
+      "डीपफेक खास तौर पर AI से आपके किसी निजी जानने वाले की पहचान की नकल करता है — यह नकल का नया और ज़्यादा भरोसेमंद लगने वाला तरीका है।",
+      "डीपफेक खास करून AI वापरून तुमच्या वैयक्तिक ओळखीच्या व्यक्तीची ओळख खोटी बनवतो — ही नक्कलेची नवी आणि अधिक पटणारी पद्धत आहे."
+     ]
+    },
+    {
+     "q": [
+      "A video call 'from your daughter' asks you to keep the money request 'a secret from the rest of the family for now.' What's your move?",
+      "आपकी 'बेटी' की वीडियो कॉल आपसे पैसों की मांग को 'अभी परिवार के बाकी लोगों से छिपाकर' रखने को कहती है। आप क्या करेंगे?",
+      "‘तुमच्या मुलीकडून’ आलेला व्हिडिओ कॉल पैशांची मागणी ‘सध्या कुटुंबातील इतरांपासून गुप्त’ ठेवायला सांगतो. तुम्ही काय कराल?"
+     ],
+     "a": [
+      "Keep it private and send the money as asked",
+      "बात छिपाकर रखें और कहे अनुसार पैसे भेज दें",
+      "गोष्ट गुप्त ठेवा आणि सांगितल्याप्रमाणे पैसे पाठवा"
+     ],
+     "b": [
+      "That secrecy request itself is a red flag — verify with another family member or call her back directly",
+      "छिपाने की मांग खुद एक खतरे का संकेत है — परिवार के किसी और सदस्य से पुष्टि करें या सीधे उसे वापस कॉल करें",
+      "गुप्त ठेवण्याची मागणीच धोक्याची खूण आहे — कुटुंबातील दुसऱ्या व्यक्तीकडे खात्री करा किंवा तिला थेट परत कॉल करा"
+     ],
+     "correct": "B",
+     "fb": [
+      "Scammers often ask for secrecy specifically so family members can't cross-check the story. Real emergencies rarely need to be kept secret from everyone.",
+      "ठग अक्सर छिपाने को कहते हैं ताकि परिवार के लोग कहानी की जांच न कर सकें। असली मुसीबत में शायद ही कभी सबसे छिपाने की ज़रूरत होती है।",
+      "फसवणूक करणारे गुप्तता मागतात जेणेकरून कुटुंबीय गोष्ट तपासू शकणार नाहीत. खऱ्या संकटात क्वचितच सर्वांपासून लपवण्याची गरज असते."
+     ]
+    }
+   ]
+  },
+  {
+   "key": "OTP Fraud",
+   "icon": "lock",
+   "cat": [
+    "Money",
+    "पैसा",
+    "पैसा"
+   ],
+   "name": [
+    "OTP Fraud",
+    "OTP धोखाधड़ी",
+    "OTP फसवणूक"
+   ],
+   "short": [
+    "Tricked into sharing your OTP",
+    "धोखे से OTP साझा करवाना",
+    "फसवून OTP सांगायला लावणे"
+   ],
+   "d": [
+    "When someone tricks you into sharing the one-time password (OTP) sent to your phone, then uses it to access your account or complete a transaction.",
+    "जब कोई आपको आपके फोन पर आए वन-टाइम पासवर्ड (OTP) को साझा करने के लिए धोखा देता है, फिर उसका उपयोग आपके खाते तक पहुंचने या लेन-देन पूरा करने के लिए करता है।",
+    "जेव्हा कोणीतरी तुम्हाला तुमच्या फोनवर आलेला वन-टाइम पासवर्ड (OTP) सांगायला फसवतो आणि मग त्याचा वापर तुमच्या खात्यात शिरण्यासाठी किंवा व्यवहार पूर्ण करण्यासाठी करतो."
+   ],
+   "ex": [
+    "A caller says a 'refund' is waiting for you and asks you to read out the OTP you just received.",
+    "एक कॉलर कहता है कि एक 'रिफंड' आपका इंतज़ार कर रहा है और आपसे अभी मिला OTP पढ़ने के लिए कहता है।",
+    "एक कॉलर म्हणतो की तुमचा ‘रिफंड’ तयार आहे आणि तुम्हाला आत्ता आलेला OTP वाचून दाखवायला सांगतो."
+   ],
+   "tip": [
+    "Never share your OTP with anyone, even if they say they're from the bank.",
+    "अपना OTP किसी के साथ साझा न करें, भले ही वे बैंक से होने का दावा करें।",
+    "तुमचा OTP कोणालाही सांगू नका, ते बँकेतून असल्याचा दावा करत असले तरीही."
+   ],
+   "rem": [
+    "An OTP is like your house key — never hand it to anyone.",
+    "OTP आपके घर की चाबी जैसा है — इसे कभी किसी को न दें।",
+    "OTP म्हणजे तुमच्या घराची चावी — ती कधीही कोणाच्या हातात देऊ नका."
+   ],
+   "quiz": [
+    {
+     "q": [
+      "A caller says: 'I'm processing your refund, just read me the code you'll receive.' What's the actual danger signal?",
+      "एक कॉलर कहता है: 'मैं आपका रिफंड कर रहा हूं, बस जो कोड आएगा वह मुझे पढ़कर सुना दें।' असली खतरे का संकेत क्या है?",
+      "एक कॉलर म्हणतो: ‘मी तुमचा रिफंड करत आहे, फक्त येणारा कोड मला वाचून दाखवा.’ खरी धोक्याची खूण कोणती?"
+     ],
+     "a": [
+      "The word \"refund\"",
+      "'रिफंड' शब्द",
+      "‘रिफंड’ हा शब्द"
+     ],
+     "b": [
+      "Being asked to read out any code sent to your phone, for any reason",
+      "किसी भी वजह से, फोन पर आया कोई भी कोड पढ़कर सुनाने को कहना",
+      "कोणत्याही कारणासाठी फोनवर आलेला कोणताही कोड वाचून दाखवायला सांगणे"
+     ],
+     "correct": "B",
+     "fb": [
+      "Refunds are a common excuse, but the real rule is simpler: no legitimate refund process ever needs you to read out a code.",
+      "रिफंड एक आम बहाना है, लेकिन असली नियम आसान है: किसी भी असली रिफंड के लिए आपको कोड पढ़कर नहीं सुनाना पड़ता।",
+      "रिफंड हे नेहमीचे निमित्त आहे, पण खरा नियम सोपा आहे: कोणत्याही खऱ्या रिफंडसाठी तुम्हाला कोड वाचून दाखवावा लागत नाही."
+     ]
+    },
+    {
+     "q": [
+      "You accidentally read out an OTP before realizing something was wrong. What should you do immediately?",
+      "गड़बड़ समझने से पहले आपने गलती से एक OTP पढ़कर सुना दिया। अब तुरंत क्या करना चाहिए?",
+      "काहीतरी चुकीचे आहे हे लक्षात येण्याआधी तुम्ही चुकून OTP सांगितला. आता लगेच काय करावे?"
+     ],
+     "a": [
+      "Nothing, it's already done",
+      "कुछ नहीं, अब तो हो गया",
+      "काही नाही, आता झाले ते झाले"
+     ],
+     "b": [
+      "Call your bank immediately to report it and freeze any pending transaction",
+      "तुरंत अपने बैंक को कॉल करके बताएं और रुका हुआ लेन-देन रुकवाएं",
+      "लगेच बँकेला कॉल करून कळवा आणि प्रलंबित व्यवहार थांबवायला सांगा"
+     ],
+     "correct": "B",
+     "fb": [
+      "Acting fast can still stop or reverse a transaction in some cases — always call your bank immediately.",
+      "जल्दी कदम उठाने से कई बार लेन-देन रुक या वापस हो सकता है — तुरंत अपने बैंक को कॉल करें।",
+      "लवकर पाऊल उचलल्याने काही वेळा व्यवहार थांबू किंवा परत होऊ शकतो — लगेच बँकेला कॉल करा."
+     ]
+    },
+    {
+     "q": [
+      "True or False: It's safe to share an OTP if the person already correctly knows your full name and account number.",
+      "सही या गलत: अगर सामने वाले को आपका पूरा नाम और खाता नंबर सही-सही पता है, तो OTP बताना सुरक्षित है।",
+      "बरोबर की चूक: समोरच्याला तुमचे पूर्ण नाव आणि खाते क्रमांक बरोबर माहीत असेल, तर OTP सांगणे सुरक्षित आहे."
+     ],
+     "a": [
+      "True",
+      "सही",
+      "बरोबर"
+     ],
+     "b": [
+      "False",
+      "गलत",
+      "चूक"
+     ],
+     "correct": "B",
+     "fb": [
+      "Knowing your name and account number doesn't prove anything — that information can be obtained elsewhere. The OTP is the one thing that should never be shared, no matter what else they know.",
+      "नाम और खाता नंबर जानना कुछ साबित नहीं करता — यह जानकारी कहीं और से मिल सकती है। OTP ही वह चीज़ है जो कभी साझा नहीं करनी चाहिए, चाहे वे कुछ भी जानते हों।",
+      "नाव आणि खाते क्रमांक माहीत असणे काहीही सिद्ध करत नाही — ही माहिती इतरत्र मिळू शकते. OTP हीच ती गोष्ट आहे जी कधीही सांगू नये, त्यांना काहीही माहीत असो."
+     ]
+    },
+    {
+     "q": [
+      "What's the difference between OTP fraud and a QR code scam?",
+      "OTP धोखाधड़ी और QR कोड स्कैम में क्या फ़र्क है?",
+      "OTP फसवणूक आणि QR कोड स्कॅम यात काय फरक आहे?"
+     ],
+     "a": [
+      "OTP fraud tricks you into sharing a code; QR scams trick you into scanning something that sends money out",
+      "OTP धोखाधड़ी में आपसे कोड साझा करवाया जाता है; QR स्कैम में आपसे कुछ स्कैन करवाया जाता है जिससे पैसा बाहर चला जाता है",
+      "OTP फसवणुकीत तुम्हाला कोड सांगायला लावले जाते; QR स्कॅममध्ये असे काहीतरी स्कॅन करायला लावले जाते ज्यामुळे पैसे बाहेर जातात"
+     ],
+     "b": [
+      "They're the same kind of scam",
+      "दोनों एक ही तरह की ठगी हैं",
+      "दोन्ही एकाच प्रकारची फसवणूक आहेत"
+     ],
+     "correct": "A",
+     "fb": [
+      "Both involve trickery around payments, but the method is different — one is about a shared code, the other about a scanned code.",
+      "दोनों में भुगतान के आसपास धोखा होता है, लेकिन तरीका अलग है — एक में कोड बताया जाता है, दूसरे में कोड स्कैन किया जाता है।",
+      "दोन्हीमध्ये पेमेंटच्या भोवती फसवणूक होते, पण पद्धत वेगळी — एकात कोड सांगितला जातो, दुसऱ्यात कोड स्कॅन केला जातो."
+     ]
+    },
+    {
+     "q": [
+      "You get an OTP you didn't request at all, followed by a call asking you to share it 'to cancel the transaction.' What do you do?",
+      "आपको एक OTP आता है जो आपने मांगा ही नहीं था, फिर एक कॉल आती है कि 'लेन-देन रद्द करने के लिए' उसे बता दें। आप क्या करेंगे?",
+      "तुम्ही अजिबात न मागितलेला OTP येतो, आणि त्यानंतर ‘व्यवहार रद्द करण्यासाठी’ तो सांगा असा कॉल येतो. तुम्ही काय कराल?"
+     ],
+     "a": [
+      "Share it quickly to cancel before it processes",
+      "प्रोसेस होने से पहले रद्द करने के लिए जल्दी बता दें",
+      "प्रक्रिया होण्याआधी रद्द करण्यासाठी पटकन सांगा"
+     ],
+     "b": [
+      "Don't share it — hang up and check your account and bank app directly",
+      "न बताएं — फोन काटें और अपना खाता व बैंक ऐप सीधे जांचें",
+      "सांगू नका — फोन ठेवा आणि तुमचे खाते व बँक ॲप थेट तपासा"
+     ],
+     "correct": "B",
+     "fb": [
+      "This is actually the scam itself — sharing it is what completes the transaction, not cancels it.",
+      "असल में यही ठगी है — OTP बताने से लेन-देन रद्द नहीं, बल्कि पूरा हो जाता है।",
+      "खरे तर हीच फसवणूक आहे — OTP सांगितल्याने व्यवहार रद्द होत नाही, तर पूर्ण होतो."
+     ]
+    }
+   ]
+  },
+  {
+   "key": "Digital Arrest Scam",
+   "icon": "video",
+   "cat": [
+    "Calls",
+    "कॉल",
+    "कॉल"
+   ],
+   "name": [
+    "Digital Arrest Scam",
+    "डिजिटल अरेस्ट स्कैम",
+    "डिजिटल अरेस्ट स्कॅम"
+   ],
+   "short": [
+    "Fake police on video calls",
+    "वीडियो कॉल पर नकली पुलिस",
+    "व्हिडिओ कॉलवर बनावट पोलीस"
+   ],
+   "d": [
+    "A fraud where scammers pretend to be police or government officials on a video call, falsely claim you're under investigation, and pressure you to pay immediately to avoid arrest.",
+    "एक धोखाधड़ी जिसमें ठग वीडियो कॉल पर पुलिस या सरकारी अधिकारी होने का दिखावा करते हैं, झूठा दावा करते हैं कि आप जांच के दायरे में हैं, और गिरफ्तारी से बचने के लिए तुरंत पैसे देने का दबाव डालते हैं।",
+    "अशी फसवणूक ज्यात फसवणूक करणारे व्हिडिओ कॉलवर पोलीस किंवा सरकारी अधिकारी असल्याचे भासवतात, तुमची चौकशी सुरू असल्याचा खोटा दावा करतात आणि अटक टाळण्यासाठी लगेच पैसे भरायला दबाव आणतात."
+   ],
+   "ex": [
+    "A video call from someone in police uniform saying illegal items were found in a parcel in your name, and you must pay a fine now.",
+    "पुलिस की वर्दी में किसी व्यक्ति की वीडियो कॉल यह कहते हुए कि आपके नाम पर एक पार्सल में अवैध सामान मिला है, और आपको अभी जुर्माना देना होगा।",
+    "पोलिसांच्या गणवेशातील व्यक्तीचा व्हिडिओ कॉल, जो म्हणतो की तुमच्या नावाच्या पार्सलमध्ये बेकायदेशीर वस्तू सापडल्या आणि तुम्हाला आत्ताच दंड भरावा लागेल."
+   ],
+   "tip": [
+    "Real police never arrest anyone or ask for money over a video call. Hang up and visit your nearest police station if you're worried.",
+    "असली पुलिस कभी भी वीडियो कॉल पर गिरफ्तारी नहीं करती या पैसे नहीं मांगती। फोन काट दें और चिंता होने पर अपने नज़दीकी पुलिस स्टेशन जाएं।",
+    "खरे पोलीस कधीही व्हिडिओ कॉलवर कोणालाही अटक करत नाहीत किंवा पैसे मागत नाहीत. फोन ठेवा आणि काळजी वाटत असेल तर जवळच्या पोलीस ठाण्यात जा."
+   ],
+   "rem": [
+    "No real officer arrests anyone on a video call.",
+    "कोई असली अधिकारी वीडियो कॉल पर गिरफ्तारी नहीं करता।",
+    "कोणताही खरा अधिकारी व्हिडिओ कॉलवर अटक करत नाही."
+   ],
+   "quiz": [
+    {
+     "q": [
+      "A video caller in uniform shows what looks like an official document with your name on it. What matters more than how official it looks?",
+      "वर्दी में एक वीडियो कॉलर आपके नाम वाला एक सरकारी दिखने वाला कागज़ दिखाता है। इसके असली दिखने से ज़्यादा क्या मायने रखता है?",
+      "गणवेशातील व्हिडिओ कॉलर तुमचे नाव असलेला सरकारी दिसणारा कागद दाखवतो. तो किती अधिकृत दिसतो यापेक्षा काय जास्त महत्त्वाचे?"
+     ],
+     "a": [
+      "Whether the document has a government emblem",
+      "कागज़ पर सरकारी चिन्ह है या नहीं",
+      "कागदावर सरकारी चिन्ह आहे की नाही"
+     ],
+     "b": [
+      "Whether they're demanding immediate payment to avoid arrest",
+      "क्या वे गिरफ्तारी से बचने के लिए तुरंत भुगतान मांग रहे हैं",
+      "अटक टाळण्यासाठी ते लगेच पैसे मागत आहेत का"
+     ],
+     "correct": "B",
+     "fb": [
+      "Fake documents can be made to look very convincing. The real giveaway is always the demand for immediate payment to avoid arrest — that's not how real legal process works.",
+      "नकली कागज़ बहुत असली जैसे बनाए जा सकते हैं। असली पहचान हमेशा गिरफ्तारी से बचने के लिए तुरंत भुगतान की मांग है — असली कानूनी प्रक्रिया ऐसे काम नहीं करती।",
+      "बनावट कागद अगदी खऱ्यासारखे बनवता येतात. खरी खूण नेहमी अटक टाळण्यासाठी लगेच पैसे भरण्याची मागणी हीच असते — खरी कायदेशीर प्रक्रिया अशी चालत नाही."
+     ]
+    },
+    {
+     "q": [
+      "You get a call like this and feel genuinely scared. What's the safest thing to do?",
+      "आपको ऐसी कॉल आती है और आप सच में डर जाते हैं। सबसे सुरक्षित क्या करना है?",
+      "तुम्हाला असा कॉल येतो आणि खरोखर भीती वाटते. सर्वात सुरक्षित काय करावे?"
+     ],
+     "a": [
+      "Stay on the call and comply to avoid making it worse",
+      "बात बिगड़ने से बचाने के लिए कॉल पर रहें और उनकी बात मानें",
+      "परिस्थिती बिघडू नये म्हणून कॉलवर राहा आणि त्यांचे ऐका"
+     ],
+     "b": [
+      "End the call and physically visit your local police station if you're worried",
+      "कॉल खत्म करें और चिंता हो तो खुद अपने नज़दीकी पुलिस स्टेशन जाएं",
+      "कॉल बंद करा आणि काळजी वाटत असेल तर स्वतः जवळच्या पोलीस ठाण्यात जा"
+     ],
+     "correct": "B",
+     "fb": [
+      "Staying on the call keeps you under pressure. Ending it and checking in person removes the scammer's control over the situation entirely.",
+      "कॉल पर बने रहने से आप दबाव में रहते हैं। कॉल खत्म करके खुद जाकर जांचने से ठग का आप पर नियंत्रण पूरी तरह खत्म हो जाता है।",
+      "कॉलवर राहिल्याने तुम्ही दबावाखाली राहता. कॉल बंद करून प्रत्यक्ष जाऊन तपासल्याने फसवणूक करणाऱ्याचे तुमच्यावरचे नियंत्रण पूर्णपणे संपते."
+     ]
+    },
+    {
+     "q": [
+      "True or False: Real police and courts conduct arrests or legal proceedings over video calls.",
+      "सही या गलत: असली पुलिस और अदालतें वीडियो कॉल पर गिरफ्तारी या कानूनी कार्रवाई करती हैं।",
+      "बरोबर की चूक: खरे पोलीस आणि न्यायालये व्हिडिओ कॉलवर अटक किंवा कायदेशीर कारवाई करतात."
+     ],
+     "a": [
+      "True",
+      "सही",
+      "बरोबर"
+     ],
+     "b": [
+      "False",
+      "गलत",
+      "चूक"
+     ],
+     "correct": "B",
+     "fb": [
+      "This never happens in reality — arrests and legal proceedings require in-person, formal process, never a video call demanding instant payment.",
+      "असल में ऐसा कभी नहीं होता — गिरफ्तारी और कानूनी कार्रवाई के लिए आमने-सामने की औपचारिक प्रक्रिया होती है, तुरंत भुगतान मांगने वाली वीडियो कॉल नहीं।",
+      "प्रत्यक्षात असे कधीच होत नाही — अटक आणि कायदेशीर कारवाईसाठी प्रत्यक्ष, औपचारिक प्रक्रिया असते, लगेच पैसे मागणारा व्हिडिओ कॉल नाही."
+     ]
+    },
+    {
+     "q": [
+      "How is a digital arrest scam different from a regular vishing call?",
+      "डिजिटल अरेस्ट स्कैम सामान्य विशिंग कॉल से कैसे अलग है?",
+      "डिजिटल अरेस्ट स्कॅम सामान्य व्हिशिंग कॉलपेक्षा वेगळा कसा?"
+     ],
+     "a": [
+      "It specifically uses fear of arrest/legal trouble as the pressure tactic, often with a fake uniform or setting",
+      "इसमें दबाव बनाने के लिए खास तौर पर गिरफ्तारी या कानूनी मुसीबत का डर इस्तेमाल होता है, अक्सर नकली वर्दी या माहौल के साथ",
+      "यात दबाव आणण्यासाठी खास करून अटकेची किंवा कायदेशीर अडचणीची भीती वापरली जाते, अनेकदा बनावट गणवेश किंवा वातावरणासह"
+     ],
+     "b": [
+      "No real difference",
+      "कोई असली फ़र्क नहीं",
+      "काही खरा फरक नाही"
+     ],
+     "correct": "A",
+     "fb": [
+      "Vishing can use many different pretexts — this scam specifically weaponizes fear of the law, which makes it especially frightening and effective.",
+      "विशिंग में कई तरह के बहाने हो सकते हैं — यह ठगी खास तौर पर कानून के डर को हथियार बनाती है, इसलिए यह बहुत डरावनी और असरदार होती है।",
+      "व्हिशिंगमध्ये अनेक प्रकारची निमित्ते असू शकतात — ही फसवणूक खास करून कायद्याच्या भीतीला शस्त्र बनवते, म्हणून ती खूप भीतिदायक आणि परिणामकारक असते."
+     ]
+    },
+    {
+     "q": [
+      "The caller says hanging up will be treated as 'evidence of guilt.' Is this true?",
+      "कॉलर कहता है कि फोन काटना 'अपराध का सबूत' माना जाएगा। क्या यह सच है?",
+      "कॉलर म्हणतो की फोन ठेवणे ‘गुन्ह्याचा पुरावा’ मानले जाईल. हे खरे आहे का?"
+     ],
+     "a": [
+      "Yes, better to stay on the line",
+      "हां, लाइन पर बने रहना बेहतर है",
+      "हो, लाइनवर राहणेच बरे"
+     ],
+     "b": [
+      "No — this is a pressure tactic; you can always hang up and verify independently",
+      "नहीं — यह दबाव डालने की चाल है; आप हमेशा फोन काटकर खुद जांच कर सकते हैं",
+      "नाही — ही दबाव आणण्याची युक्ती आहे; तुम्ही कधीही फोन ठेवून स्वतः खात्री करू शकता"
+     ],
+     "correct": "B",
+     "fb": [
+      "This is pure psychological pressure. Hanging up has no legal consequence — it's simply what breaks the scammer's control.",
+      "यह सिर्फ मानसिक दबाव है। फोन काटने का कोई कानूनी नतीजा नहीं होता — इसी से ठग का नियंत्रण टूटता है।",
+      "हा फक्त मानसिक दबाव आहे. फोन ठेवण्याचा कोणताही कायदेशीर परिणाम होत नाही — उलट त्यानेच फसवणूक करणाऱ्याचे नियंत्रण तुटते."
+     ]
+    }
+   ]
+  },
+  {
+   "key": "QR Code Scam",
+   "icon": "qr",
+   "cat": [
+    "Money",
+    "पैसा",
+    "पैसा"
+   ],
+   "name": [
+    "QR Code Scam",
+    "QR कोड स्कैम",
+    "QR कोड स्कॅम"
+   ],
+   "short": [
+    "Fake codes that send money out",
+    "नकली कोड जो पैसा बाहर भेजते हैं",
+    "पैसे बाहेर पाठवणारे बनावट कोड"
+   ],
+   "d": [
+    "A scam using a fake QR code that, when scanned, sends money out of your account instead of in, or takes you to a fake website.",
+    "नकली QR कोड का उपयोग करने वाला एक स्कैम जो स्कैन करने पर पैसे आपके खाते में आने की बजाय बाहर भेज देता है, या आपको एक नकली वेबसाइट पर ले जाता है।",
+    "बनावट QR कोड वापरून केलेली फसवणूक, जो स्कॅन केल्यावर पैसे तुमच्या खात्यात येण्याऐवजी बाहेर पाठवतो, किंवा तुम्हाला बनावट वेबसाइटवर नेतो."
+   ],
+   "ex": [
+    "A shop's real QR code covered with a fake sticker, so your payment goes to the scammer instead of the shop.",
+    "दुकान का असली QR कोड एक नकली स्टिकर से ढका हुआ, ताकि आपका भुगतान दुकान की बजाय ठग के खाते में जाए।",
+    "दुकानाचा खरा QR कोड बनावट स्टिकरने झाकलेला, जेणेकरून तुमचे पेमेंट दुकानाऐवजी फसवणूक करणाऱ्याकडे जाते."
+   ],
+   "tip": [
+    "You never need to scan a QR code or enter your PIN to receive money — only to send it.",
+    "पैसे प्राप्त करने के लिए आपको कभी भी QR कोड स्कैन करने या अपना पिन डालने की ज़रूरत नहीं होती — केवल पैसे भेजने के लिए।",
+    "पैसे मिळवण्यासाठी तुम्हाला कधीही QR कोड स्कॅन करावा लागत नाही किंवा पिन टाकावा लागत नाही — फक्त पैसे पाठवण्यासाठी."
+   ],
+   "rem": [
+    "A PIN means money is going OUT. Receiving never needs a PIN.",
+    "पिन का मतलब है पैसा बाहर जा रहा है। पैसा पाने के लिए पिन कभी नहीं लगता।",
+    "पिन म्हणजे पैसे बाहेर जात आहेत. पैसे मिळवण्यासाठी पिन कधीच लागत नाही."
+   ],
+   "quiz": [
+    {
+     "q": [
+      "You're at a shop and the QR code sticker looks slightly different from the others nearby. What matters most before scanning?",
+      "आप एक दुकान पर हैं और QR कोड का स्टिकर आसपास के बाकी स्टिकरों से थोड़ा अलग दिखता है। स्कैन करने से पहले सबसे ज़रूरी क्या है?",
+      "तुम्ही दुकानात आहात आणि QR कोडचा स्टिकर आजूबाजूच्या इतर स्टिकरपेक्षा थोडा वेगळा दिसतो. स्कॅन करण्यापूर्वी सर्वात महत्त्वाचे काय?"
+     ],
+     "a": [
+      "Whether the sticker looks new or old",
+      "स्टिकर नया दिखता है या पुराना",
+      "स्टिकर नवा दिसतो की जुना"
+     ],
+     "b": [
+      "Confirming the shop name that appears on YOUR screen after scanning, before confirming payment",
+      "स्कैन के बाद आपकी स्क्रीन पर दिखने वाले दुकान के नाम की, भुगतान पक्का करने से पहले पुष्टि करना",
+      "स्कॅन केल्यानंतर तुमच्या स्क्रीनवर दिसणारे दुकानाचे नाव, पेमेंट पक्के करण्यापूर्वी तपासणे"
+     ],
+     "correct": "B",
+     "fb": [
+      "A sticker's age doesn't tell you anything — what matters is verifying the name that shows up on your own payment screen matches the shop.",
+      "स्टिकर कितना पुराना है इससे कुछ पता नहीं चलता — ज़रूरी यह है कि आपकी अपनी भुगतान स्क्रीन पर दिखा नाम दुकान से मेल खाता हो।",
+      "स्टिकर किती जुना आहे यावरून काही कळत नाही — महत्त्वाचे हे की तुमच्या स्वतःच्या पेमेंट स्क्रीनवर दिसणारे नाव दुकानाशी जुळते."
+     ]
+    },
+    {
+     "q": [
+      "After scanning a QR code, your payment app asks you to enter your PIN to 'receive' money. What should you do?",
+      "QR कोड स्कैन करने के बाद आपका पेमेंट ऐप पैसे 'पाने' के लिए आपका पिन मांगता है। आपको क्या करना चाहिए?",
+      "QR कोड स्कॅन केल्यानंतर तुमचे पेमेंट ॲप पैसे ‘मिळवण्यासाठी’ तुमचा पिन मागते. तुम्ही काय करावे?"
+     ],
+     "a": [
+      "Enter the PIN since it's just for receiving",
+      "पिन डाल दें क्योंकि यह तो सिर्फ पैसे पाने के लिए है",
+      "पिन टाका, कारण हे फक्त पैसे मिळवण्यासाठी आहे"
+     ],
+     "b": [
+      "Stop — entering a PIN is only ever needed to SEND money, never to receive it",
+      "रुकें — पिन सिर्फ पैसे भेजने के लिए लगता है, पाने के लिए कभी नहीं",
+      "थांबा — पिन फक्त पैसे पाठवण्यासाठी लागतो, मिळवण्यासाठी कधीच नाही"
+     ],
+     "correct": "B",
+     "fb": [
+      "This is one of the most common QR scam tricks. Receiving money never requires your PIN — if it's asking, it's actually sending money OUT.",
+      "यह QR ठगी की सबसे आम चाल है। पैसे पाने के लिए कभी पिन नहीं लगता — अगर पिन मांगा जा रहा है, तो असल में पैसा बाहर जा रहा है।",
+      "ही QR फसवणुकीची सर्वात सामान्य युक्ती आहे. पैसे मिळवण्यासाठी कधीच पिन लागत नाही — पिन मागितला जात असेल तर प्रत्यक्षात पैसे बाहेर जात आहेत."
+     ]
+    },
+    {
+     "q": [
+      "True or False: QR codes displayed inside a shop are always safe since the shop put them there.",
+      "सही या गलत: दुकान के अंदर लगे QR कोड हमेशा सुरक्षित होते हैं क्योंकि उन्हें दुकान ने लगाया है।",
+      "बरोबर की चूक: दुकानात लावलेले QR कोड नेहमी सुरक्षित असतात कारण ते दुकानानेच लावलेले असतात."
+     ],
+     "a": [
+      "True",
+      "सही",
+      "बरोबर"
+     ],
+     "b": [
+      "False",
+      "गलत",
+      "चूक"
+     ],
+     "correct": "B",
+     "fb": [
+      "Scammers can paste fake stickers directly over a shop's real QR code without the shop owner even noticing — the location alone doesn't guarantee safety.",
+      "ठग दुकान के असली QR कोड के ऊपर सीधे नकली स्टिकर चिपका सकते हैं, और दुकानदार को पता भी नहीं चलता — सिर्फ जगह से सुरक्षा पक्की नहीं होती।",
+      "फसवणूक करणारे दुकानाच्या खऱ्या QR कोडवर थेट बनावट स्टिकर चिकटवू शकतात, आणि दुकानदाराला कळतही नाही — फक्त जागेवरून सुरक्षितता ठरत नाही."
+     ]
+    },
+    {
+     "q": [
+      "How is a QR code scam different from OTP fraud?",
+      "QR कोड स्कैम, OTP धोखाधड़ी से कैसे अलग है?",
+      "QR कोड स्कॅम OTP फसवणुकीपेक्षा वेगळा कसा?"
+     ],
+     "a": [
+      "A QR scam tricks you through a scanned code, usually without any call involved; OTP fraud usually involves someone asking you to share a code they already have",
+      "QR स्कैम आमतौर पर बिना किसी कॉल के, सिर्फ स्कैन किए गए कोड से धोखा देता है; OTP धोखाधड़ी में अक्सर कोई आपसे पहले से भेजा गया कोड बताने को कहता है",
+      "QR स्कॅम सहसा कोणत्याही कॉलशिवाय, फक्त स्कॅन केलेल्या कोडमधून फसवतो; OTP फसवणुकीत अनेकदा कोणीतरी तुम्हाला आधीच आलेला कोड सांगायला सांगतो"
+     ],
+     "b": [
+      "They're identical",
+      "दोनों बिल्कुल एक जैसे हैं",
+      "दोन्ही अगदी सारखे आहेत"
+     ],
+     "correct": "A",
+     "fb": [
+      "QR scams often happen silently through scanning alone, while OTP fraud typically involves direct contact asking you to share something.",
+      "QR ठगी अक्सर चुपचाप सिर्फ स्कैन करने से हो जाती है, जबकि OTP धोखाधड़ी में आमतौर पर सीधे संपर्क करके कुछ बताने को कहा जाता है।",
+      "QR फसवणूक अनेकदा फक्त स्कॅन केल्याने शांतपणे होते, तर OTP फसवणुकीत सहसा थेट संपर्क करून काहीतरी सांगायला लावले जाते."
+     ]
+    },
+    {
+     "q": [
+      "Someone online offers to pay you for an item you're selling by asking YOU to scan a QR code they send. What's happening?",
+      "ऑनलाइन कोई आपका बेचा जा रहा सामान खरीदने के लिए भुगतान करने की बात कहता है और आपसे अपना भेजा QR कोड स्कैन करने को कहता है। क्या हो रहा है?",
+      "तुम्ही विकत असलेल्या वस्तूसाठी ऑनलाइन कोणीतरी पैसे देण्याचे सांगतो आणि त्यांनी पाठवलेला QR कोड तुम्हालाच स्कॅन करायला सांगतो. काय चालले आहे?"
+     ],
+     "a": [
+      "This is a normal way to receive payment",
+      "पैसे पाने का यह सामान्य तरीका है",
+      "पैसे मिळवण्याची ही सामान्य पद्धत आहे"
+     ],
+     "b": [
+      "This is a scam — scanning a code to receive payment is never how it works, and it likely sends money out of your account instead",
+      "यह ठगी है — पैसे पाने के लिए कोड स्कैन नहीं करना पड़ता, इससे शायद आपके खाते से पैसा बाहर जाएगा",
+      "ही फसवणूक आहे — पैसे मिळवण्यासाठी कोड स्कॅन करावा लागत नाही; उलट त्याने बहुधा तुमच्या खात्यातून पैसे बाहेर जातील"
+     ],
+     "correct": "B",
+     "fb": [
+      "This exact trick is common in online marketplace scams — to receive money, you never need to scan anything at all.",
+      "ऑनलाइन बाज़ार की ठगी में यह चाल बहुत आम है — पैसे पाने के लिए आपको कुछ भी स्कैन करने की ज़रूरत नहीं होती।",
+      "ऑनलाइन बाजारातील फसवणुकीत ही युक्ती खूप सामान्य आहे — पैसे मिळवण्यासाठी तुम्हाला काहीही स्कॅन करावे लागत नाही."
+     ]
+    }
+   ]
+  },
+  {
+   "key": "ATM Card Skimming",
+   "icon": "card",
+   "cat": [
+    "Places",
+    "जगहें",
+    "ठिकाणे"
+   ],
+   "name": [
+    "ATM Card Skimming",
+    "ATM कार्ड स्किमिंग",
+    "ATM कार्ड स्किमिंग"
+   ],
+   "short": [
+    "Hidden devices on ATMs",
+    "ATM पर छिपे उपकरण",
+    "ATM वरील लपवलेली उपकरणे"
+   ],
+   "d": [
+    "When scammers attach a hidden device to an ATM's card slot to copy your card details, often with a hidden camera or fake keypad to steal your PIN.",
+    "जब ठग आपके कार्ड की जानकारी कॉपी करने के लिए ATM के कार्ड स्लॉट में एक छिपा हुआ उपकरण लगाते हैं, अक्सर एक छिपे हुए कैमरे या नकली कीपैड के साथ जो आपका पिन चुराता है।",
+    "जेव्हा फसवणूक करणारे तुमच्या कार्डची माहिती कॉपी करण्यासाठी ATM च्या कार्ड स्लॉटवर लपवलेले उपकरण बसवतात, अनेकदा तुमचा पिन चोरण्यासाठी लपवलेला कॅमेरा किंवा बनावट कीपॅडसह."
+   ],
+   "ex": [
+    "A small device fitted over the real card slot, or a sticker with a fake 'helpline number' placed on the ATM by scammers.",
+    "असली कार्ड स्लॉट के ऊपर लगा एक छोटा उपकरण, या ठगों द्वारा ATM पर लगाया गया एक नकली 'हेल्पलाइन नंबर' वाला स्टिकर।",
+    "खऱ्या कार्ड स्लॉटवर बसवलेले छोटे उपकरण, किंवा फसवणूक करणाऱ्यांनी ATM वर लावलेला बनावट ‘हेल्पलाइन नंबर’ असलेला स्टिकर."
+   ],
+   "tip": [
+    "Cover the keypad while entering your PIN, and check that the card slot doesn't look loose or unusual before inserting your card.",
+    "पिन डालते समय कीपैड को ढकें, और कार्ड डालने से पहले जांच लें कि कार्ड स्लॉट ढीला या असामान्य तो नहीं लग रहा।",
+    "पिन टाकताना कीपॅड झाका, आणि कार्ड घालण्यापूर्वी कार्ड स्लॉट सैल किंवा विचित्र दिसत नाही ना ते तपासा."
+   ],
+   "rem": [
+    "Cover the keypad, check the slot — every single time.",
+    "कीपैड ढकें, स्लॉट जांचें — हर बार।",
+    "कीपॅड झाका, स्लॉट तपासा — प्रत्येक वेळी."
+   ],
+   "quiz": [
+    {
+     "q": [
+      "At an ATM, what's a stronger warning sign than the machine simply looking old?",
+      "ATM पर, मशीन के सिर्फ पुरानी दिखने से ज़्यादा मज़बूत चेतावनी संकेत क्या है?",
+      "ATM वर, मशीन फक्त जुने दिसण्यापेक्षा अधिक ठोस धोक्याची खूण कोणती?"
+     ],
+     "a": [
+      "The machine's general age or wear",
+      "मशीन कितनी पुरानी या घिसी हुई है",
+      "मशीन किती जुने किंवा झिजलेले आहे"
+     ],
+     "b": [
+      "The card slot looking loose, attached, or slightly different from the rest of the machine",
+      "कार्ड स्लॉट का ढीला, अलग से जुड़ा हुआ या बाकी मशीन से थोड़ा अलग दिखना",
+      "कार्ड स्लॉट सैल, वेगळा जोडलेला किंवा बाकी मशीनपेक्षा थोडा वेगळा दिसणे"
+     ],
+     "correct": "B",
+     "fb": [
+      "Old machines are common and mostly harmless. A loose or unusual-looking card slot is the real warning sign of a skimming device.",
+      "पुरानी मशीनें आम हैं और ज़्यादातर नुकसानदायक नहीं। ढीला या अजीब दिखने वाला कार्ड स्लॉट स्किमिंग उपकरण का असली संकेत है।",
+      "जुनी मशीन सामान्य असतात आणि बहुधा निरुपद्रवी. सैल किंवा विचित्र दिसणारा कार्ड स्लॉट हीच स्किमिंग उपकरणाची खरी खूण आहे."
+     ]
+    },
+    {
+     "q": [
+      "You notice something odd about the card slot right before inserting your card. What should you do?",
+      "कार्ड डालने से ठीक पहले आपको कार्ड स्लॉट में कुछ अजीब दिखता है। आपको क्या करना चाहिए?",
+      "कार्ड घालण्याच्या अगदी आधी तुम्हाला कार्ड स्लॉटमध्ये काहीतरी विचित्र दिसते. तुम्ही काय करावे?"
+     ],
+     "a": [
+      "Insert it carefully anyway, it's probably fine",
+      "ध्यान से डाल दें, शायद सब ठीक है",
+      "काळजीपूर्वक घाला, बहुधा सगळे ठीक आहे"
+     ],
+     "b": [
+      "Don't use that ATM — use a different one and report it if possible",
+      "उस ATM का इस्तेमाल न करें — दूसरा ATM इस्तेमाल करें और हो सके तो इसकी शिकायत करें",
+      "ते ATM वापरू नका — दुसरे ATM वापरा आणि शक्य असल्यास तक्रार करा"
+     ],
+     "correct": "B",
+     "fb": [
+      "Trusting your instinct here matters — it costs nothing to simply use a different ATM instead.",
+      "यहां अपने मन की आवाज़ पर भरोसा करना ज़रूरी है — दूसरा ATM इस्तेमाल करने में कोई नुकसान नहीं।",
+      "इथे तुमच्या मनाच्या आवाजावर विश्वास ठेवणे महत्त्वाचे — दुसरे ATM वापरण्यात काहीच नुकसान नाही."
+     ]
+    },
+    {
+     "q": [
+      "True or False: Covering the keypad while entering your PIN is only necessary if someone is standing close behind you.",
+      "सही या गलत: पिन डालते समय कीपैड ढकना तभी ज़रूरी है जब कोई आपके ठीक पीछे खड़ा हो।",
+      "बरोबर की चूक: पिन टाकताना कीपॅड झाकणे तेव्हाच गरजेचे आहे जेव्हा कोणी तुमच्या अगदी मागे उभे असेल."
+     ],
+     "a": [
+      "True",
+      "सही",
+      "बरोबर"
+     ],
+     "b": [
+      "False",
+      "गलत",
+      "चूक"
+     ],
+     "correct": "B",
+     "fb": [
+      "Hidden cameras can be placed on the machine itself, not just behind you — covering the keypad is a good habit every single time, regardless of who's nearby.",
+      "छिपे हुए कैमरे सिर्फ पीछे नहीं, मशीन पर ही लगाए जा सकते हैं — कीपैड ढकना हर बार की अच्छी आदत है, आसपास कोई हो या नहीं।",
+      "लपवलेले कॅमेरे फक्त मागे नाही, तर मशीनवरच बसवलेले असू शकतात — कीपॅड झाकणे ही प्रत्येक वेळची चांगली सवय आहे, आजूबाजूला कोणी असो वा नसो."
+     ]
+    },
+    {
+     "q": [
+      "How is ATM card skimming different from a QR code scam?",
+      "ATM कार्ड स्किमिंग, QR कोड स्कैम से कैसे अलग है?",
+      "ATM कार्ड स्किमिंग QR कोड स्कॅमपेक्षा वेगळे कसे?"
+     ],
+     "a": [
+      "Skimming involves a physical hidden device on the machine itself; QR scams happen digitally through a scanned code",
+      "स्किमिंग में मशीन पर ही एक छिपा हुआ उपकरण लगा होता है; QR स्कैम स्कैन किए गए कोड से डिजिटल रूप में होता है",
+      "स्किमिंगमध्ये मशीनवरच प्रत्यक्ष लपवलेले उपकरण असते; QR स्कॅम स्कॅन केलेल्या कोडमधून डिजिटल पद्धतीने होतो"
+     ],
+     "b": [
+      "They work exactly the same way",
+      "दोनों बिल्कुल एक तरह से काम करते हैं",
+      "दोन्ही अगदी एकाच पद्धतीने काम करतात"
+     ],
+     "correct": "A",
+     "fb": [
+      "One is a physical tampering method at a real machine, the other is a digital trick — different methods, similar goal of stealing money.",
+      "एक असली मशीन से छेड़छाड़ का तरीका है, दूसरा डिजिटल चाल — तरीके अलग, पर मकसद एक: पैसे चुराना।",
+      "एक म्हणजे खऱ्या मशीनशी प्रत्यक्ष छेडछाड, दुसरी डिजिटल युक्ती — पद्धती वेगळ्या, पण हेतू एकच: पैसे चोरणे."
+     ]
+    },
+    {
+     "q": [
+      "There's a sticker on the ATM with a 'helpline number' different from your bank's usual number, suggesting you call if the machine doesn't work. What should you do?",
+      "ATM पर एक स्टिकर लगा है जिस पर आपके बैंक के सामान्य नंबर से अलग 'हेल्पलाइन नंबर' है, और लिखा है कि मशीन न चले तो कॉल करें। आपको क्या करना चाहिए?",
+      "ATM वर एक स्टिकर आहे ज्यावर तुमच्या बँकेच्या नेहमीच्या नंबरपेक्षा वेगळा ‘हेल्पलाइन नंबर’ आहे, आणि मशीन चालले नाही तर कॉल करा असे लिहिले आहे. तुम्ही काय करावे?"
+     ],
+     "a": [
+      "Call the number on the sticker for help",
+      "मदद के लिए स्टिकर वाले नंबर पर कॉल करें",
+      "मदतीसाठी स्टिकरवरील नंबरवर कॉल करा"
+     ],
+     "b": [
+      "Ignore it and use your bank's official number from their app or card instead",
+      "उसे अनदेखा करें और अपने बैंक ऐप या कार्ड पर दिया आधिकारिक नंबर इस्तेमाल करें",
+      "त्याकडे दुर्लक्ष करा आणि तुमच्या बँक ॲप किंवा कार्डवरील अधिकृत नंबर वापरा"
+     ],
+     "correct": "B",
+     "fb": [
+      "Fake helpline stickers are a real tactic — always use the number from your own bank app or card, never one posted on the machine itself.",
+      "नकली हेल्पलाइन स्टिकर एक असली चाल है — हमेशा अपने बैंक ऐप या कार्ड वाला नंबर इस्तेमाल करें, मशीन पर चिपका नंबर कभी नहीं।",
+      "बनावट हेल्पलाइन स्टिकर ही खरी युक्ती आहे — नेहमी तुमच्या बँक ॲप किंवा कार्डवरील नंबर वापरा, मशीनवर चिकटवलेला नंबर कधीच नाही."
+     ]
+    }
+   ]
+  }
+ ],
+ "scenarios": [
+  {
+   "key": "The Bank Call",
+   "icon": "phone",
+   "badge": "Calm Caller",
+   "c": "B",
+   "name": [
+    "The Bank Call",
+    "बैंक की कॉल",
+    "बँकेचा कॉल"
+   ],
+   "teaser": [
+    "A caller asks for your OTP",
+    "कॉलर आपका OTP मांगता है",
+    "कॉलर तुमचा OTP मागतो"
+   ],
+   "sit": [
+    "A caller says he's from your bank and asks for the OTP just sent to your phone, to 'verify your account'. What do you do?",
+    "एक कॉलर कहता है कि वह आपके बैंक से है और 'खाता सत्यापित करने' के लिए आपके फोन पर अभी आया OTP मांगता है। आप क्या करेंगे?",
+    "एक कॉलर म्हणतो की तो तुमच्या बँकेतून बोलत आहे आणि ‘खाते पडताळण्यासाठी’ तुमच्या फोनवर आत्ता आलेला OTP मागतो. तुम्ही काय कराल?"
+   ],
+   "a": [
+    "Read out the OTP so the account isn't blocked",
+    "OTP बता दें ताकि खाता बंद न हो",
+    "खाते बंद होऊ नये म्हणून OTP सांगा"
+   ],
+   "b": [
+    "Hang up and call the number printed on my bank card",
+    "फोन काटकर अपने बैंक कार्ड पर छपे नंबर पर कॉल करें",
+    "फोन ठेवा आणि बँक कार्डवर छापलेल्या नंबरवर कॉल करा"
+   ],
+   "ok": [
+    "Banks never ask for your OTP on a call.",
+    "बैंक कभी भी कॉल पर आपका OTP नहीं मांगते।",
+    "बँका कधीही कॉलवर तुमचा OTP मागत नाहीत."
+   ],
+   "no": [
+    "A real bank never needs your OTP. Reading it out lets the caller take money from your account.",
+    "असली बैंक को कभी आपके OTP की ज़रूरत नहीं होती। इसे बताने से कॉलर आपके खाते से पैसे निकाल सकता है।",
+    "खऱ्या बँकेला तुमच्या OTP ची कधीच गरज नसते. तो सांगितल्याने कॉलर तुमच्या खात्यातून पैसे काढू शकतो."
+   ]
+  },
+  {
+   "key": "The Grandson Emergency",
+   "icon": "phone",
+   "badge": "Family Checker",
+   "c": "A",
+   "name": [
+    "The Grandson Emergency",
+    "पोते की इमरजेंसी",
+    "नातवाची इमर्जन्सी"
+   ],
+   "teaser": [
+    "A scared voice asks for money",
+    "घबराई आवाज़ पैसे मांगती है",
+    "घाबरलेला आवाज पैसे मागतो"
+   ],
+   "sit": [
+    "Your phone rings: 'Nani, it's me! I've had an accident. Please send ₹20,000 right now — and don't tell Mummy.' The voice sounds a bit like your grandson.",
+    "फोन आता है: 'नानी, मैं हूं! मेरा एक्सीडेंट हो गया है। प्लीज़ अभी ₹20,000 भेज दो — और मम्मी को मत बताना।' आवाज़ कुछ-कुछ आपके पोते जैसी लगती है।",
+    "फोन येतो: ‘आजी, मी आहे! माझा अपघात झाला आहे. प्लीज आत्ताच ₹20,000 पाठव — आणि आईला सांगू नकोस.’ आवाज थोडासा तुमच्या नातवासारखा वाटतो."
+   ],
+   "a": [
+    "Hang up and call him back on the number saved in my phone",
+    "फोन काटकर उसके सेव किए नंबर पर वापस कॉल करें",
+    "फोन ठेवा आणि त्याच्या सेव्ह केलेल्या नंबरवर परत कॉल करा"
+   ],
+   "b": [
+    "Send the money quickly — he sounds scared",
+    "जल्दी पैसे भेज दें — वह डरा हुआ लग रहा है",
+    "पटकन पैसे पाठवा — तो घाबरलेला वाटतो"
+   ],
+   "ok": [
+    "Calling back on a saved number is the surest way to know it's really him.",
+    "सेव किए नंबर पर वापस कॉल करना ही पक्का तरीका है कि वह सच में वही है।",
+    "सेव्ह केलेल्या नंबरवर परत कॉल करणे हाच तो खरोखर तोच आहे हे जाणण्याचा पक्का मार्ग आहे."
+   ],
+   "no": [
+    "Scammers can copy voices and ask for secrecy so you won't check. A quick call to his saved number tells you the truth.",
+    "ठग आवाज़ की नकल कर सकते हैं और छिपाने को कहते हैं ताकि आप जांच न करें। उसके सेव किए नंबर पर एक कॉल से सच पता चल जाता है।",
+    "फसवणूक करणारे आवाजाची नक्कल करू शकतात आणि गुप्तता मागतात जेणेकरून तुम्ही खात्री करू नये. त्याच्या सेव्ह केलेल्या नंबरवर एक कॉल केल्याने सत्य कळते."
+   ]
+  },
+  {
+   "key": "The Delivery Message",
+   "icon": "sms",
+   "badge": "Link Spotter",
+   "c": "B",
+   "name": [
+    "The Delivery Message",
+    "डिलीवरी का संदेश",
+    "डिलिव्हरीचा संदेश"
+   ],
+   "teaser": [
+    "A ₹25 fee to release a parcel",
+    "पार्सल छुड़ाने के लिए ₹25",
+    "पार्सल सोडवण्यासाठी ₹25"
+   ],
+   "sit": [
+    "A text says: 'Your parcel is on hold. Pay ₹25 redelivery fee within 2 hours: bit.ly/parcel-help'. You are expecting a parcel.",
+    "एक टेक्स्ट आता है: 'आपका पार्सल रुका हुआ है। 2 घंटे में ₹25 री-डिलीवरी फ़ीस भरें: bit.ly/parcel-help'। आप एक पार्सल का इंतज़ार कर रहे हैं।",
+    "एक SMS येतो: ‘तुमचे पार्सल अडकले आहे. 2 तासांत ₹25 री-डिलिव्हरी शुल्क भरा: bit.ly/parcel-help’. तुम्ही एका पार्सलची वाट पाहत आहात."
+   ],
+   "a": [
+    "Tap the link and pay — it's only ₹25",
+    "लिंक दबाकर भुगतान कर दें — सिर्फ ₹25 हैं",
+    "लिंक दाबून पैसे भरा — फक्त ₹25 आहेत"
+   ],
+   "b": [
+    "Check the order in the courier's own app instead",
+    "इसकी जगह कूरियर के अपने ऐप में ऑर्डर देखें",
+    "त्याऐवजी कुरिअरच्या स्वतःच्या ॲपमध्ये ऑर्डर तपासा"
+   ],
+   "ok": [
+    "Real couriers show delivery problems inside their own app — never through random links.",
+    "असली कूरियर डिलीवरी की दिक्कत अपने ऐप में दिखाते हैं — अनजान लिंक से कभी नहीं।",
+    "खरे कुरिअर डिलिव्हरीतील अडचणी त्यांच्या स्वतःच्या ॲपमध्ये दाखवतात — अनोळखी लिंकवरून कधीच नाही."
+   ],
+   "no": [
+    "The small amount and the 2-hour deadline are bait. That link can steal your card details.",
+    "छोटी रकम और 2 घंटे की समय-सीमा एक चारा है। वह लिंक आपके कार्ड की जानकारी चुरा सकता है।",
+    "छोटी रक्कम आणि 2 तासांची मुदत हे आमिष आहे. ती लिंक तुमच्या कार्डची माहिती चोरू शकते."
+   ]
+  },
+  {
+   "key": "The Shop QR Code",
+   "icon": "qr",
+   "badge": "QR Guard",
+   "c": "B",
+   "name": [
+    "The Shop QR Code",
+    "दुकान का QR कोड",
+    "दुकानाचा QR कोड"
+   ],
+   "teaser": [
+    "Scan to \"receive\" a refund",
+    "रिफंड \"पाने\" के लिए स्कैन",
+    "रिफंड ‘मिळवण्यासाठी’ स्कॅन"
+   ],
+   "sit": [
+    "At the market, a man says he paid you ₹500 too much. He asks you to scan his QR code and enter your UPI PIN to 'receive' the refund.",
+    "बाज़ार में एक आदमी कहता है कि उसने आपको ₹500 ज़्यादा दे दिए। वह आपसे अपना QR कोड स्कैन करके 'रिफंड पाने' के लिए UPI पिन डालने को कहता है।",
+    "बाजारात एक माणूस म्हणतो की त्याने तुम्हाला ₹500 जास्त दिले. तो तुम्हाला त्याचा QR कोड स्कॅन करून रिफंड ‘मिळवण्यासाठी’ UPI पिन टाकायला सांगतो."
+   ],
+   "a": [
+    "Scan it and enter my PIN to get the money",
+    "स्कैन करके पैसे पाने के लिए पिन डाल दूं",
+    "स्कॅन करून पैसे मिळवण्यासाठी पिन टाका"
+   ],
+   "b": [
+    "Refuse — a PIN is only needed to send money, never to receive it",
+    "मना करें — पिन सिर्फ पैसे भेजने के लिए लगता है, पाने के लिए कभी नहीं",
+    "नकार द्या — पिन फक्त पैसे पाठवण्यासाठी लागतो, मिळवण्यासाठी कधीच नाही"
+   ],
+   "ok": [
+    "If an app asks for your PIN, money is going out — not coming in.",
+    "अगर ऐप पिन मांगे, तो पैसा बाहर जा रहा है — अंदर नहीं आ रहा।",
+    "ॲप पिन मागत असेल तर पैसे बाहेर जात आहेत — आत येत नाहीत."
+   ],
+   "no": [
+    "Entering your PIN after scanning sends money from your account. Receiving money never needs a PIN.",
+    "स्कैन के बाद पिन डालने से आपके खाते से पैसा चला जाता है। पैसा पाने के लिए कभी पिन नहीं लगता।",
+    "स्कॅन केल्यानंतर पिन टाकल्याने तुमच्या खात्यातून पैसे जातात. पैसे मिळवण्यासाठी कधीच पिन लागत नाही."
+   ]
+  },
+  {
+   "key": "The Free Computer Help",
+   "icon": "warn",
+   "badge": "Screen Shield",
+   "c": "B",
+   "name": [
+    "The Free Computer Help",
+    "मुफ़्त कंप्यूटर मदद",
+    "मोफत कॉम्प्युटर मदत"
+   ],
+   "teaser": [
+    "A pop-up says you have a virus",
+    "पॉप-अप कहता है वायरस है",
+    "पॉप-अप म्हणतो व्हायरस आहे"
+   ],
+   "sit": [
+    "A loud pop-up says your computer has a virus and tells you to call 'Microsoft Support' on the number shown. They ask you to install an app so they can fix it.",
+    "एक तेज़ आवाज़ वाला पॉप-अप कहता है कि आपके कंप्यूटर में वायरस है और दिए गए नंबर पर 'Microsoft सपोर्ट' को कॉल करने को कहता है। वे ठीक करने के लिए एक ऐप इंस्टॉल करवाना चाहते हैं।",
+    "मोठ्या आवाजातील एक पॉप-अप म्हणतो की तुमच्या कॉम्प्युटरमध्ये व्हायरस आहे आणि दिलेल्या नंबरवर ‘Microsoft सपोर्ट’ला कॉल करायला सांगतो. ते दुरुस्त करण्यासाठी तुम्हाला एक ॲप इन्स्टॉल करायला सांगतात."
+   ],
+   "a": [
+    "Install the app so they can fix it quickly",
+    "ऐप इंस्टॉल कर दें ताकि वे जल्दी ठीक कर दें",
+    "ते लवकर दुरुस्त करतील म्हणून ॲप इन्स्टॉल करा"
+   ],
+   "b": [
+    "Close the pop-up and ask someone I trust",
+    "पॉप-अप बंद करें और किसी भरोसेमंद व्यक्ति से पूछें",
+    "पॉप-अप बंद करा आणि विश्वासाच्या व्यक्तीला विचारा"
+   ],
+   "ok": [
+    "Real tech companies never show pop-ups asking you to call them.",
+    "असली टेक कंपनियां कभी पॉप-अप दिखाकर कॉल करने को नहीं कहतीं।",
+    "खऱ्या टेक कंपन्या कधीही पॉप-अप दाखवून त्यांना कॉल करायला सांगत नाहीत."
+   ],
+   "no": [
+    "That app gives strangers control of your screen — and your bank apps. Real support never starts with a pop-up.",
+    "वह ऐप अजनबियों को आपकी स्क्रीन — और आपके बैंक ऐप — का कंट्रोल दे देता है। असली सपोर्ट कभी पॉप-अप से शुरू नहीं होता।",
+    "ते ॲप अनोळखी लोकांना तुमच्या स्क्रीनचा — आणि तुमच्या बँक ॲप्सचा — ताबा देते. खरा सपोर्ट कधीच पॉप-अपने सुरू होत नाही."
+   ]
+  },
+  {
+   "key": "The Investment Group",
+   "icon": "coin",
+   "badge": "Smart Saver",
+   "c": "A",
+   "name": [
+    "The Investment Group",
+    "निवेश वाला ग्रुप",
+    "गुंतवणुकीचा ग्रुप"
+   ],
+   "teaser": [
+    "Double your money in a week",
+    "एक हफ्ते में पैसे दोगुने",
+    "एका आठवड्यात पैसे दुप्पट"
+   ],
+   "sit": [
+    "You're added to a WhatsApp group where everyone posts screenshots of doubling their money in a week. The admin asks you to invest ₹10,000 to start.",
+    "आपको एक WhatsApp ग्रुप में जोड़ा जाता है जहां सब एक हफ्ते में पैसे दोगुने होने के स्क्रीनशॉट डालते हैं। एडमिन आपसे शुरू करने के लिए ₹10,000 लगाने को कहता है।",
+    "तुम्हाला एका WhatsApp ग्रुपमध्ये जोडले जाते जिथे सगळे एका आठवड्यात पैसे दुप्पट झाल्याचे स्क्रीनशॉट टाकतात. ॲडमिन तुम्हाला सुरुवात करण्यासाठी ₹10,000 गुंतवायला सांगतो."
+   ],
+   "a": [
+    "Leave the group — guaranteed quick profits are a warning sign",
+    "ग्रुप छोड़ दें — पक्का और जल्दी मुनाफ़ा खतरे का संकेत है",
+    "ग्रुप सोडा — पक्का आणि झटपट नफा ही धोक्याची खूण आहे"
+   ],
+   "b": [
+    "Invest a small amount first to test it",
+    "पहले थोड़े पैसे लगाकर आज़माएं",
+    "आधी थोडे पैसे गुंतवून पाहा"
+   ],
+   "ok": [
+    "No real investment can promise to double your money in a week.",
+    "कोई भी असली निवेश एक हफ्ते में पैसे दोगुने करने का वादा नहीं कर सकता।",
+    "कोणतीही खरी गुंतवणूक एका आठवड्यात पैसे दुप्पट करण्याचे वचन देऊ शकत नाही."
+   ],
+   "no": [
+    "Small 'test' amounts often show fake profits to pull you in deeper. Those screenshots are usually made up.",
+    "छोटी 'परीक्षण' रकम पर अक्सर नकली मुनाफ़ा दिखाया जाता है ताकि आप और पैसे लगाएं। वे स्क्रीनशॉट आमतौर पर बनावटी होते हैं।",
+    "छोट्या ‘चाचणी’ रकमेवर अनेकदा खोटा नफा दाखवला जातो जेणेकरून तुम्ही आणखी पैसे गुंतवाल. ते स्क्रीनशॉट सहसा बनावट असतात."
+   ]
+  },
+  {
+   "key": "The Police Video Call",
+   "icon": "video",
+   "badge": "Steady Mind",
+   "c": "B",
+   "name": [
+    "The Police Video Call",
+    "पुलिस की वीडियो कॉल",
+    "पोलिसांचा व्हिडिओ कॉल"
+   ],
+   "teaser": [
+    "A \"digital arrest\" threat",
+    "\"डिजिटल अरेस्ट\" की धमकी",
+    "‘डिजिटल अरेस्ट’ची धमकी"
+   ],
+   "sit": [
+    "A man in police uniform on a video call says a parcel with illegal items was found in your name. He says you are under 'digital arrest' and must pay a fine now.",
+    "पुलिस की वर्दी में एक आदमी वीडियो कॉल पर कहता है कि आपके नाम के एक पार्सल में अवैध सामान मिला है। वह कहता है कि आप 'डिजिटल अरेस्ट' में हैं और अभी जुर्माना भरना होगा।",
+    "पोलिसांच्या गणवेशातील एक माणूस व्हिडिओ कॉलवर म्हणतो की तुमच्या नावाच्या पार्सलमध्ये बेकायदेशीर वस्तू सापडल्या. तो म्हणतो की तुम्ही ‘डिजिटल अरेस्ट’मध्ये आहात आणि आत्ताच दंड भरावा लागेल."
+   ],
+   "a": [
+    "Stay on the call and pay to clear my name",
+    "कॉल पर रहकर अपना नाम साफ़ करने के लिए पैसे दे दूं",
+    "कॉलवर राहून नाव स्वच्छ करण्यासाठी पैसे भरा"
+   ],
+   "b": [
+    "End the call and visit my local police station if I'm worried",
+    "कॉल खत्म करें और चिंता हो तो पास के पुलिस स्टेशन जाएं",
+    "कॉल बंद करा आणि काळजी वाटल्यास जवळच्या पोलीस ठाण्यात जा"
+   ],
+   "ok": [
+    "Real police never arrest anyone or collect fines over a video call.",
+    "असली पुलिस कभी वीडियो कॉल पर गिरफ्तारी या जुर्माना नहीं करती।",
+    "खरे पोलीस कधीही व्हिडिओ कॉलवर अटक करत नाहीत किंवा दंड वसूल करत नाहीत."
+   ],
+   "no": [
+    "'Digital arrest' does not exist. Staying on the call keeps you scared — ending it puts you back in control.",
+    "'डिजिटल अरेस्ट' जैसी कोई चीज़ नहीं होती। कॉल पर रहने से डर बना रहता है — कॉल खत्म करने से नियंत्रण आपके हाथ में आ जाता है।",
+    "‘डिजिटल अरेस्ट’ असे काहीही नसते. कॉलवर राहिल्याने भीती टिकून राहते — कॉल बंद केल्याने नियंत्रण पुन्हा तुमच्या हातात येते."
+   ]
+  }
+ ]
+}
